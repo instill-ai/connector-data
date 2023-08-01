@@ -7,8 +7,8 @@ require (
 	github.com/docker/docker v24.0.2+incompatible
 	github.com/ghodss/yaml v1.0.0
 	github.com/gofrs/uuid v4.4.0+incompatible
-	github.com/instill-ai/connector v0.2.0-alpha.0.20230724051505-16610a2b30d4
-	github.com/instill-ai/protogen-go v0.3.3-alpha.0.20230801033704-c6a602d6e5dc
+	github.com/instill-ai/connector v0.2.0-alpha.0.20230801091210-6dd88b698d85
+	github.com/instill-ai/protogen-go v0.3.3-alpha.0.20230801085304-c9e30fb0f220
 	github.com/santhosh-tekuri/jsonschema/v5 v5.3.0
 	go.uber.org/zap v1.24.0
 	google.golang.org/protobuf v1.30.0
