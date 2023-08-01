@@ -8,8 +8,8 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
 
-	"github.com/instill-ai/connector-destination/pkg/airbyte"
-	"github.com/instill-ai/connector-destination/pkg/instill"
+	"github.com/instill-ai/connector-data/pkg/airbyte"
+	"github.com/instill-ai/connector-data/pkg/instill"
 	"github.com/instill-ai/connector/pkg/base"
 )
 

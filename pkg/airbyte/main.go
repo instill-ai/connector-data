@@ -70,7 +70,7 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
 
 		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DESTINATION, destinationJson)
+		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, destinationJson)
 		if err != nil {
 			panic(err)
 		}

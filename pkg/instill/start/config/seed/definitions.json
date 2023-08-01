@@ -1,39 +1,39 @@
 [
   {
     "custom": false,
-    "documentationUrl": "https://www.instill.tech/docs/destination-connectors/response",
-    "icon": "response.svg",
+    "documentationUrl": "https://www.instill.tech/docs/source-connectors/start-operator",
+    "icon": "start.svg",
     "iconUrl": "",
-    "id": "response",
+    "id": "start-operator",
     "public": true,
     "spec": {
-      "documentationUrl": "https://www.instill.tech/docs/destination-connectors/response",
+      "documentationUrl": "https://www.instill.tech/docs/source-connectors/start-operator",
       "connectionSpecification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Response Connector Spec",
+        "title": "Start Connector Spec",
         "type": "object",
         "required": [],
         "additionalProperties": false,
         "properties": {}
       }
     },
-    "title": "Response",
+    "title": "Start Operator",
     "tombstone": false,
-    "uid": "909c3278-f7d1-461c-9352-87741bef11d3",
+    "uid": "f20a3c02-c70e-4e76-8566-7c13ca11d18d",
     "vendorAttributes": {}
   },
   {
     "custom": false,
-    "documentationUrl": "https://www.instill.tech/docs/destination-connectors/grpc",
+    "documentationUrl": "https://www.instill.tech/docs/source-connectors/grpc",
     "icon": "grpc.svg",
     "iconUrl": "",
-    "id": "destination-grpc",
+    "id": "source-grpc",
     "public": true,
     "spec": {
-      "documentationUrl": "https://www.instill.tech/docs/destination-connectors/grpc",
+      "documentationUrl": "https://www.instill.tech/docs/source-connectors/grpc",
       "connectionSpecification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "gRPC Destination Connector Spec",
+        "title": "gRPC Source Connector Spec",
         "type": "object",
         "required": [],
         "additionalProperties": false,
@@ -42,7 +42,7 @@
     },
     "title": "gRPC",
     "tombstone": true,
-    "uid": "c0e4a82c-9620-4a72-abd1-18586f2acccd",
+    "uid": "82ca7d29-a35c-4222-b900-8d6878195e7a",
     "vendorAttributes": {}
   }
 ]

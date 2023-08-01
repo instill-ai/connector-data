@@ -1,77 +1,67 @@
 package instill
 
 import (
+	"fmt"
 	"sync"
-
-	_ "embed"
 
 	"github.com/gofrs/uuid"
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
 
+	"github.com/instill-ai/connector-data/pkg/instill/end"
+	"github.com/instill-ai/connector-data/pkg/instill/start"
 	"github.com/instill-ai/connector/pkg/base"
-	"github.com/instill-ai/connector/pkg/configLoader"
-
-	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
-
-// Note: this is a dummy connector
-
-const vendorName = "instill"
-
-//go:embed config/seed/definitions.json
-var destinationJson []byte
 
 var once sync.Once
 var connector base.IConnector
 
 type Connector struct {
 	base.BaseConnector
-}
-
-type Connection struct {
-	base.BaseConnection
-	config *structpb.Struct
+	instillStartConnector base.IConnector
+	instillEndConnector   base.IConnector
 }
 
 func Init(logger *zap.Logger) base.IConnector {
 	once.Do(func() {
-		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DESTINATION, destinationJson)
 
-		if err != nil {
-			panic(err)
-		}
+		instillEndConnector := end.Init(logger)
+		instillStartConnector := start.Init(logger)
 
 		connector = &Connector{
-			BaseConnector: base.BaseConnector{Logger: logger},
+			BaseConnector:         base.BaseConnector{Logger: logger},
+			instillStartConnector: instillStartConnector,
+			instillEndConnector:   instillEndConnector,
 		}
-		for idx := range connDefs {
-			err := connector.AddConnectorDefinition(uuid.FromStringOrNil(connDefs[idx].GetUid()), connDefs[idx].GetId(), connDefs[idx])
+
+		// TODO: assert no duplicate uid
+		// Note: we preserve the order as yaml
+		for _, uid := range instillStartConnector.ListConnectorDefinitionUids() {
+			def, err := instillStartConnector.GetConnectorDefinitionByUid(uid)
 			if err != nil {
-				logger.Warn(err.Error())
+				logger.Error(err.Error())
 			}
+			connector.AddConnectorDefinition(uid, def.GetId(), def)
 		}
+		for _, uid := range instillEndConnector.ListConnectorDefinitionUids() {
+			def, err := instillEndConnector.GetConnectorDefinitionByUid(uid)
+			if err != nil {
+				logger.Error(err.Error())
+			}
+			connector.AddConnectorDefinition(uid, def.GetId(), def)
+		}
+
 	})
 	return connector
 }
 
 func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IConnection, error) {
-	return &Connection{
-		BaseConnection: base.BaseConnection{Logger: logger},
-		config:         config,
-	}, nil
-}
-
-func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorPB.DataPayload, error) {
-	return inputs, nil
-}
-
-func (con *Connection) Test() (connectorPB.Connector_State, error) {
-	// Always connected
-	return connectorPB.Connector_STATE_CONNECTED, nil
-}
-
-func (con *Connection) GetTask() (connectorPB.Task, error) {
-	return connectorPB.Task_TASK_UNSPECIFIED, nil
+	switch {
+	case c.instillStartConnector.HasUid(defUid):
+		return c.instillStartConnector.CreateConnection(defUid, config, logger)
+	case c.instillEndConnector.HasUid(defUid):
+		return c.instillEndConnector.CreateConnection(defUid, config, logger)
+	default:
+		return nil, fmt.Errorf("no sourceConnector uid: %s", defUid)
+	}
 }
