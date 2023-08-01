@@ -12,6 +12,7 @@ import (
 	"github.com/instill-ai/connector/pkg/base"
 	"github.com/instill-ai/connector/pkg/configLoader"
 
+	taskPB "github.com/instill-ai/protogen-go/common/task/v1alpha"
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
@@ -69,6 +70,6 @@ func (con *Connection) Test() (connectorPB.Connector_State, error) {
 	return connectorPB.Connector_STATE_CONNECTED, nil
 }
 
-func (con *Connection) GetTask() (connectorPB.Task, error) {
-	return connectorPB.Task_TASK_UNSPECIFIED, nil
+func (con *Connection) GetTask() (taskPB.Task, error) {
+	return taskPB.Task_TASK_UNSPECIFIED, nil
 }
