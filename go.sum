@@ -29,8 +29,8 @@ github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2 h1:gDLXvp5S9izjldquuoAhDzccbsk
 github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2/go.mod h1:7pdNwVWBBHGiCxa9lAszqCJMbfTISJ7oMftp8+UGV08=
 github.com/instill-ai/connector v0.2.0-alpha.0.20230724051505-16610a2b30d4 h1:EQlkZ1QsMY3/W4bF6qL3SjII1qEKEa0n6XKRefCzIY8=
 github.com/instill-ai/connector v0.2.0-alpha.0.20230724051505-16610a2b30d4/go.mod h1:8L3fikA244oinWaSQk7/zyJ3xb81HgGezoWFxNDXBgk=
-github.com/instill-ai/protogen-go v0.3.3-alpha.0.20230724032341-29e39edfce64 h1:L0CpYQ627By15NO+iQ3gLUeXumucTgWT7C/FF6rG0jo=
-github.com/instill-ai/protogen-go v0.3.3-alpha.0.20230724032341-29e39edfce64/go.mod h1:qsq5ecnA1xi2rLnVQFo/9xksA7I7wQu8c7rqM5xbIrQ=
+github.com/instill-ai/protogen-go v0.3.3-alpha.0.20230801033704-c6a602d6e5dc h1:lpEvKuB6S1CwiL/cVirYcZAT28RuDPH8x7QIhUuE21o=
+github.com/instill-ai/protogen-go v0.3.3-alpha.0.20230801033704-c6a602d6e5dc/go.mod h1:qsq5ecnA1xi2rLnVQFo/9xksA7I7wQu8c7rqM5xbIrQ=
 github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI2bnpBCr8=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/kr/pretty v0.2.0 h1:s5hAObm+yFO5uHYt5dYjxi2rXrsnmRpJx4OYvIWUaQs=

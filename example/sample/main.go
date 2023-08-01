@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	connectorDestination "github.com/instill-ai/connector-destination/pkg"
-	connectorDestinationAirbyte "github.com/instill-ai/connector-destination/pkg/airbyte"
+	connectorData "github.com/instill-ai/connector-data/pkg"
+	connectorDataAirbyte "github.com/instill-ai/connector-data/pkg/airbyte"
 	"go.uber.org/zap"
 )
 
@@ -12,8 +12,8 @@ func main() {
 
 	logger, _ := zap.NewDevelopment()
 	// It is singleton, should be loaded when connector-backend started
-	connector := connectorDestination.Init(logger, connectorDestination.ConnectorOptions{
-		Airbyte: connectorDestinationAirbyte.ConnectorOptions{
+	connector := connectorData.Init(logger, connectorData.ConnectorOptions{
+		Airbyte: connectorDataAirbyte.ConnectorOptions{
 			MountSourceVDP:     "vdp",
 			MountTargetVDP:     "/tmp/vdp",
 			MountSourceAirbyte: "airbyte",
