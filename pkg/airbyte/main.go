@@ -30,14 +30,13 @@ import (
 	"github.com/instill-ai/connector/pkg/base"
 	"github.com/instill-ai/connector/pkg/configLoader"
 
-	taskPB "github.com/instill-ai/protogen-go/common/task/v1alpha"
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
 const vendorName = "airbyte"
 
-//go:embed config/seed/definitions.json
-var destinationJson []byte
+//go:embed config/definitions.json
+var definitionJson []byte
 
 var once sync.Once
 var connector base.IConnector
@@ -71,7 +70,7 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
 
 		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, destinationJson)
+		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
 		if err != nil {
 			panic(err)
 		}
@@ -146,7 +145,7 @@ func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, 
 	}, nil
 }
 
-func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorPB.DataPayload, error) {
+func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 
 	// Create ConfiguredAirbyteCatalog
 	cfgAbCatalog := ConfiguredAirbyteCatalog{
@@ -168,15 +167,13 @@ func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorP
 	var byteAbMsgs []byte
 
 	// TODO: should define new vdp_protocol for this
-	for idx, dataPayload := range inputs {
-
-		dataPayload.Images = nil
+	for idx, input := range inputs {
 
 		b, err := protojson.MarshalOptions{
 			UseProtoNames: true,
-		}.Marshal(dataPayload)
+		}.Marshal(input.GetFields()["structured_data"].GetStructValue())
 		if err != nil {
-			return nil, fmt.Errorf("DataPayload [%d] error: %w", idx, err)
+			return nil, fmt.Errorf("input [%d] error: %w", idx, err)
 		}
 		abMsg := AirbyteMessage{}
 		abMsg.Type = "RECORD"
@@ -359,12 +356,11 @@ func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorP
 		con.Logger.Error(err.Error())
 	}
 
-	outputs := []*connectorPB.DataPayload{}
-	for idx := range inputs {
-		outputs = append(outputs, &connectorPB.DataPayload{
-			DataMappingIndex: inputs[idx].DataMappingIndex,
-		})
+	outputs := []*structpb.Struct{}
+	for range inputs {
+		outputs = append(outputs, &structpb.Struct{})
 	}
+
 	return outputs, nil
 }
 
@@ -521,8 +517,4 @@ func (con *Connection) Test() (connectorPB.Connector_State, error) {
 		}
 	}
 	return connectorPB.Connector_STATE_ERROR, nil
-}
-
-func (con *Connection) GetTask() (taskPB.Task, error) {
-	return taskPB.Task_TASK_UNSPECIFIED, nil
 }

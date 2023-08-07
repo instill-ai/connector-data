@@ -1,0 +1,37 @@
+{
+  "default": {
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Airbyte Connector Openapi"
+    },
+    "paths": {
+      "/execute": {
+        "post": {
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "data.json#/default/input"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "data.json#/default/output"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

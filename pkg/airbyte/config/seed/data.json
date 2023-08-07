@@ -1,0 +1,15 @@
+{
+  "default": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "structured_data": {
+          "type": "object"
+        }
+      }
+    },
+    "output": {
+      "type": "object"
+    }
+  }
+}
