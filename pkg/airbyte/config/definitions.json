@@ -28,8 +28,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -42,7 +50,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -213,8 +229,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -227,7 +251,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -551,8 +583,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -565,7 +605,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -755,8 +803,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -769,7 +825,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1065,8 +1129,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1079,7 +1151,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1403,8 +1483,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1417,7 +1505,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1554,8 +1650,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1568,7 +1672,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1830,8 +1942,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1844,7 +1964,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1941,8 +2069,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1955,7 +2091,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -2111,8 +2255,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -2125,7 +2277,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -2230,8 +2390,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -2244,7 +2412,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -2373,8 +2549,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -2387,7 +2571,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -2727,8 +2919,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -2741,7 +2941,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -2875,8 +3083,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -2889,7 +3105,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -2981,8 +3205,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -2995,7 +3227,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -3149,8 +3389,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -3163,7 +3411,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -3440,8 +3696,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -3454,7 +3718,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -3748,8 +4020,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -3762,7 +4042,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -3899,8 +4187,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -3913,7 +4209,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -4099,8 +4403,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -4113,7 +4425,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -4206,8 +4526,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -4220,7 +4548,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -4755,8 +5091,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -4769,7 +5113,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -4934,8 +5286,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -4948,7 +5308,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -5399,8 +5767,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -5413,7 +5789,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -5788,8 +6172,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -5802,7 +6194,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -5908,8 +6308,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -5922,7 +6330,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -6057,8 +6473,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -6071,7 +6495,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -6370,8 +6802,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -6384,7 +6824,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -6474,8 +6922,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -6488,7 +6944,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -6736,8 +7200,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -6750,7 +7222,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -6845,8 +7325,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -6859,7 +7347,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -7220,8 +7716,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -7234,7 +7738,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -7416,8 +7928,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -7430,7 +7950,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -7765,8 +8293,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -7779,7 +8315,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -8040,8 +8584,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -8054,7 +8606,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -8396,8 +8956,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -8410,7 +8978,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -8855,8 +9431,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -8869,7 +9453,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -9003,8 +9595,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -9017,7 +9617,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -9239,8 +9847,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -9253,7 +9869,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -9678,8 +10302,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -9692,7 +10324,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -9809,8 +10449,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -9823,7 +10471,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -10156,8 +10812,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -10170,7 +10834,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -10329,8 +11001,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -10343,7 +11023,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -10796,8 +11484,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -10810,7 +11506,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -10921,8 +11625,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -10935,7 +11647,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -11213,8 +11933,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -11227,7 +11955,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -11779,8 +12515,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -11793,7 +12537,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -11920,8 +12672,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -11934,7 +12694,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -12057,8 +12825,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -12071,7 +12847,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -12196,8 +12980,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -12210,7 +13002,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -12675,7 +13475,7 @@
         "ql": 300,
         "sl": 200
       },
-      "dockerImageTag": "1.2.8",
+      "dockerImageTag": "1.2.9",
       "dockerRepository": "airbyte/destination-snowflake",
       "githubIssueLabel": "destination-snowflake",
       "license": "ELv2",
@@ -12812,8 +13612,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -12826,7 +13634,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -12913,8 +13729,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -12927,7 +13751,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -13172,8 +14004,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -13186,7 +14026,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -13451,8 +14299,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -13465,7 +14321,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -13728,8 +14592,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -13742,7 +14614,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -13842,8 +14722,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -13856,7 +14744,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -13969,8 +14865,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -13983,7 +14887,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -14237,8 +15149,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -14251,7 +15171,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -14374,8 +15302,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -14388,7 +15324,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -14482,8 +15426,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -14496,7 +15448,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -14635,8 +15595,16 @@
                       "schema": {
                         "type": "object",
                         "properties": {
-                          "structured_data": {
-                            "type": "object"
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "structured_data": {
+                                  "type": "object"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -14649,7 +15617,15 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
                         }
                       }
                     }

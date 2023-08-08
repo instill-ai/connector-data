@@ -147,6 +147,8 @@ func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, 
 
 func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 
+	// TODO: validate input/output by openapi.json
+
 	// Create ConfiguredAirbyteCatalog
 	cfgAbCatalog := ConfiguredAirbyteCatalog{
 		Streams: []ConfiguredAirbyteStream{

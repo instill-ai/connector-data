@@ -84,3 +84,5 @@ with open("./definitions.json") as schema_file:
 
 with open('../definitions.json', 'w') as o:
     json.dump(a, o, indent=2)
+
+# TODO: auto-generate openapi.json component.json from data.json
