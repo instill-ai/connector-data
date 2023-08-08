@@ -52,6 +52,7 @@ for idx in range(len(definitions)):
         definitions[idx]['spec'].pop(to_deleted, None)
 
     definitions[idx]['documentation_url'] = definitions[idx]['documentationUrl']
+    definitions[idx]['icon_url'] = definitions[idx].get('iconUrl', "")
     definitions[idx]['spec']['resource_specification'] = definitions[idx]['spec']['connectionSpecification'] 
     definitions[idx]['spec']['component_specification'] = {
         "$ref": "component.json"
@@ -60,6 +61,7 @@ for idx in range(len(definitions)):
         "$ref": "openapi.json"
     }
 
+    definitions[idx].pop('iconUrl', None)
     definitions[idx].pop('documentationUrl', None)
     definitions[idx]['spec'].pop('connectionSpecification', None)
     definitions[idx]['spec'].pop('documentationUrl', None)
