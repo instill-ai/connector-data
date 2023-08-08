@@ -9,7 +9,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -210,7 +216,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -564,7 +576,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -784,7 +802,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -1110,7 +1134,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -1464,7 +1494,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -1631,7 +1667,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -1923,7 +1965,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -2050,7 +2098,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -2236,7 +2290,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -2371,7 +2431,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -2530,7 +2596,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -2900,7 +2972,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -3064,7 +3142,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -3186,7 +3270,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -3370,7 +3460,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -3677,7 +3773,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -4001,7 +4103,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -4168,7 +4276,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -4384,7 +4498,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -4507,7 +4627,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -5072,7 +5198,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -5267,7 +5399,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -5748,7 +5886,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -6153,7 +6297,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -6289,7 +6439,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -6454,7 +6610,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -6783,7 +6945,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -6903,7 +7071,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -7181,7 +7355,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -7306,7 +7486,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -7697,7 +7883,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -7909,7 +8101,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -8274,7 +8472,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -8565,7 +8769,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -8937,7 +9147,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -9412,7 +9628,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -9576,7 +9798,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -9828,7 +10056,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -10283,7 +10517,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -10430,7 +10670,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -10793,7 +11039,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -10982,7 +11234,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -11465,7 +11723,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -11606,7 +11870,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -11914,7 +12184,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -12496,7 +12772,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -12653,7 +12935,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -12806,7 +13094,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -12961,7 +13255,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -13593,7 +13893,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -13710,7 +14016,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -13985,7 +14297,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -14280,7 +14598,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -14573,7 +14897,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -14703,7 +15033,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -14846,7 +15182,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -15130,7 +15472,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -15283,7 +15631,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -15407,7 +15761,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
@@ -15576,7 +15936,13 @@
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "structured_data": {
+            "type": "object",
+            "format": "instill-template-object"
+          }
+        }
       },
       "openapi_specifications": {
         "default": {
