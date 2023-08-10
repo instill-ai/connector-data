@@ -1,0 +1,138 @@
+[
+  {
+    "uid": "4b1dcf82-e134-4ba7-992f-f9a02536ec2b",
+    "id": "data-pinecone",
+    "title": "Pinecone",
+    "documentation_url": "https://www.instill.tech/docs/vdp/data-connectors/pinecone",
+    "icon": "pinecone.svg",
+    "icon_url": "https://www.pinecone.io/favicon.ico",
+    "public": true,
+    "custom": false,
+    "tombstone": false,
+    "spec": {
+      "resource_specification": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Pinecone Connector Spec",
+        "type": "object",
+        "required": [
+          "api_key",
+          "url"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "api_key": {
+            "title": "API Key",
+            "description": "Fill your Stability AI API key. To find your keys, navigate to your DreamStudio's Account page.",
+            "type": "string",
+            "credential_field": true
+          },
+          "api_key": {
+            "title": "Pinecone Base URL",
+            "description": "Fill in your Pinecone base URL. IT is of the form [https://index_name-project_id.svc.environment.pinecone.io]",
+            "type": "string",
+            "credential_field": false
+          }
+        }
+      },
+      "component_specification": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Pinecone Connector Component Spec",
+        "type": "object",
+        "properties": {
+          "task": {
+            "title": "Task",
+            "enum": [
+              "QUERY",
+              "UPSERT"
+            ],
+            "default": "QUERY"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "task": {
+                  "const": "QUERY"
+                }
+              }
+            },
+            "then": {
+              "type": "object",
+              "required": [
+                "topK"
+              ],
+              "properties": {
+                "namespace": {
+                  "type": "string",
+                  "description": "The namespace to query"
+                },
+                "topK": {
+                  "type": "integer",
+                  "description": "The number of results to return for each query"
+                },
+                "includeValues": {
+                  "type": "boolean",
+                  "description": "Indicates whether vector values are included in the response",
+                  "default": false
+                },
+                "includeMetadata": {
+                  "type": "boolean",
+                  "description": "Indicates whether metadata is included in the response as well as the ids",
+                  "default": false
+                },
+                "vectors": {
+                  "type": "array",
+                  "description": "An array of dimensions for the query vector.",
+                  "items": {
+                    "type": "number",
+                    "description": "A dimension of the vector",
+                    "example": 0.8167237
+                  },
+                  "minItems": 1
+                },
+                "id": {
+                  "type": "string",
+                  "description": "The unique ID of the vector to be used as a query vector"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "task": {
+                  "const": "UPSERT"
+                }
+              }
+            },
+            "then": {
+              "type": "object",
+              "required": [
+                "id",
+                "values"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "This is the vector's unique id"
+                },
+                "values": {
+                  "type": "array",
+                  "description": "An array of dimensions for the vector to be saved",
+                  "items": {
+                    "type": "number",
+                    "description": "A dimension of the vector",
+                    "example": 0.8167237
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "vendor_attributes": {}
+  }
+]

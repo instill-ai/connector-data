@@ -9,7 +9,7 @@ import (
 	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/instill-ai/connector-data/pkg/airbyte"
-
+	"github.com/instill-ai/connector-data/pkg/pinecone"
 	"github.com/instill-ai/connector/pkg/base"
 )
 
@@ -18,21 +18,25 @@ var connector base.IConnector
 
 type Connector struct {
 	base.BaseConnector
-	airbyteConnector base.IConnector
+	airbyteConnector  base.IConnector
+	pineconeConnector base.IConnector
 }
 
 type ConnectorOptions struct {
-	Airbyte airbyte.ConnectorOptions
+	Airbyte  airbyte.ConnectorOptions
+	PineCone pinecone.ConnectorOptions
 }
 
 func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
 
 		airbyteConnector := airbyte.Init(logger, options.Airbyte)
+		pineconeConnector := pinecone.Init(logger, options.PineCone)
 
 		connector = &Connector{
-			BaseConnector:    base.BaseConnector{Logger: logger},
-			airbyteConnector: airbyteConnector,
+			BaseConnector:     base.BaseConnector{Logger: logger},
+			airbyteConnector:  airbyteConnector,
+			pineconeConnector: pineconeConnector,
 		}
 
 		// TODO: assert no duplicate uid
@@ -47,7 +51,16 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 				logger.Warn(err.Error())
 			}
 		}
-
+		for _, uid := range pineconeConnector.ListConnectorDefinitionUids() {
+			def, err := pineconeConnector.GetConnectorDefinitionByUid(uid)
+			if err != nil {
+				logger.Error(err.Error())
+			}
+			err = connector.AddConnectorDefinition(uid, def.GetId(), def)
+			if err != nil {
+				logger.Warn(err.Error())
+			}
+		}
 	})
 	return connector
 }
@@ -56,6 +69,8 @@ func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, 
 	switch {
 	case c.airbyteConnector.HasUid(defUid):
 		return c.airbyteConnector.CreateConnection(defUid, config, logger)
+	case c.pineconeConnector.HasUid(defUid):
+		return c.pineconeConnector.CreateConnection(defUid, config, logger)
 	default:
 		return nil, fmt.Errorf("no destinationConnector uid: %s", defUid)
 	}

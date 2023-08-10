@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pinecone Connector Component Spec",
+  "type": "object",
+  "properties": {
+    "task": {
+      "title": "Task",
+      "enum": [
+        "QUERY",
+        "UPSERT"
+      ],
+      "default": "QUERY"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "task": {
+            "const": "QUERY"
+          }
+        }
+      },
+      "then": {
+        "type": "object",
+        "required": [
+          "topK"
+        ],
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "The namespace to query"
+          },
+          "topK": {
+            "type": "integer",
+            "description": "The number of results to return for each query"
+          },
+          "includeValues": {
+            "type": "boolean",
+            "description": "Indicates whether vector values are included in the response",
+            "default": false
+          },
+          "includeMetadata": {
+            "type": "boolean",
+            "description": "Indicates whether metadata is included in the response as well as the ids",
+            "default": false
+          },
+          "vectors": {
+            "type": "array",
+            "description": "An array of dimensions for the query vector.",
+            "items": {
+              "type": "number",
+              "description": "A dimension of the vector",
+              "example": 0.8167237
+            },
+            "minItems": 1
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the vector to be used as a query vector"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "task": {
+            "const": "UPSERT"
+          }
+        }
+      },
+      "then": {
+        "type": "object",
+        "required": [
+          "id",
+          "values"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "This is the vector's unique id"
+          },
+          "values": {
+            "type": "array",
+            "description": "An array of dimensions for the vector to be saved",
+            "items": {
+              "type": "number",
+              "description": "A dimension of the vector",
+              "example": 0.8167237
+            },
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}
+}
