@@ -1,0 +1,11 @@
+{
+  "default": {
+    "input": {
+      "type": "object"
+      
+    },
+    "output": {
+      "type": "object"
+    }
+  }
+}

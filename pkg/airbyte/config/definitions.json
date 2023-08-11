@@ -8,10 +8,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -153,10 +211,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -451,10 +567,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -615,10 +789,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -885,10 +1117,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1183,10 +1473,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1294,10 +1642,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1530,10 +1936,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1601,10 +2065,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1731,10 +2253,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1810,10 +2390,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1913,10 +2551,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2227,10 +2923,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2335,10 +3089,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2401,10 +3213,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2529,10 +3399,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2780,10 +3708,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3049,10 +4035,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3160,10 +4204,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3320,10 +4422,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3387,10 +4547,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3896,10 +5114,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4036,10 +5312,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4461,10 +5795,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4810,10 +6202,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4890,10 +6340,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -4999,10 +6507,68 @@
     "releaseDate": "2023-07-15",
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "groups": [
@@ -5272,10 +6838,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -5336,10 +6960,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -5558,10 +7240,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -5627,10 +7367,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -5962,10 +7760,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -6118,10 +7974,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -6427,10 +8341,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -6662,10 +8634,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -6978,10 +9008,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -7397,10 +9485,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -7505,10 +9651,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -7701,10 +9905,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -8100,10 +10362,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -8191,10 +10511,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -8498,10 +10876,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -8631,10 +11067,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -9059,10 +11553,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -9144,10 +11696,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -9396,10 +12006,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -9922,10 +12590,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -10023,10 +12749,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -10120,10 +12904,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -10219,10 +13061,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -10807,10 +13707,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -10868,10 +13826,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -11087,10 +14103,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -11326,10 +14400,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -11563,10 +14695,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -11637,10 +14827,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -11724,10 +14972,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -11952,10 +15258,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -12049,10 +15413,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -12117,10 +15539,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -12230,10 +15710,68 @@
     "public": true,
     "spec": {
       "component_specification": {
-        "$ref": "component.json"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
+          }
+        }
       },
       "openapi_specifications": {
-        "$ref": "openapi.json"
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",

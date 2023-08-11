@@ -30,19 +30,16 @@ import (
 	"github.com/instill-ai/connector/pkg/base"
 	"github.com/instill-ai/connector/pkg/configLoader"
 
-	taskPB "github.com/instill-ai/protogen-go/common/task/v1alpha"
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
 const vendorName = "airbyte"
 
-//go:embed config/seed/definitions.json
-var destinationJson []byte
+//go:embed config/definitions.json
+var definitionJson []byte
 
 var once sync.Once
 var connector base.IConnector
-
-// TODO: should be refactor using vdp protocol
 
 type Connector struct {
 	base.BaseConnector
@@ -63,15 +60,13 @@ type ConnectorOptions struct {
 type Connection struct {
 	base.BaseConnection
 	connector *Connector
-	defUid    uuid.UUID
-	config    *structpb.Struct
 }
 
 func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
 
 		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, destinationJson)
+		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
 		if err != nil {
 			panic(err)
 		}
@@ -138,15 +133,25 @@ func (c *Connector) PreDownloadImage(logger *zap.Logger, uids []uuid.UUID) error
 
 func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IConnection, error) {
 
+	def, err := c.GetConnectorDefinitionByUid(defUid)
+	if err != nil {
+		return nil, err
+	}
 	return &Connection{
-		BaseConnection: base.BaseConnection{Logger: logger},
-		connector:      c,
-		defUid:         defUid,
-		config:         config,
+		BaseConnection: base.BaseConnection{
+			Logger: logger, DefUid: defUid,
+			Config:     config,
+			Definition: def,
+		},
+		connector: c,
 	}, nil
 }
 
-func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorPB.DataPayload, error) {
+func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
+
+	if err := con.ValidateInput(inputs, "default"); err != nil {
+		return nil, err
+	}
 
 	// Create ConfiguredAirbyteCatalog
 	cfgAbCatalog := ConfiguredAirbyteCatalog{
@@ -167,16 +172,13 @@ func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorP
 	// Create AirbyteMessage RECORD type, i.e., AirbyteRecordMessage in JSON Line format
 	var byteAbMsgs []byte
 
-	// TODO: should define new vdp_protocol for this
-	for idx, dataPayload := range inputs {
-
-		dataPayload.Images = nil
+	for idx, input := range inputs {
 
 		b, err := protojson.MarshalOptions{
 			UseProtoNames: true,
-		}.Marshal(dataPayload)
+		}.Marshal(input)
 		if err != nil {
-			return nil, fmt.Errorf("DataPayload [%d] error: %w", idx, err)
+			return nil, fmt.Errorf("input [%d] error: %w", idx, err)
 		}
 		abMsg := AirbyteMessage{}
 		abMsg.Type = "RECORD"
@@ -196,16 +198,16 @@ func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorP
 	// Remove the last "\n"
 	byteAbMsgs = byteAbMsgs[:len(byteAbMsgs)-1]
 
-	connDef, err := con.connector.GetConnectorDefinitionByUid(con.defUid)
+	connDef, err := con.connector.GetConnectorDefinitionByUid(con.DefUid)
 	if err != nil {
 		return nil, err
 	}
 	imageName := fmt.Sprintf("%s:%s",
 		connDef.VendorAttributes.GetFields()["dockerRepository"].GetStringValue(),
 		connDef.VendorAttributes.GetFields()["dockerImageTag"].GetStringValue())
-	containerName := fmt.Sprintf("%s.%d.write", con.defUid, time.Now().UnixNano())
-	configFileName := fmt.Sprintf("%s.%d.write", con.defUid, time.Now().UnixNano())
-	catalogFileName := fmt.Sprintf("%s.%d.write", con.defUid, time.Now().UnixNano())
+	containerName := fmt.Sprintf("%s.%d.write", con.DefUid, time.Now().UnixNano())
+	configFileName := fmt.Sprintf("%s.%d.write", con.DefUid, time.Now().UnixNano())
+	catalogFileName := fmt.Sprintf("%s.%d.write", con.DefUid, time.Now().UnixNano())
 
 	// If there is already a container run dispatched in the previous attempt, return exitCodeOK directly
 	if _, err := con.connector.cache.Get(containerName); err == nil {
@@ -219,8 +221,8 @@ func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorP
 	}
 
 	configuration := func() []byte {
-		if con.config != nil {
-			b, err := con.config.MarshalJSON()
+		if con.Config != nil {
+			b, err := con.Config.MarshalJSON()
 			if err != nil {
 				con.Logger.Error(err.Error())
 			}
@@ -359,25 +361,28 @@ func (con *Connection) Execute(inputs []*connectorPB.DataPayload) ([]*connectorP
 		con.Logger.Error(err.Error())
 	}
 
-	outputs := []*connectorPB.DataPayload{}
-	for idx := range inputs {
-		outputs = append(outputs, &connectorPB.DataPayload{
-			DataMappingIndex: inputs[idx].DataMappingIndex,
-		})
+	outputs := []*structpb.Struct{}
+	for range inputs {
+		outputs = append(outputs, &structpb.Struct{})
 	}
+
+	if err := con.ValidateOutput(outputs, "default"); err != nil {
+		return nil, err
+	}
+
 	return outputs, nil
 }
 
 func (con *Connection) Test() (connectorPB.Connector_State, error) {
 
-	def, err := con.connector.GetConnectorDefinitionByUid(con.defUid)
+	def, err := con.connector.GetConnectorDefinitionByUid(con.DefUid)
 	if err != nil {
 		return connectorPB.Connector_STATE_ERROR, err
 	}
 	imageName := fmt.Sprintf("%s:%s",
 		def.VendorAttributes.GetFields()["dockerRepository"].GetStringValue(),
 		def.VendorAttributes.GetFields()["dockerImageTag"].GetStringValue())
-	containerName := fmt.Sprintf("%s.%d.check", con.defUid, time.Now().UnixNano())
+	containerName := fmt.Sprintf("%s.%d.check", con.DefUid, time.Now().UnixNano())
 	configFilePath := fmt.Sprintf("%s/connector-data/config/%s.json", con.connector.options.MountTargetVDP, containerName)
 
 	// Write config into a container local file
@@ -386,8 +391,8 @@ func (con *Connection) Test() (connectorPB.Connector_State, error) {
 	}
 
 	configuration := func() []byte {
-		if con.config != nil {
-			b, err := con.config.MarshalJSON()
+		if con.Config != nil {
+			b, err := con.Config.MarshalJSON()
 			if err != nil {
 				con.Logger.Error(err.Error())
 			}
@@ -521,8 +526,4 @@ func (con *Connection) Test() (connectorPB.Connector_State, error) {
 		}
 	}
 	return connectorPB.Connector_STATE_ERROR, nil
-}
-
-func (con *Connection) GetTask() (taskPB.Task, error) {
-	return taskPB.Task_TASK_UNSPECIFIED, nil
 }

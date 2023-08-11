@@ -68,20 +68,7 @@ const dataSchema = `
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
 	"properties": {
-		"data_mapping_index": {
-			"type": "string"
-		},
-		"texts": {
-			"type": "array"
-		},
-		"structured_data": {
-			"type": "object"
-		},
-		"metadata": {
-			"type": "object"
-		}
-	},
-	"required": ["data_mapping_index"]
+	}
 }
 `
 
