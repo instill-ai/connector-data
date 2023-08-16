@@ -53,7 +53,7 @@ for idx in range(len(definitions)):
 
     definitions[idx]['documentation_url'] = definitions[idx]['documentationUrl']
     definitions[idx]['icon_url'] = definitions[idx].get('iconUrl', "")
-    definitions[idx]['spec']['resource_specification'] = definitions[idx]['spec']['connectionSpecification'] 
+    definitions[idx]['spec']['resource_specification'] = definitions[idx]['spec']['connectionSpecification']
     definitions[idx]['spec']['component_specification'] = {
         "$ref": "component.json"
     }
