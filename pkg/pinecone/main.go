@@ -34,8 +34,6 @@ var definitionJson []byte
 var once sync.Once
 var connector base.IConnector
 
-// TODO: should be refactor using vdp protocol
-
 type Connector struct {
 	base.BaseConnector
 	options ConnectorOptions
