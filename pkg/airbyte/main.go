@@ -18,17 +18,15 @@ import (
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/mount"
+	dockerclient "github.com/docker/docker/client"
 	"github.com/docker/docker/pkg/stdcopy"
 	"github.com/gofrs/uuid"
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/types/known/structpb"
 
-	dockerclient "github.com/docker/docker/client"
-
 	"github.com/instill-ai/connector/pkg/base"
 	"github.com/instill-ai/connector/pkg/configLoader"
-
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
@@ -39,8 +37,6 @@ var definitionJson []byte
 
 var once sync.Once
 var connector base.IConnector
-
-// TODO: should be refactor using vdp protocol
 
 type Connector struct {
 	base.BaseConnector
@@ -172,12 +168,11 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 	// Create AirbyteMessage RECORD type, i.e., AirbyteRecordMessage in JSON Line format
 	var byteAbMsgs []byte
 
-	// TODO: should define new vdp_protocol for this
 	for idx, input := range inputs {
 
 		b, err := protojson.MarshalOptions{
 			UseProtoNames: true,
-		}.Marshal(input.GetFields()["structured_data"].GetStructValue())
+		}.Marshal(input)
 		if err != nil {
 			return nil, fmt.Errorf("input [%d] error: %w", idx, err)
 		}

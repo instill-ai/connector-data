@@ -11,9 +11,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -37,12 +38,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -183,7 +179,7 @@
     "uid": "0eeee7fb-518f-4045-bacc-9619e31c43ea",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 200
       },
       "dockerImageTag": "0.1.0",
@@ -218,9 +214,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -244,12 +241,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -544,7 +536,7 @@
     "uid": "99878c90-0fbd-46d3-9d98-ffde879d17fc",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.3",
@@ -578,9 +570,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -604,12 +597,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -758,7 +746,7 @@
     "uid": "b4c5d105-31fd-4817-96b6-cb923bfc04cb",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.2.0",
@@ -804,9 +792,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -830,12 +819,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -1136,9 +1120,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -1162,12 +1147,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -1443,10 +1423,10 @@
     "uid": "22f6c74f-5699-40ff-833c-4a879ea40133",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "1.7.5",
+      "dockerImageTag": "1.7.6",
       "dockerRepository": "airbyte/destination-bigquery",
       "githubIssueLabel": "destination-bigquery",
       "license": "ELv2",
@@ -1496,9 +1476,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -1522,12 +1503,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -1633,7 +1609,7 @@
     "uid": "707456df-6f4f-4ced-b5c6-03f73bcad1c5",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.4",
@@ -1669,9 +1645,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -1695,12 +1672,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -1924,7 +1896,7 @@
     "uid": "ce0d828e-1dc4-496c-b122-2da42e637e48",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 200
       },
       "dockerImageTag": "0.2.5",
@@ -1967,9 +1939,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -1993,12 +1966,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -2063,7 +2031,7 @@
     "uid": "3eb4d99c-11fa-4561-a259-fc88e0c2f8f4",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.2.0",
@@ -2100,9 +2068,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2126,12 +2095,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -2256,7 +2220,7 @@
     "uid": "8be1cf83-fde1-477f-a4ad-318d23c9f3c6",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "1.0.0",
@@ -2292,9 +2256,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2318,12 +2283,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -2397,7 +2357,7 @@
     "uid": "e088acb6-9780-4568-880c-54c2dd7f431b",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -2433,9 +2393,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2459,12 +2420,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -2564,7 +2520,7 @@
     "uid": "302e4d8e-08d3-4098-acd4-ac67ca365b88",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.2",
@@ -2598,9 +2554,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2624,12 +2581,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -2938,7 +2890,7 @@
     "uid": "072d5540-f236-4294-ba7c-ade8fd918496",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "1.1.0",
@@ -2974,9 +2926,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3000,12 +2953,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -3108,7 +3056,7 @@
     "uid": "05c161bf-ca73-4d48-b524-d392be417002",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -3144,9 +3092,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3170,12 +3119,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -3236,7 +3180,7 @@
     "uid": "94bd199c-2ff0-4aa2-b98e-17f0acb72610",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -3272,9 +3216,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3298,12 +3243,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -3426,7 +3366,7 @@
     "uid": "8ccd8909-4e99-4141-b48d-4984b70b2d89",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 200
       },
       "dockerImageTag": "0.1.7",
@@ -3462,9 +3402,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3488,12 +3429,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -3738,7 +3674,7 @@
     "uid": "2eb65e87-983a-4fd7-b3e3-9d9dc6eb8537",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.3.0",
@@ -3775,9 +3711,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3801,12 +3738,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -4070,7 +4002,7 @@
     "uid": "68f351a7-2745-4bef-ad7f-996b8e51bb8c",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.6",
@@ -4106,9 +4038,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -4132,12 +4065,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -4243,7 +4171,7 @@
     "uid": "bb6071d9-6f34-4766-bec2-d1d4ed81a653",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.1",
@@ -4279,9 +4207,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -4305,12 +4234,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -4464,7 +4388,7 @@
     "uid": "18081484-02a5-4662-8dba-b270b582f321",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -4501,9 +4425,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -4527,12 +4452,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -4594,7 +4514,7 @@
     "uid": "27dc7500-6d1b-40b1-8b07-e2f2aea3c9f4",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.1",
@@ -4630,9 +4550,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -4656,12 +4577,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -5201,9 +5117,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -5227,12 +5144,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -5322,7 +5234,7 @@
     "uid": "a4cbd2d1-8dbe-4818-b8bc-b90ad782d12a",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 300
       },
       "dockerImageTag": "0.2.2",
@@ -5403,9 +5315,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -5429,12 +5342,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -5855,7 +5763,7 @@
     "uid": "df65a8f3-9908-451b-aa9b-445462803560",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.4",
@@ -5890,9 +5798,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -5916,12 +5825,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -6266,7 +6170,7 @@
     "uid": "9f760101-60ae-462f-9ee6-b7a9dafd454d",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.10",
@@ -6301,9 +6205,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -6327,12 +6232,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -6407,7 +6307,7 @@
     "uid": "81740ce8-d764-4ea7-94df-16bb41de36ae",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.2.4",
@@ -6443,9 +6343,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -6469,12 +6370,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -6578,7 +6474,7 @@
     "uid": "6d1d66d4-26ab-4602-8d32-f85894b04955",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.5",
@@ -6614,9 +6510,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -6640,12 +6537,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -6914,7 +6806,7 @@
     "uid": "cf98d52c-ba5a-4dfd-8ada-c1baebfa6e73",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.0.6",
@@ -6949,9 +6841,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -6975,12 +6868,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -7039,7 +6927,7 @@
     "uid": "a625d593-bba5-4a1c-a53d-2d246268a816",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.2.11",
@@ -7075,9 +6963,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -7101,12 +6990,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -7323,7 +7207,7 @@
     "uid": "294a4790-429b-40ae-9516-49826b9702e1",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.7",
@@ -7359,9 +7243,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -7385,12 +7270,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -7454,7 +7334,7 @@
     "uid": "af7c921e-5892-4ff2-b6c1-4a5ab258fb7e",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "1.0.0",
@@ -7490,9 +7370,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -7516,12 +7397,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -7851,7 +7727,7 @@
     "uid": "8b746512-8c2e-6ac1-4adc-b59faafd473c",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.2.0",
@@ -7887,9 +7763,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -7913,12 +7790,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -8070,7 +7942,7 @@
     "uid": "f3802bc4-5406-4752-9e8d-01e504ca8194",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.3",
@@ -8105,9 +7977,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -8131,12 +8004,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -8433,7 +8301,7 @@
     "uid": "d4353156-9217-4cad-8dd7-c108fd4f74cf",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 300
       },
       "dockerImageTag": "0.2.0",
@@ -8476,9 +8344,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -8502,12 +8371,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -8731,7 +8595,7 @@
     "uid": "ca81ee7c-3163-4246-af40-094cc31e5e42",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 300
       },
       "dockerImageTag": "0.2.0",
@@ -8773,9 +8637,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -8799,12 +8664,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -9109,7 +8969,7 @@
     "uid": "3986776d-2319-4de9-8af8-db14c0996e72",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 200
       },
       "dockerImageTag": "0.2.0",
@@ -9151,9 +9011,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -9177,12 +9038,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -9589,7 +9445,7 @@
     "uid": "25c5221d-dce2-4163-ade9-739ef790f503",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 200,
         "sl": 300
       },
       "dockerImageTag": "0.4.0",
@@ -9632,9 +9488,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -9658,12 +9515,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -9767,7 +9619,7 @@
     "uid": "356668e2-7e34-47f3-a3b0-67a8a481b692",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.2.0",
@@ -9802,9 +9654,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -9828,12 +9681,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -10025,7 +9873,7 @@
     "uid": "2340cbba-358e-11ec-8d3d-0242ac130203",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.3",
@@ -10060,9 +9908,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -10086,12 +9935,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -10485,7 +10329,7 @@
     "uid": "0fb07be9-7c3b-4336-850d-5efc006152ee",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -10521,9 +10365,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -10547,12 +10392,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -10639,7 +10479,7 @@
     "uid": "e06ad785-ad6f-4647-b2e8-3027a5c59454",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.1",
@@ -10674,9 +10514,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -10700,12 +10541,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -11007,7 +10843,7 @@
     "uid": "d4d3fef9-e319-45c2-881a-bd02ce44cc9f",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.4",
@@ -11043,9 +10879,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -11069,12 +10906,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -11203,7 +11035,7 @@
     "uid": "825c5ee3-ed9a-4dd1-a2b6-79ed722f7b13",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -11238,9 +11070,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -11264,12 +11097,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -11679,7 +11507,7 @@
         "ql": 300,
         "sl": 200
       },
-      "dockerImageTag": "0.6.2",
+      "dockerImageTag": "0.6.4",
       "dockerRepository": "airbyte/destination-redshift",
       "githubIssueLabel": "destination-redshift",
       "license": "MIT",
@@ -11728,9 +11556,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -11754,12 +11583,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -11839,7 +11663,7 @@
     "uid": "2c9d93a7-9a17-4789-9de9-f46f0097eb70",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.4",
@@ -11875,9 +11699,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -11901,12 +11726,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -12153,7 +11973,7 @@
     "uid": "471e5cab-8ed1-49f3-ba11-79c687784737",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.7",
@@ -12189,9 +12009,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -12215,12 +12036,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -12731,7 +12547,7 @@
     "uid": "4816b78f-1489-44c1-9060-4b19d5fa9362",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 400,
         "sl": 300
       },
       "dockerImageTag": "0.5.1",
@@ -12777,9 +12593,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -12803,12 +12620,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -12904,7 +12716,7 @@
     "uid": "3dc6f384-cd6b-4be3-ad16-a41450899bf0",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.3",
@@ -12940,9 +12752,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -12966,12 +12779,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -13063,7 +12871,7 @@
     "uid": "50a559a7-6323-4e33-8aa0-51dfd9dfadac",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -13099,9 +12907,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -13125,12 +12934,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -13224,7 +13028,7 @@
     "uid": "e9810f61-4bab-46d2-bb22-edfc902e0644",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -13260,9 +13064,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -13286,12 +13091,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -13720,6 +13520,12 @@
             "title": "Data Staging Method",
             "type": "object"
           },
+          "raw_data_schema": {
+            "description": "(Beta) The schema to write raw tables into",
+            "order": 11,
+            "title": "Destinations V2 Raw Table Schema (Early Access)",
+            "type": "string"
+          },
           "role": {
             "description": "Enter the <a href=\"https://docs.snowflake.com/en/user-guide/security-access-control-overview.html#roles\">role</a> that you want to use to access Snowflake",
             "examples": [
@@ -13737,6 +13543,12 @@
             "order": 4,
             "title": "Default Schema",
             "type": "string"
+          },
+          "use_1s1t_format": {
+            "description": "(Beta) Use <a href=\"https://github.com/airbytehq/airbyte/issues/26028\" target=\"_blank\">Destinations V2</a>. Contact Airbyte Support to participate in the beta program.",
+            "order": 10,
+            "title": "Use Destinations V2 (Early Access)",
+            "type": "boolean"
           },
           "username": {
             "description": "Enter the name of the user you want to use to access the database",
@@ -13775,10 +13587,10 @@
     "uid": "424892c4-daac-4491-b35d-c6688ba547ba",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 300,
+        "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "1.2.9",
+      "dockerImageTag": "1.3.1",
       "dockerRepository": "airbyte/destination-snowflake",
       "githubIssueLabel": "destination-snowflake",
       "license": "ELv2",
@@ -13898,9 +13710,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -13924,12 +13737,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -13985,7 +13793,7 @@
     "uid": "b76be0a6-27dc-4560-95f6-2623da0bd7b6",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -14021,9 +13829,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14047,12 +13856,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -14266,7 +14070,7 @@
     "uid": "4528e960-6f7b-4412-8555-7e0097e1da17",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.0.1",
@@ -14302,9 +14106,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14328,12 +14133,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -14567,10 +14367,10 @@
     "uid": "58e6f9da-904e-11ed-a1eb-0242ac120002",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
-      "dockerImageTag": "0.1.1",
+      "dockerImageTag": "0.1.2",
       "dockerRepository": "airbyte/destination-teradata",
       "githubIssueLabel": "destination-teradata",
       "license": "MIT",
@@ -14603,9 +14403,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14629,12 +14430,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -14859,7 +14655,7 @@
     "uid": "06ec60c7-7468-45c0-91ac-174f6e1a788b",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.4",
@@ -14902,9 +14698,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14928,12 +14725,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -15002,7 +14794,7 @@
     "uid": "f70a8ece-351e-4790-b37b-cb790bcd6d54",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -15038,9 +14830,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -15064,12 +14857,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -15151,7 +14939,7 @@
     "uid": "36be8dc6-9851-49af-b776-9d4c30e4ab6a",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -15187,9 +14975,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -15213,12 +15002,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -15442,7 +15226,7 @@
     "uid": "ca81ee7c-3163-9678-af40-094cc31e5e42",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.0",
@@ -15477,9 +15261,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -15503,12 +15288,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -15600,7 +15380,7 @@
     "uid": "7b7d7a0d-954c-45a0-bcfc-39a634b97736",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.1",
@@ -15636,9 +15416,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -15662,12 +15443,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -15733,7 +15509,7 @@
     "uid": "2a51c92d-0fb4-4e54-94d2-cce631f24d1f",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.1",
@@ -15766,9 +15542,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -15792,12 +15569,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }
@@ -15905,7 +15677,7 @@
     "uid": "2300fdcf-a532-419f-9f24-a014336e7966",
     "vendor_attributes": {
       "ab_internal": {
-        "ql": 200,
+        "ql": 100,
         "sl": 100
       },
       "dockerImageTag": "0.1.1",
@@ -15941,9 +15713,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "structured_data": {
-            "type": "object",
-            "format": "instill-template-object"
+          "patternProperties": {
+            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+              "type": "string"
+            }
           }
         }
       },
@@ -15967,12 +15740,7 @@
                           "inputs": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "structured_data": {
-                                  "type": "object"
-                                }
-                              }
+                              "type": "object"
                             }
                           }
                         }

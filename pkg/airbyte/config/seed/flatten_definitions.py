@@ -19,7 +19,8 @@ for idx in range(len(definitions)):
     # print(definitions[idx].keys())
 
     definitions[idx]['uid'] = definitions[idx]['destinationDefinitionId']
-    definitions[idx]['id'] = f"airbyte-{definitions[idx]['dockerRepository'].split('/')[1]}"
+    definitions[idx][
+        'id'] = f"airbyte-{definitions[idx]['dockerRepository'].split('/')[1]}"
     definitions[idx]['title'] = definitions[idx]['name']
 
     definitions[idx]['vendor_attributes'] = {
@@ -53,7 +54,7 @@ for idx in range(len(definitions)):
 
     definitions[idx]['documentation_url'] = definitions[idx]['documentationUrl']
     definitions[idx]['icon_url'] = definitions[idx].get('iconUrl', "")
-    definitions[idx]['spec']['resource_specification'] = definitions[idx]['spec']['connectionSpecification'] 
+    definitions[idx]['spec']['resource_specification'] = definitions[idx]['spec']['connectionSpecification']
     definitions[idx]['spec']['component_specification'] = {
         "$ref": "component.json"
     }
@@ -77,12 +78,11 @@ with open('./definitions.json', 'w') as out_file:
     out_file.write(definitions_json)
 
 
-
 base_path = dirname(__file__)
 base_uri = 'file://{}/'.format(base_path)
 
 with open("./definitions.json") as schema_file:
-    a= jsonref.loads(schema_file.read(), base_uri=base_uri, jsonschema=True)
+    a = jsonref.loads(schema_file.read(), base_uri=base_uri, jsonschema=True)
 
 with open('../definitions.json', 'w') as o:
     json.dump(a, o, indent=2)
