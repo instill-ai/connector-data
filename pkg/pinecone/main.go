@@ -184,6 +184,9 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 		}
 		outputs = append(outputs, output)
 	}
+	if err := c.ValidateOutput(outputs, task); err != nil {
+		return nil, err
+	}
 	return outputs, nil
 }
 
