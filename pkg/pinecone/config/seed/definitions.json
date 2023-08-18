@@ -18,7 +18,7 @@
       }
     },
     "vendor_attributes": {
-      "githubIssueLabel": "openai",
+      "githubIssueLabel": "pinecone",
       "license": "MIT",
       "releaseStage": "alpha",
       "resourceRequirements": {},

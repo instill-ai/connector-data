@@ -26,7 +26,7 @@
             "type": "string",
             "credential_field": true
           },
-          "api_key": {
+          "url": {
             "title": "Pinecone Base URL",
             "description": "Fill in your Pinecone base URL. IT is of the form [https://index_name-project_id.svc.environment.pinecone.io]",
             "type": "string",
@@ -68,24 +68,24 @@
                   "description": "The namespace to query"
                 },
                 "topK": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "The number of results to return for each query"
                 },
                 "includeValues": {
-                  "type": "boolean",
+                  "type": "string",
                   "description": "Indicates whether vector values are included in the response",
                   "default": false
                 },
                 "includeMetadata": {
-                  "type": "boolean",
+                  "type": "string",
                   "description": "Indicates whether metadata is included in the response as well as the ids",
                   "default": false
                 },
-                "vectors": {
-                  "type": "array",
+                "vector": {
+                  "type": "string",
                   "description": "An array of dimensions for the query vector.",
                   "items": {
-                    "type": "number",
+                    "type": "string",
                     "description": "A dimension of the vector",
                     "example": 0.8167237
                   },
@@ -118,10 +118,10 @@
                   "description": "This is the vector's unique id"
                 },
                 "values": {
-                  "type": "array",
+                  "type": "string",
                   "description": "An array of dimensions for the vector to be saved",
                   "items": {
-                    "type": "number",
+                    "type": "string",
                     "description": "A dimension of the vector",
                     "example": 0.8167237
                   },
@@ -133,6 +133,12 @@
         ]
       }
     },
-    "vendor_attributes": {}
+    "vendor_attributes": {
+      "githubIssueLabel": "pinecone",
+      "license": "MIT",
+      "releaseStage": "alpha",
+      "resourceRequirements": {},
+      "modelType": "api"
+    }
   }
 ]
