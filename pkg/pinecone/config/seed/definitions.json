@@ -15,6 +15,9 @@
       },
       "component_specification": {
         "$ref": "component.json"
+      },
+      "openapi_specifications": {
+        "$ref": "openapi.json"
       }
     },
     "vendor_attributes": {

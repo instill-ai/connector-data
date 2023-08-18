@@ -131,6 +131,204 @@
             }
           }
         ]
+      },
+      "openapi_specifications": {
+        "QUERY": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Pinecone Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "topK"
+                              ],
+                              "properties": {
+                                "namespace": {
+                                  "type": "string",
+                                  "description": "The namespace to query"
+                                },
+                                "topK": {
+                                  "type": "integer",
+                                  "description": "The number of results to return for each query"
+                                },
+                                "includeValues": {
+                                  "type": "boolean",
+                                  "description": "Indicates whether vector values are included in the response",
+                                  "default": false
+                                },
+                                "includeMetadata": {
+                                  "type": "boolean",
+                                  "description": "Indicates whether metadata is included in the response as well as the ids",
+                                  "default": false
+                                },
+                                "vectors": {
+                                  "type": "array",
+                                  "description": "An array of dimensions for the query vector.",
+                                  "items": {
+                                    "type": "number",
+                                    "description": "A dimension of the vector",
+                                    "example": 0.8167237
+                                  },
+                                  "minItems": 1
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "The unique ID of the vector to be used as a query vector"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "namespace": {
+                                    "type": "string",
+                                    "description": "The namespace of the query"
+                                  },
+                                  "matches": {
+                                    "type": "array",
+                                    "description": "The matches returned for the query",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "description": "The id of the matched vector"
+                                        },
+                                        "score": {
+                                          "type": "number",
+                                          "description": "A measure of similarity between this vector and the query vector. The higher the score, the more they are similar."
+                                        },
+                                        "values": {
+                                          "type": "array",
+                                          "description": "Vector data values",
+                                          "items": {
+                                            "type": "number",
+                                            "description": "Each float value represents one dimension"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "UPSERT": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Pinecone Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "id",
+                                "values"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "This is the vector's unique id"
+                                },
+                                "values": {
+                                  "type": "array",
+                                  "description": "An array of dimensions for the vector to be saved",
+                                  "items": {
+                                    "type": "number",
+                                    "description": "A dimension of the vector",
+                                    "example": 0.8167237
+                                  },
+                                  "minItems": 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "upsertedCount": {
+                                    "type": "integer",
+                                    "description": "Number of records modified or added"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "vendor_attributes": {
