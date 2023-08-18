@@ -190,7 +190,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 	return outputs, nil
 }
 
-func (c *Connection) Test() (connectorPB.Connector_State, error) {
+func (c *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 	//TODO: change this
-	return connectorPB.Connector_STATE_CONNECTED, nil
+	return connectorPB.ConnectorResource_STATE_CONNECTED, nil
 }
