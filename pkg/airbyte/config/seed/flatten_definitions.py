@@ -77,12 +77,11 @@ with open('./definitions.json', 'w') as out_file:
     out_file.write(definitions_json)
 
 
-
 base_path = dirname(__file__)
 base_uri = 'file://{}/'.format(base_path)
 
 with open("./definitions.json") as schema_file:
-    a= jsonref.loads(schema_file.read(), base_uri=base_uri, jsonschema=True)
+    a = jsonref.loads(schema_file.read(), base_uri=base_uri, jsonschema=True)
 
 with open('../definitions.json', 'w') as o:
     json.dump(a, o, indent=2)

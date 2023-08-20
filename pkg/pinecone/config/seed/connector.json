@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pinecone Connector Spec",
+  "type": "object",
+  "required": [
+    "api_key",
+    "url"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "api_key": {
+      "title": "API Key",
+      "description": "Fill your Stability AI API key. To find your keys, navigate to your DreamStudio's Account page.",
+      "type": "string",
+      "credential_field": true
+    },
+    "url": {
+      "title": "Pinecone Base URL",
+      "description": "Fill in your Pinecone base URL. IT is of the form [https://index_name-project_id.svc.environment.pinecone.io]",
+      "type": "string",
+      "credential_field": false
+    }
+  }
+}

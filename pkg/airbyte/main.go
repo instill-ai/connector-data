@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -12,8 +13,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
-	_ "embed"
 
 	"github.com/allegro/bigcache"
 	"github.com/docker/docker/api/types"
@@ -132,7 +131,6 @@ func (c *Connector) PreDownloadImage(logger *zap.Logger, uids []uuid.UUID) error
 }
 
 func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IConnection, error) {
-
 	def, err := c.GetConnectorDefinitionByUid(defUid)
 	if err != nil {
 		return nil, err
