@@ -79,23 +79,35 @@
     "input": {
       "type": "object",
       "required": [
-        "id",
-        "values"
+        "vectors"
       ],
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "This is the vector's unique id"
-        },
-        "values": {
+        "vectors": {
           "type": "array",
-          "description": "An array of dimensions for the vector to be saved",
+          "description": "An array of vectors to be saved",
           "items": {
-            "type": "number",
-            "description": "A dimension of the vector",
-            "example": 0.8167237
-          },
-          "minItems": 1
+            "type": "object",
+            "required": [
+              "id",
+              "values"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "This is the vector's unique id"
+              },
+              "values": {
+                "type": "array",
+                "description": "An array of dimensions for the vector to be saved",
+                "items": {
+                  "type": "number",
+                  "description": "A dimension of the vector",
+                  "example": 0.8167237
+                },
+                "minItems": 1
+              }
+            }
+          }
         }
       }
     },
