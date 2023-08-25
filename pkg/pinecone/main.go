@@ -121,7 +121,7 @@ func (c *Client) sendReq(reqURL, method string, params interface{}, respObj inte
 	}
 	req.Header.Add("Content-Type", jsonMimeType)
 	req.Header.Add("Accept", jsonMimeType)
-	req.Header.Add("Authorization", "Bearer "+c.APIKey)
+	req.Header.Add("Api-Key", c.APIKey)
 	http.DefaultClient.Timeout = reqTimeout
 	res, err := c.HTTPClient.Do(req)
 	if res != nil && res.Body != nil {
@@ -174,7 +174,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 			if err != nil {
 				return nil, err
 			}
-			url := c.getURL() + "/upsert"
+			url := c.getURL() + "/vectors/upsert"
 			resp := UpsertResp{}
 			client.sendReq(url, http.MethodPost, inputStruct, &resp)
 			output, err = base.ConvertToStructpb(resp)
