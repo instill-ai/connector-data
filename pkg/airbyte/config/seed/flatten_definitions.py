@@ -20,7 +20,7 @@ for idx in range(len(definitions)):
 
     definitions[idx]['uid'] = definitions[idx]['destinationDefinitionId']
     definitions[idx]['id'] = f"airbyte-{definitions[idx]['dockerRepository'].split('/')[1]}"
-    definitions[idx]['title'] = definitions[idx]['name']
+    definitions[idx]['title'] = "Airbyte " + definitions[idx]['name']
 
     definitions[idx]['vendor_attributes'] = {
         'dockerRepository': definitions[idx]['dockerRepository'],

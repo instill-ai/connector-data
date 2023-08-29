@@ -115,14 +115,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "Amazon SQS",
+    "supportLevel": "community",
+    "title": "Airbyte Amazon SQS",
     "tombstone": false,
     "uid": "0eeee7fb-518f-4045-bacc-9619e31c43ea",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 200
+        "sl": 100
       },
       "dockerImageTag": "0.1.0",
       "dockerRepository": "airbyte/destination-amazon-sqs",
@@ -415,7 +415,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "AWS Datalake",
+    "title": "Airbyte AWS Datalake",
     "tombstone": false,
     "uid": "99878c90-0fbd-46d3-9d98-ffde879d17fc",
     "vendor_attributes": {
@@ -567,7 +567,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Azure Blob Storage",
+    "title": "Airbyte Azure Blob Storage",
     "tombstone": false,
     "uid": "b4c5d105-31fd-4817-96b6-cb923bfc04cb",
     "vendor_attributes": {
@@ -836,14 +836,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "BigQuery (denormalized typed struct)",
+    "supportLevel": "community",
+    "title": "Airbyte BigQuery (denormalized typed struct)",
     "tombstone": false,
     "uid": "079d5540-f236-4294-ba7c-ade8fd918496",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 300,
-        "sl": 200
+        "sl": 100
       },
       "dockerImageTag": "1.5.3",
       "dockerRepository": "airbyte/destination-bigquery-denormalized",
@@ -1128,7 +1128,7 @@
       }
     },
     "supportLevel": "certified",
-    "title": "BigQuery",
+    "title": "Airbyte BigQuery",
     "tombstone": false,
     "uid": "22f6c74f-5699-40ff-833c-4a879ea40133",
     "vendor_attributes": {
@@ -1136,7 +1136,7 @@
         "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "1.7.6",
+      "dockerImageTag": "1.10.2",
       "dockerRepository": "airbyte/destination-bigquery",
       "githubIssueLabel": "destination-bigquery",
       "license": "ELv2",
@@ -1256,7 +1256,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Cassandra",
+    "title": "Airbyte Cassandra",
     "tombstone": false,
     "uid": "707456df-6f4f-4ced-b5c6-03f73bcad1c5",
     "vendor_attributes": {
@@ -1484,14 +1484,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "Clickhouse",
+    "supportLevel": "community",
+    "title": "Airbyte Clickhouse",
     "tombstone": false,
     "uid": "ce0d828e-1dc4-496c-b122-2da42e637e48",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 200
+        "sl": 100
       },
       "dockerImageTag": "0.2.5",
       "dockerRepository": "airbyte/destination-clickhouse",
@@ -1562,7 +1562,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Convex",
+    "title": "Airbyte Convex",
     "tombstone": false,
     "uid": "3eb4d99c-11fa-4561-a259-fc88e0c2f8f4",
     "vendor_attributes": {
@@ -1693,7 +1693,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Local CSV",
+    "title": "Airbyte Local CSV",
     "tombstone": false,
     "uid": "8be1cf83-fde1-477f-a4ad-318d23c9f3c6",
     "vendor_attributes": {
@@ -1772,7 +1772,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Cumul.io",
+    "title": "Airbyte Cumul.io",
     "tombstone": false,
     "uid": "e088acb6-9780-4568-880c-54c2dd7f431b",
     "vendor_attributes": {
@@ -1877,7 +1877,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Databend",
+    "title": "Airbyte Databend",
     "tombstone": false,
     "uid": "302e4d8e-08d3-4098-acd4-ac67ca365b88",
     "vendor_attributes": {
@@ -2189,7 +2189,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Databricks Lakehouse",
+    "title": "Airbyte Databricks Lakehouse",
     "tombstone": false,
     "uid": "072d5540-f236-4294-ba7c-ade8fd918496",
     "vendor_attributes": {
@@ -2297,7 +2297,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Apache Doris",
+    "title": "Airbyte Apache Doris",
     "tombstone": false,
     "uid": "05c161bf-ca73-4d48-b524-d392be417002",
     "vendor_attributes": {
@@ -2363,7 +2363,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "DuckDB",
+    "title": "Airbyte DuckDB",
     "tombstone": false,
     "uid": "94bd199c-2ff0-4aa2-b98e-17f0acb72610",
     "vendor_attributes": {
@@ -2490,14 +2490,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "DynamoDB",
+    "supportLevel": "community",
+    "title": "Airbyte DynamoDB",
     "tombstone": false,
     "uid": "8ccd8909-4e99-4141-b48d-4984b70b2d89",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 200
+        "sl": 100
       },
       "dockerImageTag": "0.1.7",
       "dockerRepository": "airbyte/destination-dynamodb",
@@ -2741,7 +2741,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "E2E Testing",
+    "title": "Airbyte E2E Testing",
     "tombstone": false,
     "uid": "2eb65e87-983a-4fd7-b3e3-9d9dc6eb8537",
     "vendor_attributes": {
@@ -3011,7 +3011,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "ElasticSearch",
+    "title": "Airbyte ElasticSearch",
     "tombstone": false,
     "uid": "68f351a7-2745-4bef-ad7f-996b8e51bb8c",
     "vendor_attributes": {
@@ -3122,7 +3122,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Exasol",
+    "title": "Airbyte Exasol",
     "tombstone": false,
     "uid": "bb6071d9-6f34-4766-bec2-d1d4ed81a653",
     "vendor_attributes": {
@@ -3281,7 +3281,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Firebolt",
+    "title": "Airbyte Firebolt",
     "tombstone": false,
     "uid": "18081484-02a5-4662-8dba-b270b582f321",
     "vendor_attributes": {
@@ -3349,7 +3349,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Google Firestore",
+    "title": "Airbyte Google Firestore",
     "tombstone": false,
     "uid": "27dc7500-6d1b-40b1-8b07-e2f2aea3c9f4",
     "vendor_attributes": {
@@ -3846,14 +3846,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "Google Cloud Storage (GCS)",
+    "supportLevel": "community",
+    "title": "Airbyte Google Cloud Storage (GCS)",
     "tombstone": false,
     "uid": "ca8f6566-e555-4b40-943a-545bf123117a",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 300,
-        "sl": 200
+        "sl": 100
       },
       "dockerImageTag": "0.4.4",
       "dockerRepository": "airbyte/destination-gcs",
@@ -3952,14 +3952,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "Google Sheets",
+    "supportLevel": "community",
+    "title": "Airbyte Google Sheets",
     "tombstone": false,
     "uid": "a4cbd2d1-8dbe-4818-b8bc-b90ad782d12a",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 300
+        "sl": 100
       },
       "dockerImageTag": "0.2.2",
       "dockerRepository": "airbyte/destination-google-sheets",
@@ -4424,7 +4424,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Apache Iceberg",
+    "title": "Airbyte Apache Iceberg",
     "tombstone": false,
     "uid": "df65a8f3-9908-451b-aa9b-445462803560",
     "vendor_attributes": {
@@ -4773,7 +4773,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Kafka",
+    "title": "Airbyte Kafka",
     "tombstone": false,
     "uid": "9f760101-60ae-462f-9ee6-b7a9dafd454d",
     "vendor_attributes": {
@@ -4852,7 +4852,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Chargify (Keen)",
+    "title": "Airbyte Chargify (Keen)",
     "tombstone": false,
     "uid": "81740ce8-d764-4ea7-94df-16bb41de36ae",
     "vendor_attributes": {
@@ -4961,7 +4961,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Kinesis",
+    "title": "Airbyte Kinesis",
     "tombstone": false,
     "uid": "6d1d66d4-26ab-4602-8d32-f85894b04955",
     "vendor_attributes": {
@@ -5022,13 +5022,6 @@
         "properties": {
           "embedding": {
             "description": "Embedding configuration",
-            "discriminator": {
-              "mapping": {
-                "fake": "#/definitions/FakeEmbeddingConfigModel",
-                "openai": "#/definitions/OpenAIEmbeddingConfigModel"
-              },
-              "propertyName": "mode"
-            },
             "group": "embedding",
             "oneOf": [
               {
@@ -5077,14 +5070,6 @@
           },
           "indexing": {
             "description": "Indexing configuration",
-            "discriminator": {
-              "mapping": {
-                "DocArrayHnswSearch": "#/definitions/DocArrayHnswSearchIndexingModel",
-                "chroma_local": "#/definitions/ChromaLocalIndexingModel",
-                "pinecone": "#/definitions/PineconeIndexingModel"
-              },
-              "propertyName": "mode"
-            },
             "group": "indexing",
             "oneOf": [
               {
@@ -5235,7 +5220,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Vector Database (powered by LangChain)",
+    "title": "Airbyte Vector Database (powered by LangChain)",
     "tombstone": false,
     "uid": "cf98d52c-ba5a-4dfd-8ada-c1baebfa6e73",
     "vendor_attributes": {
@@ -5243,7 +5228,7 @@
         "ql": 100,
         "sl": 100
       },
-      "dockerImageTag": "0.0.6",
+      "dockerImageTag": "0.0.8",
       "dockerRepository": "airbyte/destination-langchain",
       "githubIssueLabel": "destination-langchain",
       "license": "MIT",
@@ -5298,7 +5283,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Local JSON",
+    "title": "Airbyte Local JSON",
     "tombstone": false,
     "uid": "a625d593-bba5-4a1c-a53d-2d246268a816",
     "vendor_attributes": {
@@ -5520,7 +5505,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "MariaDB ColumnStore",
+    "title": "Airbyte MariaDB ColumnStore",
     "tombstone": false,
     "uid": "294a4790-429b-40ae-9516-49826b9702e1",
     "vendor_attributes": {
@@ -5589,7 +5574,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "MeiliSearch",
+    "title": "Airbyte MeiliSearch",
     "tombstone": false,
     "uid": "af7c921e-5892-4ff2-b6c1-4a5ab258fb7e",
     "vendor_attributes": {
@@ -5924,7 +5909,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "MongoDB",
+    "title": "Airbyte MongoDB",
     "tombstone": false,
     "uid": "8b746512-8c2e-6ac1-4adc-b59faafd473c",
     "vendor_attributes": {
@@ -6081,7 +6066,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "MQTT",
+    "title": "Airbyte MQTT",
     "tombstone": false,
     "uid": "f3802bc4-5406-4752-9e8d-01e504ca8194",
     "vendor_attributes": {
@@ -6381,14 +6366,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "MS SQL Server",
+    "supportLevel": "community",
+    "title": "Airbyte MS SQL Server",
     "tombstone": false,
     "uid": "d4353156-9217-4cad-8dd7-c108fd4f74cf",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 300
+        "sl": 100
       },
       "dockerImageTag": "0.2.0",
       "dockerRepository": "airbyte/destination-mssql",
@@ -6617,14 +6602,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "MySQL",
+    "supportLevel": "community",
+    "title": "Airbyte MySQL",
     "tombstone": false,
     "uid": "ca81ee7c-3163-4246-af40-094cc31e5e42",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 300
+        "sl": 100
       },
       "dockerImageTag": "0.2.0",
       "dockerRepository": "airbyte/destination-mysql",
@@ -6933,14 +6918,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "Oracle",
+    "supportLevel": "community",
+    "title": "Airbyte Oracle",
     "tombstone": false,
     "uid": "3986776d-2319-4de9-8af8-db14c0996e72",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 200
+        "sl": 100
       },
       "dockerImageTag": "0.2.0",
       "dockerRepository": "airbyte/destination-oracle",
@@ -7351,14 +7336,14 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "Postgres",
+    "supportLevel": "community",
+    "title": "Airbyte Postgres",
     "tombstone": false,
     "uid": "25c5221d-dce2-4163-ade9-739ef790f503",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 200,
-        "sl": 300
+        "sl": 100
       },
       "dockerImageTag": "0.4.0",
       "dockerRepository": "airbyte/destination-postgres",
@@ -7468,7 +7453,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Google PubSub",
+    "title": "Airbyte Google PubSub",
     "tombstone": false,
     "uid": "356668e2-7e34-47f3-a3b0-67a8a481b692",
     "vendor_attributes": {
@@ -7664,7 +7649,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Pulsar",
+    "title": "Airbyte Pulsar",
     "tombstone": false,
     "uid": "2340cbba-358e-11ec-8d3d-0242ac130203",
     "vendor_attributes": {
@@ -8062,7 +8047,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Cloudflare R2",
+    "title": "Airbyte Cloudflare R2",
     "tombstone": false,
     "uid": "0fb07be9-7c3b-4336-850d-5efc006152ee",
     "vendor_attributes": {
@@ -8154,7 +8139,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "RabbitMQ",
+    "title": "Airbyte RabbitMQ",
     "tombstone": false,
     "uid": "e06ad785-ad6f-4647-b2e8-3027a5c59454",
     "vendor_attributes": {
@@ -8460,7 +8445,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Redis",
+    "title": "Airbyte Redis",
     "tombstone": false,
     "uid": "d4d3fef9-e319-45c2-881a-bd02ce44cc9f",
     "vendor_attributes": {
@@ -8594,7 +8579,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Redpanda",
+    "title": "Airbyte Redpanda",
     "tombstone": false,
     "uid": "825c5ee3-ed9a-4dd1-a2b6-79ed722f7b13",
     "vendor_attributes": {
@@ -9004,16 +8989,16 @@
         "type": "object"
       }
     },
-    "supportLevel": "certified",
-    "title": "Redshift",
+    "supportLevel": "community",
+    "title": "Airbyte Redshift",
     "tombstone": false,
     "uid": "f7a7d195-377f-cf5b-70a5-be6b819019dc",
     "vendor_attributes": {
       "ab_internal": {
         "ql": 300,
-        "sl": 200
+        "sl": 100
       },
-      "dockerImageTag": "0.6.4",
+      "dockerImageTag": "0.6.5",
       "dockerRepository": "airbyte/destination-redshift",
       "githubIssueLabel": "destination-redshift",
       "license": "MIT",
@@ -9106,7 +9091,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Rockset",
+    "title": "Airbyte Rockset",
     "tombstone": false,
     "uid": "2c9d93a7-9a17-4789-9de9-f46f0097eb70",
     "vendor_attributes": {
@@ -9358,7 +9343,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "S3 Glue",
+    "title": "Airbyte S3 Glue",
     "tombstone": false,
     "uid": "471e5cab-8ed1-49f3-ba11-79c687784737",
     "vendor_attributes": {
@@ -9874,7 +9859,7 @@
       }
     },
     "supportLevel": "certified",
-    "title": "S3",
+    "title": "Airbyte S3",
     "tombstone": false,
     "uid": "4816b78f-1489-44c1-9060-4b19d5fa9362",
     "vendor_attributes": {
@@ -9985,7 +9970,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Scylla",
+    "title": "Airbyte Scylla",
     "tombstone": false,
     "uid": "3dc6f384-cd6b-4be3-ad16-a41450899bf0",
     "vendor_attributes": {
@@ -10082,7 +10067,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "SelectDB",
+    "title": "Airbyte SelectDB",
     "tombstone": false,
     "uid": "50a559a7-6323-4e33-8aa0-51dfd9dfadac",
     "vendor_attributes": {
@@ -10181,7 +10166,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "SFTP-JSON",
+    "title": "Airbyte SFTP-JSON",
     "tombstone": false,
     "uid": "e9810f61-4bab-46d2-bb22-edfc902e0644",
     "vendor_attributes": {
@@ -10217,6 +10202,16 @@
     "icon_url": "https://connectors.airbyte.com/files/metadata/airbyte/destination-snowflake/latest/icon.svg",
     "id": "airbyte-destination-snowflake",
     "public": true,
+    "releases": {
+      "breakingChanges": {
+        "2.0.0": {
+          "message": "Remove GCS/S3 loading method support.",
+          "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/snowflake-migrations#2.0.0",
+          "upgradeDeadline": "2023-08-31"
+        }
+      },
+      "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/snowflake-migrations"
+    },
     "spec": {
       "component_specification": {
         "$ref": "component.json"
@@ -10347,18 +10342,6 @@
             "title": "Database",
             "type": "string"
           },
-          "file_buffer_count": {
-            "default": 10,
-            "description": "Number of file buffers allocated for writing data. Increasing this number is beneficial for connections using Change Data Capture (CDC) and up to the number of streams within a connection. Increasing the number of file buffers past the maximum number of streams has deteriorating effects",
-            "examples": [
-              "10"
-            ],
-            "maximum": 50,
-            "minimum": 10,
-            "order": 9,
-            "title": "File Buffer Count",
-            "type": "integer"
-          },
           "host": {
             "description": "Enter your Snowflake account's <a href=\"https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#using-an-account-locator-as-an-identifier\">locator</a> (in the format <account_locator>.<region>.<cloud>.snowflakecomputing.com)",
             "examples": [
@@ -10376,249 +10359,6 @@
             "order": 7,
             "title": "JDBC URL Params",
             "type": "string"
-          },
-          "loading_method": {
-            "description": "Select a data staging method",
-            "oneOf": [
-              {
-                "description": "Select another option",
-                "properties": {
-                  "method": {
-                    "default": "Standard",
-                    "description": "",
-                    "enum": [
-                      "Standard"
-                    ],
-                    "title": "",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "method"
-                ],
-                "title": "Select another option"
-              },
-              {
-                "description": "Recommended for large production workloads for better speed and scalability.",
-                "properties": {
-                  "method": {
-                    "default": "Internal Staging",
-                    "description": "",
-                    "enum": [
-                      "Internal Staging"
-                    ],
-                    "title": "",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "method"
-                ],
-                "title": "[Recommended] Internal Staging"
-              },
-              {
-                "description": "Recommended for large production workloads for better speed and scalability.",
-                "properties": {
-                  "access_key_id": {
-                    "credential_field": true,
-                    "description": "Enter your <a href=\"https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html\">AWS access key ID</a>. Airbyte requires Read and Write permissions on your S3 bucket ",
-                    "order": 3,
-                    "title": "AWS access key ID",
-                    "type": "string"
-                  },
-                  "encryption": {
-                    "default": {
-                      "encryption_type": "none"
-                    },
-                    "description": "Choose a data encryption method for the staging data",
-                    "oneOf": [
-                      {
-                        "description": "Staging data will be stored in plaintext.",
-                        "properties": {
-                          "encryption_type": {
-                            "const": "none",
-                            "default": "none",
-                            "enum": [
-                              "none"
-                            ],
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "encryption_type"
-                        ],
-                        "title": "No encryption",
-                        "type": "object"
-                      },
-                      {
-                        "description": "Staging data will be encrypted using AES-CBC envelope encryption.",
-                        "properties": {
-                          "encryption_type": {
-                            "const": "aes_cbc_envelope",
-                            "default": "aes_cbc_envelope",
-                            "enum": [
-                              "aes_cbc_envelope"
-                            ],
-                            "type": "string"
-                          },
-                          "key_encrypting_key": {
-                            "credential_field": true,
-                            "description": "The key, base64-encoded. Must be either 128, 192, or 256 bits. Leave blank to have Airbyte generate an ephemeral key for each sync.",
-                            "title": "Key",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "encryption_type"
-                        ],
-                        "title": "AES-CBC envelope encryption",
-                        "type": "object"
-                      }
-                    ],
-                    "order": 6,
-                    "title": "Encryption",
-                    "type": "object"
-                  },
-                  "file_name_pattern": {
-                    "description": "The pattern allows you to set the file-name format for the S3 staging file(s)",
-                    "examples": [
-                      "{date}",
-                      "{date:yyyy_MM}",
-                      "{timestamp}",
-                      "{part_number}",
-                      "{sync_id}"
-                    ],
-                    "order": 7,
-                    "title": "S3 Filename pattern",
-                    "type": "string"
-                  },
-                  "method": {
-                    "default": "S3 Staging",
-                    "description": "",
-                    "enum": [
-                      "S3 Staging"
-                    ],
-                    "order": 0,
-                    "title": "",
-                    "type": "string"
-                  },
-                  "purge_staging_data": {
-                    "default": true,
-                    "description": "Toggle to delete staging files from the S3 bucket after a successful sync",
-                    "order": 5,
-                    "title": "Purge Staging Files and Tables",
-                    "type": "boolean"
-                  },
-                  "s3_bucket_name": {
-                    "description": "Enter your S3 bucket name",
-                    "examples": [
-                      "airbyte.staging"
-                    ],
-                    "order": 1,
-                    "title": "S3 Bucket Name",
-                    "type": "string"
-                  },
-                  "s3_bucket_region": {
-                    "default": "",
-                    "description": "Enter the region where your S3 bucket resides",
-                    "enum": [
-                      "",
-                      "us-east-1",
-                      "us-east-2",
-                      "us-west-1",
-                      "us-west-2",
-                      "af-south-1",
-                      "ap-east-1",
-                      "ap-south-1",
-                      "ap-northeast-1",
-                      "ap-northeast-2",
-                      "ap-northeast-3",
-                      "ap-southeast-1",
-                      "ap-southeast-2",
-                      "ca-central-1",
-                      "cn-north-1",
-                      "cn-northwest-1",
-                      "eu-central-1",
-                      "eu-west-1",
-                      "eu-west-2",
-                      "eu-west-3",
-                      "eu-south-1",
-                      "eu-north-1",
-                      "sa-east-1",
-                      "me-south-1"
-                    ],
-                    "order": 2,
-                    "title": "S3 Bucket Region",
-                    "type": "string"
-                  },
-                  "secret_access_key": {
-                    "credential_field": true,
-                    "description": "Enter your <a href=\"https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html\">AWS secret access key</a>",
-                    "order": 4,
-                    "title": "AWS secret access key",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "method",
-                  "s3_bucket_name",
-                  "access_key_id",
-                  "secret_access_key"
-                ],
-                "title": "AWS S3 Staging"
-              },
-              {
-                "description": "Recommended for large production workloads for better speed and scalability.",
-                "properties": {
-                  "bucket_name": {
-                    "description": "Enter the <a href=\"https://cloud.google.com/storage/docs/creating-buckets\">Cloud Storage bucket name</a>",
-                    "examples": [
-                      "airbyte-staging"
-                    ],
-                    "order": 2,
-                    "title": "Cloud Storage bucket name",
-                    "type": "string"
-                  },
-                  "credentials_json": {
-                    "credential_field": true,
-                    "description": "Enter your <a href=\"https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys\">Google Cloud service account key</a> in the JSON format with read/write access to your Cloud Storage staging bucket",
-                    "multiline": true,
-                    "order": 3,
-                    "title": "Google Application Credentials",
-                    "type": "string"
-                  },
-                  "method": {
-                    "default": "GCS Staging",
-                    "description": "",
-                    "enum": [
-                      "GCS Staging"
-                    ],
-                    "order": 0,
-                    "title": "",
-                    "type": "string"
-                  },
-                  "project_id": {
-                    "description": "Enter the <a href=\"https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects\">Google Cloud project ID</a>",
-                    "examples": [
-                      "my-project"
-                    ],
-                    "order": 1,
-                    "title": "Google Cloud project ID",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "method",
-                  "project_id",
-                  "bucket_name",
-                  "credentials_json"
-                ],
-                "title": "Google Cloud Storage Staging"
-              }
-            ],
-            "order": 8,
-            "title": "Data Staging Method",
-            "type": "object"
           },
           "raw_data_schema": {
             "description": "(Beta) The schema to write raw tables into",
@@ -10682,7 +10422,7 @@
       }
     },
     "supportLevel": "certified",
-    "title": "Snowflake",
+    "title": "Airbyte Snowflake",
     "tombstone": false,
     "uid": "424892c4-daac-4491-b35d-c6688ba547ba",
     "vendor_attributes": {
@@ -10690,7 +10430,7 @@
         "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "1.3.1",
+      "dockerImageTag": "2.1.5",
       "dockerRepository": "airbyte/destination-snowflake",
       "githubIssueLabel": "destination-snowflake",
       "license": "ELv2",
@@ -10830,7 +10570,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Local SQLite",
+    "title": "Airbyte Local SQLite",
     "tombstone": false,
     "uid": "b76be0a6-27dc-4560-95f6-2623da0bd7b6",
     "vendor_attributes": {
@@ -11049,7 +10789,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Starburst Galaxy",
+    "title": "Airbyte Starburst Galaxy",
     "tombstone": false,
     "uid": "4528e960-6f7b-4412-8555-7e0097e1da17",
     "vendor_attributes": {
@@ -11288,7 +11028,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Teradata Vantage",
+    "title": "Airbyte Teradata Vantage",
     "tombstone": false,
     "uid": "58e6f9da-904e-11ed-a1eb-0242ac120002",
     "vendor_attributes": {
@@ -11518,7 +11258,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "TiDB",
+    "title": "Airbyte TiDB",
     "tombstone": false,
     "uid": "06ec60c7-7468-45c0-91ac-174f6e1a788b",
     "vendor_attributes": {
@@ -11599,7 +11339,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Timeplus",
+    "title": "Airbyte Timeplus",
     "tombstone": false,
     "uid": "f70a8ece-351e-4790-b37b-cb790bcd6d54",
     "vendor_attributes": {
@@ -11656,7 +11396,7 @@
             "description": "How many documents should be imported together. Default 1000",
             "order": 4,
             "title": "Batch size",
-            "type": "string"
+            "type": "integer"
           },
           "host": {
             "description": "Hostname of the Typesense instance without protocol.",
@@ -11686,7 +11426,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Typesense",
+    "title": "Airbyte Typesense",
     "tombstone": false,
     "uid": "36be8dc6-9851-49af-b776-9d4c30e4ab6a",
     "vendor_attributes": {
@@ -11694,7 +11434,7 @@
         "ql": 100,
         "sl": 100
       },
-      "dockerImageTag": "0.1.0",
+      "dockerImageTag": "0.1.1",
       "dockerRepository": "airbyte/destination-typesense",
       "githubIssueLabel": "destination-typesense",
       "license": "MIT",
@@ -11706,9 +11446,7 @@
           "overwrite",
           "append"
         ],
-        "supportsDBT": false,
-        "supportsIncremental": true,
-        "supportsNormalization": false
+        "supportsIncremental": true
       },
       "tags": [
         "language:python"
@@ -11915,7 +11653,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Vertica",
+    "title": "Airbyte Vertica",
     "tombstone": false,
     "uid": "ca81ee7c-3163-9678-af40-094cc31e5e42",
     "vendor_attributes": {
@@ -12011,7 +11749,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Weaviate",
+    "title": "Airbyte Weaviate",
     "tombstone": false,
     "uid": "7b7d7a0d-954c-45a0-bcfc-39a634b97736",
     "vendor_attributes": {
@@ -12082,7 +11820,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "Xata",
+    "title": "Airbyte Xata",
     "tombstone": false,
     "uid": "2a51c92d-0fb4-4e54-94d2-cce631f24d1f",
     "vendor_attributes": {
@@ -12192,7 +11930,7 @@
       }
     },
     "supportLevel": "community",
-    "title": "YugabyteDB",
+    "title": "Airbyte YugabyteDB",
     "tombstone": false,
     "uid": "2300fdcf-a532-419f-9f24-a014336e7966",
     "vendor_attributes": {
@@ -12260,7 +11998,7 @@
         "type": "object"
       }
     },
-    "title": "Streamr",
+    "title": "Airbyte Streamr",
     "tombstone": false,
     "uid": "eebd85cf-60b2-4af6-9ba0-edeca01437b0",
     "vendor_attributes": {
