@@ -11,9 +11,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -214,9 +232,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -570,9 +606,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -792,9 +846,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -1115,14 +1187,42 @@
     "icon_url": "https://connectors.airbyte.com/files/metadata/airbyte/destination-bigquery/latest/icon.svg",
     "id": "airbyte-destination-bigquery",
     "public": true,
+    "releases": {
+      "breakingChanges": {
+        "2.0.0": {
+          "message": "**Do not upgrade until you have run a test upgrade as outlined [here](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#testing-destinations-v2-for-a-single-connection)**.\nThis version introduces [Destinations V2](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#what-is-destinations-v2), which provides better error handling, incremental delivery of data for large syncs, and improved final table structures. To review the breaking changes, and how to upgrade, see [here](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#quick-start-to-upgrading). These changes will likely require updates to downstream dbt / SQL models, which we walk through [here](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#updating-downstream-transformations).\nSelecting `Upgrade` will upgrade **all** connections using this destination at their next sync. You can manually sync existing connections prior to the next scheduled sync to start the upgrade early.\n",
+          "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/bigquery-migrations#2.0.0",
+          "upgradeDeadline": "2023-11-01"
+        }
+      },
+      "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/bigquery-migrations"
+    },
     "spec": {
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -1385,9 +1485,9 @@
             "type": "string"
           },
           "raw_data_dataset": {
-            "description": "(Early Access) The dataset to write raw tables into",
-            "order": 8,
-            "title": "Destinations V2 Raw Table Dataset (Early Access)",
+            "description": "The dataset to write raw tables into",
+            "order": 7,
+            "title": "Destinations V2 Raw Table Dataset",
             "type": "string"
           },
           "transformation_priority": {
@@ -1400,12 +1500,6 @@
             "order": 5,
             "title": "Transformation Query Run Type",
             "type": "string"
-          },
-          "use_1s1t_format": {
-            "description": "(Early Access) Use <a href=\"https://docs.airbyte.com/understanding-airbyte/typing-deduping\" target=\"_blank\">Destinations V2</a>.",
-            "order": 7,
-            "title": "Use Destinations V2 (Early Access)",
-            "type": "boolean"
           }
         },
         "required": [
@@ -1426,15 +1520,10 @@
         "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "1.10.2",
+      "dockerImageTag": "2.0.1",
       "dockerRepository": "airbyte/destination-bigquery",
       "githubIssueLabel": "destination-bigquery",
       "license": "ELv2",
-      "normalizationConfig": {
-        "normalizationIntegrationType": "bigquery",
-        "normalizationRepository": "airbyte/normalization",
-        "normalizationTag": "0.4.3"
-      },
       "releaseStage": "generally_available",
       "resourceRequirements": {
         "jobSpecific": [
@@ -1476,9 +1565,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -1645,9 +1752,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -1939,9 +2064,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -2068,9 +2211,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -2256,9 +2417,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -2393,9 +2572,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -2554,9 +2751,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -2926,9 +3141,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -3092,9 +3325,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -3216,9 +3467,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -3402,9 +3671,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -3711,9 +3998,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -4038,9 +4343,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -4207,9 +4530,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -4425,9 +4766,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -4550,9 +4909,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -5117,9 +5494,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -5315,9 +5710,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -5798,9 +6211,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -6205,9 +6636,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -6343,9 +6792,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -6510,9 +6977,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -6826,9 +7311,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -6948,9 +7451,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -7228,9 +7749,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -7355,9 +7894,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -7748,9 +8305,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -7962,9 +8537,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -8329,9 +8922,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -8622,9 +9233,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -8985,6 +9614,308 @@
     }
   },
   {
+    "allowedHosts": {
+      "hosts": [
+        "*.${indexing.pinecone_environment}.pinecone.io"
+      ]
+    },
+    "custom": false,
+    "documentation_url": "https://docs.airbyte.com/integrations/destinations/pinecone",
+    "icon": "pinecone.svg",
+    "icon_url": "https://connectors.airbyte.com/files/metadata/airbyte/destination-pinecone/latest/icon.svg",
+    "id": "airbyte-destination-pinecone",
+    "public": true,
+    "releaseDate": "2023-08-15",
+    "spec": {
+      "component_specification": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
+            }
+          }
+        }
+      },
+      "openapi_specifications": {
+        "default": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "Airbyte Connector Openapi"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "resource_specification": {
+        "groups": [
+          {
+            "id": "processing",
+            "title": "Processing"
+          },
+          {
+            "id": "embedding",
+            "title": "Embedding"
+          },
+          {
+            "id": "indexing",
+            "title": "Indexing"
+          }
+        ],
+        "properties": {
+          "embedding": {
+            "description": "Embedding configuration",
+            "group": "embedding",
+            "oneOf": [
+              {
+                "description": "Use the OpenAI API to embed text. This option is using the text-embedding-ada-002 model with 1536 embedding dimensions.",
+                "properties": {
+                  "mode": {
+                    "const": "openai",
+                    "default": "openai",
+                    "enum": [
+                      "openai"
+                    ],
+                    "title": "Mode",
+                    "type": "string"
+                  },
+                  "openai_key": {
+                    "credential_field": true,
+                    "title": "OpenAI API key",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "openai_key"
+                ],
+                "title": "OpenAI",
+                "type": "object"
+              },
+              {
+                "description": "Use the Cohere API to embed text. This option is using the embed-english-light-v2.0 model with 1024 embedding dimensions.",
+                "properties": {
+                  "cohere_key": {
+                    "credential_field": true,
+                    "title": "Cohere API key",
+                    "type": "string"
+                  },
+                  "mode": {
+                    "const": "cohere",
+                    "default": "cohere",
+                    "enum": [
+                      "cohere"
+                    ],
+                    "title": "Mode",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "cohere_key"
+                ],
+                "title": "Cohere",
+                "type": "object"
+              },
+              {
+                "description": "Use a fake embedding made out of random vectors with 1536 embedding dimensions. This is useful for testing the data pipeline without incurring any costs.",
+                "properties": {
+                  "mode": {
+                    "const": "fake",
+                    "default": "fake",
+                    "enum": [
+                      "fake"
+                    ],
+                    "title": "Mode",
+                    "type": "string"
+                  }
+                },
+                "title": "Fake",
+                "type": "object"
+              }
+            ],
+            "title": "Embedding",
+            "type": "object"
+          },
+          "indexing": {
+            "description": "Pinecone is a popular vector store that can be used to store and retrieve embeddings.",
+            "properties": {
+              "index": {
+                "description": "Pinecone index to use",
+                "title": "Index",
+                "type": "string"
+              },
+              "pinecone_environment": {
+                "description": "Pinecone environment to use",
+                "title": "Pinecone environment",
+                "type": "string"
+              },
+              "pinecone_key": {
+                "credential_field": true,
+                "title": "Pinecone API key",
+                "type": "string"
+              }
+            },
+            "required": [
+              "pinecone_key",
+              "pinecone_environment",
+              "index"
+            ],
+            "title": "Pinecone",
+            "type": "object"
+          },
+          "processing": {
+            "group": "processing",
+            "properties": {
+              "chunk_overlap": {
+                "default": 0,
+                "description": "Size of overlap between chunks in tokens to store in vector store to better capture relevant context",
+                "title": "Chunk overlap",
+                "type": "integer"
+              },
+              "chunk_size": {
+                "description": "Size of chunks in tokens to store in vector store (make sure it is not too big for the context if your LLM)",
+                "maximum": 8191,
+                "title": "Chunk size",
+                "type": "integer"
+              },
+              "metadata_fields": {
+                "always_show": true,
+                "default": [],
+                "description": "List of fields in the record that should be stored as metadata. ",
+                "examples": [
+                  "text",
+                  "user.name",
+                  "users.*.name"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "title": "Metadata fields",
+                "type": "array"
+              },
+              "text_fields": {
+                "always_show": true,
+                "default": [],
+                "description": "List of fields in the record that should be used to calculate the embedding. All other fields are passed along as meta fields. The field list is applied to all streams in the same way and non-existing fields are ignored. If none are defined, all fields are considered text fields. When specifying text fields, you can access nested fields in the record by using dot notation, e.g. `user.name` will access the `name` field in the `user` object. It's also possible to use wildcards to access all fields in an object, e.g. `users.*.name` will access all `names` fields in all entries of the `users` array.",
+                "examples": [
+                  "text",
+                  "user.name",
+                  "users.*.name"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "title": "Text fields to embed",
+                "type": "array"
+              }
+            },
+            "required": [
+              "chunk_size"
+            ],
+            "title": "ProcessingConfigModel",
+            "type": "object"
+          }
+        },
+        "required": [
+          "indexing",
+          "embedding",
+          "processing"
+        ],
+        "title": "Pinecone Destination Config",
+        "type": "object"
+      }
+    },
+    "supportLevel": "community",
+    "title": "Airbyte Pinecone",
+    "tombstone": false,
+    "uid": "3d2b6f84-7f0d-4e3f-a5e5-7c7d4b50eabd",
+    "vendor_attributes": {
+      "ab_internal": {
+        "ql": 100,
+        "sl": 100
+      },
+      "dockerImageTag": "0.0.2",
+      "dockerRepository": "airbyte/destination-pinecone",
+      "githubIssueLabel": "destination-pinecone",
+      "license": "MIT",
+      "releaseStage": "alpha",
+      "resourceRequirements": {},
+      "sourceType": "database",
+      "spec": {
+        "supported_destination_sync_modes": [
+          "overwrite",
+          "append",
+          "append_dedup"
+        ],
+        "supportsIncremental": true
+      },
+      "tags": [
+        "language:python"
+      ]
+    }
+  },
+  {
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/postgres",
     "icon": "postgresql.svg",
@@ -8996,9 +9927,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -9473,9 +10422,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -9639,9 +10606,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -9893,9 +10878,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -10350,9 +11353,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -10499,9 +11520,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -10864,9 +11903,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -11055,9 +12112,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -11541,9 +12616,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -11684,9 +12777,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -11994,9 +13105,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -12578,9 +13707,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -12737,9 +13884,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -12892,9 +14057,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -13050,6 +14233,11 @@
           "message": "Remove GCS/S3 loading method support.",
           "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/snowflake-migrations#2.0.0",
           "upgradeDeadline": "2023-08-31"
+        },
+        "3.0.0": {
+          "message": "**Do not upgrade until you have run a test upgrade as outlined [here](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#testing-destinations-v2-for-a-single-connection)**.\nThis version introduces [Destinations V2](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#what-is-destinations-v2), which provides better error handling, incremental delivery of data for large syncs, and improved final table structures. To review the breaking changes, and how to upgrade, see [here](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#quick-start-to-upgrading). These changes will likely require updates to downstream dbt / SQL models, which we walk through [here](https://docs.airbyte.com/release_notes/upgrading_to_destinations_v2/#updating-downstream-transformations).\nSelecting `Upgrade` will upgrade **all** connections using this destination at their next sync. You can manually sync existing connections prior to the next scheduled sync to start the upgrade early.\n",
+          "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/snowflake-migrations#3.0.0",
+          "upgradeDeadline": "2023-11-01"
         }
       },
       "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/snowflake-migrations"
@@ -13059,9 +14247,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -13261,9 +14467,9 @@
             "type": "string"
           },
           "raw_data_schema": {
-            "description": "(Beta) The schema to write raw tables into",
-            "order": 11,
-            "title": "Destinations V2 Raw Table Schema (Early Access)",
+            "description": "The schema to write raw tables into",
+            "order": 10,
+            "title": "Destinations V2 Raw Table Schema",
             "type": "string"
           },
           "role": {
@@ -13283,12 +14489,6 @@
             "order": 4,
             "title": "Default Schema",
             "type": "string"
-          },
-          "use_1s1t_format": {
-            "description": "(Beta) Use <a href=\"https://github.com/airbytehq/airbyte/issues/26028\" target=\"_blank\">Destinations V2</a>. Contact Airbyte Support to participate in the beta program.",
-            "order": 10,
-            "title": "Use Destinations V2 (Early Access)",
-            "type": "boolean"
           },
           "username": {
             "description": "Enter the name of the user you want to use to access the database",
@@ -13330,15 +14530,10 @@
         "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "2.1.5",
+      "dockerImageTag": "3.0.0",
       "dockerRepository": "airbyte/destination-snowflake",
       "githubIssueLabel": "destination-snowflake",
       "license": "ELv2",
-      "normalizationConfig": {
-        "normalizationIntegrationType": "snowflake",
-        "normalizationRepository": "airbyte/normalization-snowflake",
-        "normalizationTag": "0.4.3"
-      },
       "releaseStage": "generally_available",
       "resourceRequirements": {
         "jobSpecific": [
@@ -13450,9 +14645,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -13569,9 +14782,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -13846,9 +15077,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -14143,9 +15392,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -14438,9 +15705,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -14570,9 +15855,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -14713,9 +16016,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -14999,9 +16320,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -15154,9 +16493,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -15280,9 +16637,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
@@ -15451,9 +16826,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "patternProperties": {
-            "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-              "type": "string"
+          "metadata": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "title": "Title",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                "type": "string",
+                "pattern": "^\\{.*\\}$"
+              }
             }
           }
         }
