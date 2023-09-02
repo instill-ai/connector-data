@@ -5,6 +5,7 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
+	"github.com/instill-ai/connector-data/pkg/bigquery"
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
 
@@ -20,11 +21,13 @@ type Connector struct {
 	base.BaseConnector
 	airbyteConnector  base.IConnector
 	pineconeConnector base.IConnector
+	bigqueryConnector base.IConnector
 }
 
 type ConnectorOptions struct {
 	Airbyte  airbyte.ConnectorOptions
 	PineCone pinecone.ConnectorOptions
+	BigQuery bigquery.ConnectorOptions
 }
 
 func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
@@ -32,11 +35,13 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 
 		airbyteConnector := airbyte.Init(logger, options.Airbyte)
 		pineconeConnector := pinecone.Init(logger, options.PineCone)
+		bigqueryConnector := bigquery.Init(logger, options.BigQuery)
 
 		connector = &Connector{
 			BaseConnector:     base.BaseConnector{Logger: logger},
 			airbyteConnector:  airbyteConnector,
 			pineconeConnector: pineconeConnector,
+			bigqueryConnector: bigqueryConnector,
 		}
 
 		// TODO: assert no duplicate uid
@@ -61,6 +66,16 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 				logger.Warn(err.Error())
 			}
 		}
+		for _, uid := range bigqueryConnector.ListConnectorDefinitionUids() {
+			def, err := bigqueryConnector.GetConnectorDefinitionByUid(uid)
+			if err != nil {
+				logger.Error(err.Error())
+			}
+			err = connector.AddConnectorDefinition(uid, def.GetId(), def)
+			if err != nil {
+				logger.Warn(err.Error())
+			}
+		}
 	})
 	return connector
 }
@@ -71,6 +86,8 @@ func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, 
 		return c.airbyteConnector.CreateConnection(defUid, config, logger)
 	case c.pineconeConnector.HasUid(defUid):
 		return c.pineconeConnector.CreateConnection(defUid, config, logger)
+	case c.bigqueryConnector.HasUid(defUid):
+		return c.bigqueryConnector.CreateConnection(defUid, config, logger)
 	default:
 		return nil, fmt.Errorf("no destinationConnector uid: %s", defUid)
 	}

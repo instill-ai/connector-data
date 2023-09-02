@@ -55,7 +55,7 @@ for idx in range(len(definitions)):
     definitions[idx]['icon_url'] = definitions[idx].get('iconUrl', "")
     definitions[idx]['spec']['resource_specification'] = definitions[idx]['spec']['connectionSpecification']
     definitions[idx]['spec']['component_specification'] = {
-        "$ref": "component.json"
+        "$ref": "resource.json"
     }
     definitions[idx]['spec']['openapi_specifications'] = {
         "$ref": "openapi.json"
@@ -86,4 +86,4 @@ with open("./definitions.json") as schema_file:
 with open('../definitions.json', 'w') as o:
     json.dump(a, o, indent=2)
 
-# TODO: auto-generate openapi.json component.json from data.json
+# TODO: auto-generate openapi.json resource.json from data.json

@@ -1,0 +1,51 @@
+{
+  "INSERT": {
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "maxLength": {
+            "type": "string"
+          },
+          "precision": {
+            "type": "string"
+          },
+          "scale": {
+            "type": "string"
+          },
+          "collation": {
+            "type": "string"
+          },
+          "defaultValueExpression": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

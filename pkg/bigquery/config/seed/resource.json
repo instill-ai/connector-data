@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BigQuery Connector Spec",
+  "type": "object",
+  "required": [
+    "api_key",
+    "project_id",
+    "dataset_id",
+    "table_name"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "api_key": {
+      "title": "API Key",
+      "description": "Fill your BigQuery API key.",
+      "type": "string",
+      "credential_field": true
+    },
+    "project_id": {
+      "title": "BigQuery Project ID",
+      "description": "Fill in your BigQuery Project ID.",
+      "type": "string"
+    },
+    "dataset_id": {
+      "title": "BigQuery Dataset ID",
+      "description": "Fill in your BigQuery Dataset ID.",
+      "type": "string"
+    },
+    "table_name": {
+      "title": "BigQuery Table Name",
+      "description": "Fill in your BigQuery Table Name.",
+      "type": "string"
+    }
+  }
+}
