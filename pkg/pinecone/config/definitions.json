@@ -36,64 +36,154 @@
       },
       "component_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Pinecone Connector Component Spec",
+        "title": "Pinecone Component Setting",
         "type": "object",
         "properties": {
-          "task": {
-            "title": "Task",
-            "enum": [
-              "QUERY",
-              "UPSERT"
-            ],
-            "default": "QUERY"
+          "input": {
+            "properties": {
+              "task": {
+                "title": "Task",
+                "enum": [
+                  "QUERY",
+                  "UPSERT"
+                ]
+              }
+            }
           }
         },
         "allOf": [
           {
             "if": {
               "properties": {
-                "task": {
-                  "const": "QUERY"
+                "input": {
+                  "properties": {
+                    "task": {
+                      "const": "QUERY"
+                    }
+                  }
                 }
               }
             },
             "then": {
-              "type": "object",
-              "required": [
-                "topK"
-              ],
               "properties": {
-                "namespace": {
-                  "type": "string",
-                  "description": "The namespace to query"
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
                 },
-                "topK": {
-                  "type": "string",
-                  "description": "The number of results to return for each query"
-                },
-                "includeValues": {
-                  "type": "string",
-                  "description": "Indicates whether vector values are included in the response",
-                  "default": false
-                },
-                "includeMetadata": {
-                  "type": "string",
-                  "description": "Indicates whether metadata is included in the response as well as the ids",
-                  "default": false
-                },
-                "vector": {
-                  "type": "string",
-                  "description": "An array of dimensions for the query vector.",
-                  "items": {
-                    "type": "string",
-                    "description": "A dimension of the vector",
-                    "example": 0.8167237
+                "input": {
+                  "type": "object",
+                  "required": [
+                    "topK"
+                  ],
+                  "properties": {
+                    "namespace": {
+                      "description": "The namespace to query",
+                      "instillFormat": "text",
+                      "instillUpstreamTypes": [
+                        "value",
+                        "reference"
+                      ],
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "instillUpstreamType": "value"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^\\{.*\\}$",
+                          "instillUpstreamType": "reference"
+                        }
+                      ]
+                    },
+                    "topK": {
+                      "description": "The number of results to return for each query",
+                      "instillFormat": "integer",
+                      "instillUpstreamTypes": [
+                        "value",
+                        "reference"
+                      ],
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "instillUpstreamType": "value"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^\\{.*\\}$",
+                          "instillUpstreamType": "reference"
+                        }
+                      ]
+                    },
+                    "includeValues": {
+                      "description": "Indicates whether vector values are included in the response",
+                      "instillFormat": "boolean",
+                      "instillUpstreamTypes": [
+                        "value",
+                        "reference"
+                      ],
+                      "oneOf": [
+                        {
+                          "type": "boolean",
+                          "default": false,
+                          "instillUpstreamType": "value"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^\\{.*\\}$",
+                          "instillUpstreamType": "reference"
+                        }
+                      ]
+                    },
+                    "includeMetadata": {
+                      "description": "Indicates whether metadata is included in the response as well as the ids",
+                      "instillFormat": "boolean",
+                      "instillUpstreamTypes": [
+                        "value",
+                        "reference"
+                      ],
+                      "oneOf": [
+                        {
+                          "type": "boolean",
+                          "default": false,
+                          "instillUpstreamType": "value"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^\\{.*\\}$",
+                          "instillUpstreamType": "reference"
+                        }
+                      ]
+                    },
+                    "vectors": {
+                      "description": "An array of dimensions for the query vector.",
+                      "instillFormat": "number_array",
+                      "instillUpstreamTypes": [
+                        "reference"
+                      ],
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^\\{.*\\}$",
+                          "instillUpstreamType": "reference"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "description": "The unique ID of the vector to be used as a query vector",
+                      "instillFormat": "text",
+                      "instillUpstreamTypes": [
+                        "reference"
+                      ],
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^\\{.*\\}$",
+                          "instillUpstreamType": "reference"
+                        }
+                      ]
+                    }
                   },
-                  "minItems": 1
-                },
-                "id": {
-                  "type": "string",
-                  "description": "The unique ID of the vector to be used as a query vector"
+                  "title": "Data Flow"
                 }
               }
             }
@@ -101,31 +191,64 @@
           {
             "if": {
               "properties": {
-                "task": {
-                  "const": "UPSERT"
+                "input": {
+                  "properties": {
+                    "task": {
+                      "const": "UPSERT"
+                    }
+                  }
                 }
               }
             },
             "then": {
-              "type": "object",
-              "required": [
-                "id",
-                "values"
-              ],
               "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "This is the vector's unique id"
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
                 },
-                "values": {
-                  "type": "string",
-                  "description": "An array of dimensions for the vector to be saved",
-                  "items": {
-                    "type": "string",
-                    "description": "A dimension of the vector",
-                    "example": 0.8167237
+                "input": {
+                  "type": "object",
+                  "required": [
+                    "vectors"
+                  ],
+                  "properties": {
+                    "vectors": {
+                      "type": "array",
+                      "description": "An array of vectors to be saved",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "values"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "This is the vector's unique id",
+                            "instillFormat": "text",
+                            "instillUpstreamTypes": [
+                              "reference"
+                            ]
+                          },
+                          "values": {
+                            "type": "array",
+                            "description": "An array of dimensions for the vector to be saved",
+                            "items": {
+                              "type": "number",
+                              "description": "A dimension of the vector",
+                              "example": 0.8167237
+                            },
+                            "minItems": 1,
+                            "instillFormat": "number_array",
+                            "instillUpstreamTypes": [
+                              "reference"
+                            ]
+                          }
+                        }
+                      }
+                    }
                   },
-                  "minItems": 1
+                  "title": "Data Flow"
                 }
               }
             }
@@ -137,7 +260,7 @@
           "openapi": "3.0.0",
           "info": {
             "version": "1.0.0",
-            "title": "Pinecone Connector Openapi"
+            "title": "Pinecone Connector OpenAPI"
           },
           "paths": {
             "/execute": {
@@ -159,21 +282,41 @@
                               "properties": {
                                 "namespace": {
                                   "type": "string",
-                                  "description": "The namespace to query"
+                                  "description": "The namespace to query",
+                                  "instillFormat": "text",
+                                  "instillUpstreamTypes": [
+                                    "value",
+                                    "reference"
+                                  ]
                                 },
                                 "topK": {
                                   "type": "integer",
-                                  "description": "The number of results to return for each query"
+                                  "description": "The number of results to return for each query",
+                                  "instillFormat": "integer",
+                                  "instillUpstreamTypes": [
+                                    "value",
+                                    "reference"
+                                  ]
                                 },
                                 "includeValues": {
                                   "type": "boolean",
                                   "description": "Indicates whether vector values are included in the response",
-                                  "default": false
+                                  "default": false,
+                                  "instillFormat": "boolean",
+                                  "instillUpstreamTypes": [
+                                    "value",
+                                    "reference"
+                                  ]
                                 },
                                 "includeMetadata": {
                                   "type": "boolean",
                                   "description": "Indicates whether metadata is included in the response as well as the ids",
-                                  "default": false
+                                  "default": false,
+                                  "instillFormat": "boolean",
+                                  "instillUpstreamTypes": [
+                                    "value",
+                                    "reference"
+                                  ]
                                 },
                                 "vectors": {
                                   "type": "array",
@@ -183,11 +326,19 @@
                                     "description": "A dimension of the vector",
                                     "example": 0.8167237
                                   },
-                                  "minItems": 1
+                                  "minItems": 1,
+                                  "instillFormat": "number_array",
+                                  "instillUpstreamTypes": [
+                                    "reference"
+                                  ]
                                 },
                                 "id": {
                                   "type": "string",
-                                  "description": "The unique ID of the vector to be used as a query vector"
+                                  "description": "The unique ID of the vector to be used as a query vector",
+                                  "instillFormat": "text",
+                                  "instillUpstreamTypes": [
+                                    "reference"
+                                  ]
                                 }
                               }
                             }
@@ -212,7 +363,8 @@
                                 "properties": {
                                   "namespace": {
                                     "type": "string",
-                                    "description": "The namespace of the query"
+                                    "description": "The namespace of the query",
+                                    "instillFormat": "text"
                                   },
                                   "matches": {
                                     "type": "array",
@@ -222,11 +374,13 @@
                                       "properties": {
                                         "id": {
                                           "type": "string",
-                                          "description": "The id of the matched vector"
+                                          "description": "The id of the matched vector",
+                                          "instillFormat": "text"
                                         },
                                         "score": {
                                           "type": "number",
-                                          "description": "A measure of similarity between this vector and the query vector. The higher the score, the more they are similar."
+                                          "description": "A measure of similarity between this vector and the query vector. The higher the score, the more they are similar.",
+                                          "instillFormat": "number"
                                         },
                                         "values": {
                                           "type": "array",
@@ -234,7 +388,8 @@
                                           "items": {
                                             "type": "number",
                                             "description": "Each float value represents one dimension"
-                                          }
+                                          },
+                                          "instillFormat": "number_array"
                                         }
                                       }
                                     }
@@ -256,7 +411,7 @@
           "openapi": "3.0.0",
           "info": {
             "version": "1.0.0",
-            "title": "Pinecone Connector Openapi"
+            "title": "Pinecone Connector OpenAPI"
           },
           "paths": {
             "/execute": {
@@ -288,7 +443,11 @@
                                     "properties": {
                                       "id": {
                                         "type": "string",
-                                        "description": "This is the vector's unique id"
+                                        "description": "This is the vector's unique id",
+                                        "instillFormat": "text",
+                                        "instillUpstreamTypes": [
+                                          "reference"
+                                        ]
                                       },
                                       "values": {
                                         "type": "array",
@@ -298,7 +457,11 @@
                                           "description": "A dimension of the vector",
                                           "example": 0.8167237
                                         },
-                                        "minItems": 1
+                                        "minItems": 1,
+                                        "instillFormat": "number_array",
+                                        "instillUpstreamTypes": [
+                                          "reference"
+                                        ]
                                       }
                                     }
                                   }
@@ -326,7 +489,8 @@
                                 "properties": {
                                   "upsertedCount": {
                                     "type": "integer",
-                                    "description": "Number of records modified or added"
+                                    "description": "Number of records modified or added",
+                                    "instillFormat": "integer"
                                   }
                                 }
                               }
