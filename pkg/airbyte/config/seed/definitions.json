@@ -1140,7 +1140,7 @@
         "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "2.0.1",
+      "dockerImageTag": "2.0.4",
       "dockerRepository": "airbyte/destination-bigquery",
       "githubIssueLabel": "destination-bigquery",
       "license": "ELv2",
@@ -4996,6 +4996,16 @@
     "id": "airbyte-destination-langchain",
     "public": true,
     "releaseDate": "2023-07-15",
+    "releases": {
+      "breakingChanges": {
+        "0.1.0": {
+          "message": "This version changes the way record ids are tracked internally. If you are using a stream in **append-dedup** mode, you need to reset the connection after doing the upgrade to avoid duplicates.\n",
+          "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/langchain-migrations#0.1.0",
+          "upgradeDeadline": "2023-09-18"
+        }
+      },
+      "migrationDocumentationUrl": "https://docs.airbyte.com/integrations/destinations/langchain-migrations"
+    },
     "spec": {
       "component_specification": {
         "$ref": "component.json"
@@ -5227,7 +5237,7 @@
         "ql": 100,
         "sl": 100
       },
-      "dockerImageTag": "0.0.8",
+      "dockerImageTag": "0.1.0",
       "dockerRepository": "airbyte/destination-langchain",
       "githubIssueLabel": "destination-langchain",
       "license": "MIT",
@@ -7159,7 +7169,7 @@
         "ql": 100,
         "sl": 100
       },
-      "dockerImageTag": "0.0.2",
+      "dockerImageTag": "0.0.4",
       "dockerRepository": "airbyte/destination-pinecone",
       "githubIssueLabel": "destination-pinecone",
       "license": "MIT",
@@ -10654,7 +10664,7 @@
         "ql": 400,
         "sl": 200
       },
-      "dockerImageTag": "3.0.0",
+      "dockerImageTag": "3.1.1",
       "dockerRepository": "airbyte/destination-snowflake",
       "githubIssueLabel": "destination-snowflake",
       "license": "ELv2",
