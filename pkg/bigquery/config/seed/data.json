@@ -1,5 +1,5 @@
 {
-  "INSERT": {
+  "TASK_INSERT": {
     "schema": {
       "type": "array",
       "items": {
@@ -44,6 +44,15 @@
       "patternProperties": {
         "^[a-zA-Z_][a-zA-Z_0-9]*$": {
           "type": "string"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Status of the upload operation"
         }
       }
     }

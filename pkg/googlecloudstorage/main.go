@@ -1,14 +1,13 @@
-package bigquery
+package googlecloudstorage
 
 import (
 	"context"
 	_ "embed"
-	"errors"
 	"fmt"
 	"os"
 	"sync"
 
-	"cloud.google.com/go/bigquery"
+	"cloud.google.com/go/storage"
 	"github.com/gofrs/uuid"
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
@@ -20,8 +19,8 @@ import (
 )
 
 const (
-	vendorName  = "bigquery"
-	taskInsert  = "TASK_INSERT"
+	vendorName  = "googlecloudstorage"
+	taskUpload  = "TASK_UPLOAD"
 	credsEnvVar = "GOOGLE_APPLICATION_CREDENTIALS"
 )
 
@@ -80,68 +79,59 @@ func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, 
 	}, nil
 }
 
-func NewClient(keyFilePath, projectID string) (*bigquery.Client, error) {
+func NewClient(keyFilePath string) (*storage.Client, error) {
 	os.Setenv(credsEnvVar, keyFilePath)
-	return bigquery.NewClient(context.Background(), projectID)
+	client, err := storage.NewClient(context.Background())
+	return client, err
+}
+
+func (c *Connection) getBucketName() string {
+	return c.Config.GetFields()["bucket_name"].GetStringValue()
 }
 
 func (c *Connection) getKeyPath() string {
 	return c.Config.GetFields()["key_path"].GetStringValue()
 }
-func (c *Connection) getProjectID() string {
-	return c.Config.GetFields()["project_id"].GetStringValue()
-}
-func (c *Connection) getDatasetID() string {
-	return c.Config.GetFields()["dataset_id"].GetStringValue()
-}
-func (c *Connection) getTableName() string {
-	return c.Config.GetFields()["table_name"].GetStringValue()
-}
 
 func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 	outputs := []*structpb.Struct{}
 	task := inputs[0].GetFields()["task"].GetStringValue()
+
 	if err := c.ValidateInput(inputs, task); err != nil {
 		return nil, err
 	}
-	client, err := NewClient(c.getKeyPath(), c.getProjectID())
-	if err != nil || client == nil {
-		return nil, fmt.Errorf("error creating BigQuery client: %v", err)
+	client, err := NewClient(c.getKeyPath())
+	if err != nil {
+		return nil, err
 	}
-	defer client.Close()
-
 	for _, input := range inputs {
 		var output *structpb.Struct
 		switch task {
-		case taskInsert:
-			data, schemaJSON, err := getDataAndSchema(input)
-			if err != nil {
-				return nil, err
-			}
-			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), schemaJSON, data, client)
+		case taskUpload:
+			objectName := input.GetFields()["object_name"].GetStringValue()
+			data := input.GetFields()["data"].GetStringValue()
+			err = uploadToGCS(client, c.getBucketName(), objectName, data)
 			if err != nil {
 				return nil, err
 			}
 			output = &structpb.Struct{Fields: map[string]*structpb.Value{"status": {Kind: &structpb.Value_StringValue{StringValue: "success"}}}}
-		default:
-			return nil, errors.New("unsupported task type")
 		}
 		outputs = append(outputs, output)
 	}
-	if err = c.ValidateOutput(outputs, task); err != nil {
+	if err := c.ValidateOutput(outputs, task); err != nil {
 		return nil, err
 	}
 	return outputs, nil
 }
 
 func (c *Connection) Test() (connectorPB.ConnectorResource_State, error) {
-	client, err := NewClient(c.getKeyPath(), c.getProjectID())
-	if err != nil || client == nil {
-		return connectorPB.ConnectorResource_STATE_ERROR, fmt.Errorf("error creating BigQuery client: %v", err)
+	client, err := NewClient(c.getKeyPath())
+	if err != nil {
+		return connectorPB.ConnectorResource_STATE_ERROR, fmt.Errorf("error creating GCS client: %v", err)
+	}
+	if client == nil {
+		return connectorPB.ConnectorResource_STATE_DISCONNECTED, fmt.Errorf("GCS client is nil")
 	}
 	defer client.Close()
-	if client.Project() == c.getProjectID() {
-		return connectorPB.ConnectorResource_STATE_CONNECTED, nil
-	}
-	return connectorPB.ConnectorResource_STATE_DISCONNECTED, errors.New("project ID does not match")
+	return connectorPB.ConnectorResource_STATE_CONNECTED, nil
 }

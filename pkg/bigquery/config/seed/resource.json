@@ -3,16 +3,16 @@
   "title": "BigQuery Connector Spec",
   "type": "object",
   "required": [
-    "api_key",
+    "key_path",
     "project_id",
     "dataset_id",
     "table_name"
   ],
   "additionalProperties": false,
   "properties": {
-    "api_key": {
-      "title": "API Key",
-      "description": "Fill your BigQuery API key.",
+    "key_path": {
+      "title": "JSON Key File Path",
+      "description": "Path to the JSON key file for authentication.",
       "type": "string",
       "credential_field": true
     },
