@@ -5,12 +5,12 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	"github.com/instill-ai/connector-data/pkg/bigquery"
-	"github.com/instill-ai/connector-data/pkg/googlecloudstorage"
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/instill-ai/connector-data/pkg/airbyte"
+	"github.com/instill-ai/connector-data/pkg/bigquery"
+	"github.com/instill-ai/connector-data/pkg/googlecloudstorage"
 	"github.com/instill-ai/connector-data/pkg/pinecone"
 	"github.com/instill-ai/connector/pkg/base"
 )
