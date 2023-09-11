@@ -4,12 +4,12 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
-	"os"
 	"sync"
 
 	"cloud.google.com/go/storage"
 	"github.com/gofrs/uuid"
 	"go.uber.org/zap"
+	"google.golang.org/api/option"
 	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/instill-ai/connector/pkg/base"
@@ -19,9 +19,8 @@ import (
 )
 
 const (
-	vendorName  = "googlecloudstorage"
-	taskUpload  = "TASK_UPLOAD"
-	credsEnvVar = "GOOGLE_APPLICATION_CREDENTIALS"
+	vendorName = "googlecloudstorage"
+	taskUpload = "TASK_UPLOAD"
 )
 
 //go:embed config/definitions.json
@@ -79,18 +78,16 @@ func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, 
 	}, nil
 }
 
-func NewClient(keyFilePath string) (*storage.Client, error) {
-	os.Setenv(credsEnvVar, keyFilePath)
-	client, err := storage.NewClient(context.Background())
-	return client, err
+func NewClient(jsonKey string) (*storage.Client, error) {
+	return storage.NewClient(context.Background(), option.WithCredentialsJSON([]byte(jsonKey)))
 }
 
 func (c *Connection) getBucketName() string {
 	return c.Config.GetFields()["bucket_name"].GetStringValue()
 }
 
-func (c *Connection) getKeyPath() string {
-	return c.Config.GetFields()["key_path"].GetStringValue()
+func (c *Connection) getJSONKey() string {
+	return c.Config.GetFields()["json_key"].GetStringValue()
 }
 
 func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
@@ -100,7 +97,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 	if err := c.ValidateInput(inputs, task); err != nil {
 		return nil, err
 	}
-	client, err := NewClient(c.getKeyPath())
+	client, err := NewClient(c.getJSONKey())
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +122,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 }
 
 func (c *Connection) Test() (connectorPB.ConnectorResource_State, error) {
-	client, err := NewClient(c.getKeyPath())
+	client, err := NewClient(c.getJSONKey())
 	if err != nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, fmt.Errorf("error creating GCS client: %v", err)
 	}

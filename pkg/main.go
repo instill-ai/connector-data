@@ -35,7 +35,6 @@ type ConnectorOptions struct {
 
 func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
-
 		airbyteConnector := airbyte.Init(logger, options.Airbyte)
 		pineconeConnector := pinecone.Init(logger, options.PineCone)
 		bigqueryConnector := bigquery.Init(logger, options.BigQuery)

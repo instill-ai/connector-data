@@ -154,52 +154,41 @@ def convert_data_schema_to_component_schema(data):
         "title": f"{NAME} Component Setting",
         "type": "object"
     }
-    if len(TASKS) > 1:
-        component_schema["properties"] = {
-            "input": {
-                "properties": {
-                    "task": {
-                        "title": "Task",
-                        "enum": TASKS
-                    }
+    component_schema["properties"] = {
+        "input": {
+            "properties": {
+                "task": {
+                    "title": "Task",
+                    "enum": TASKS
                 }
             }
         }
-        component_schema["allOf"] = []
-        for task in TASKS:
-            data[task]["input"]["title"] = "Data Flow"
-
-            component_schema["allOf"].append({
-                "if": {
-                    "properties": {
-                        "input": {
-                            "properties": {
-                                "task": {
-                                    "const": task
-                                }
+    }
+    component_schema["allOf"] = []
+    for task in TASKS:
+        data[task]["input"]["title"] = "Data Flow"
+        component_schema["allOf"].append({
+            "if": {
+                "properties": {
+                    "input": {
+                        "properties": {
+                            "task": {
+                                "const": task
                             }
                         }
                     }
-                },
-                "then": {
-                    "properties": {
-                        "metadata": {
-                            "title": "Metadata",
-                            "type": "object"
-                        },
-                        "input": convert_field(data[task]["input"])
-                    }
                 }
-            })
-    else:
-        data["default"]["input"]["title"] = "Data Flow"
-        component_schema["properties"] = {
-            "metadata": {
-                "title": "Metadata",
-                "type": "object"
             },
-            "input": convert_field(data["default"]["input"])
-        }
+            "then": {
+                "properties": {
+                    "metadata": {
+                        "title": "Metadata",
+                        "type": "object"
+                    },
+                    "input": convert_field(data[task]["input"])
+                }
+            }
+        })
 
     return component_schema
 

@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	cloud.google.com/go/bigquery v1.50.0
+	cloud.google.com/go/storage v1.29.0
 	github.com/allegro/bigcache v1.2.1
 	github.com/docker/docker v24.0.2+incompatible
 	github.com/ghodss/yaml v1.0.0

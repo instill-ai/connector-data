@@ -3,14 +3,14 @@
   "title": "Google Cloud Storage Connector Spec",
   "type": "object",
   "required": [
-    "key_path",
+    "json_key",
     "bucket_name"
   ],
   "additionalProperties": false,
   "properties": {
-    "key_path": {
-      "title": "JSON Key File Path",
-      "description": "Path to the JSON key file for authentication.",
+    "json_key": {
+      "title": "JSON Key File contents",
+      "description": "Contents of the JSON key file with access to the bucket.",
       "type": "string",
       "credential_field": true
     },

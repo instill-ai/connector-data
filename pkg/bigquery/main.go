@@ -5,12 +5,12 @@ import (
 	_ "embed"
 	"errors"
 	"fmt"
-	"os"
 	"sync"
 
 	"cloud.google.com/go/bigquery"
 	"github.com/gofrs/uuid"
 	"go.uber.org/zap"
+	"google.golang.org/api/option"
 	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/instill-ai/connector/pkg/base"
@@ -20,9 +20,8 @@ import (
 )
 
 const (
-	vendorName  = "bigquery"
-	taskInsert  = "TASK_INSERT"
-	credsEnvVar = "GOOGLE_APPLICATION_CREDENTIALS"
+	vendorName = "bigquery"
+	taskInsert = "TASK_INSERT"
 )
 
 //go:embed config/definitions.json
@@ -80,13 +79,12 @@ func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, 
 	}, nil
 }
 
-func NewClient(keyFilePath, projectID string) (*bigquery.Client, error) {
-	os.Setenv(credsEnvVar, keyFilePath)
-	return bigquery.NewClient(context.Background(), projectID)
+func NewClient(jsonKey, projectID string) (*bigquery.Client, error) {
+	return bigquery.NewClient(context.Background(), projectID, option.WithCredentialsJSON([]byte(jsonKey)))
 }
 
-func (c *Connection) getKeyPath() string {
-	return c.Config.GetFields()["key_path"].GetStringValue()
+func (c *Connection) getJSONKey() string {
+	return c.Config.GetFields()["json_key"].GetStringValue()
 }
 func (c *Connection) getProjectID() string {
 	return c.Config.GetFields()["project_id"].GetStringValue()
@@ -104,7 +102,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 	if err := c.ValidateInput(inputs, task); err != nil {
 		return nil, err
 	}
-	client, err := NewClient(c.getKeyPath(), c.getProjectID())
+	client, err := NewClient(c.getJSONKey(), c.getProjectID())
 	if err != nil || client == nil {
 		return nil, fmt.Errorf("error creating BigQuery client: %v", err)
 	}
@@ -114,11 +112,11 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 		var output *structpb.Struct
 		switch task {
 		case taskInsert:
-			data, schemaJSON, err := getDataAndSchema(input)
+			data, schema, err := getDataAndSchema(input)
 			if err != nil {
 				return nil, err
 			}
-			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), schemaJSON, data, client)
+			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), schema, data, client)
 			if err != nil {
 				return nil, err
 			}
@@ -135,7 +133,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 }
 
 func (c *Connection) Test() (connectorPB.ConnectorResource_State, error) {
-	client, err := NewClient(c.getKeyPath(), c.getProjectID())
+	client, err := NewClient(c.getJSONKey(), c.getProjectID())
 	if err != nil || client == nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, fmt.Errorf("error creating BigQuery client: %v", err)
 	}

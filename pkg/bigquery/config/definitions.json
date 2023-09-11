@@ -1,1 +1,170 @@
-{}
+[
+  {
+    "uid": "e2ffe076-ab2c-4e5e-9587-a613a6b1c146",
+    "id": "data-bigquery",
+    "title": "BigQuery",
+    "documentation_url": "https://www.instill.tech/docs/vdp/data-connectors/bigquery",
+    "icon": "bigquery.svg",
+    "icon_url": "",
+    "public": true,
+    "custom": false,
+    "tombstone": false,
+    "spec": {
+      "resource_specification": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "BigQuery Connector Spec",
+        "type": "object",
+        "required": [
+          "json_key",
+          "project_id",
+          "dataset_id",
+          "table_name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "json_key": {
+            "title": "JSON Key File contents",
+            "description": "Contents of the JSON key file with access to the bucket.",
+            "type": "string",
+            "credential_field": true
+          },
+          "project_id": {
+            "title": "BigQuery Project ID",
+            "description": "Fill in your BigQuery Project ID.",
+            "type": "string"
+          },
+          "dataset_id": {
+            "title": "BigQuery Dataset ID",
+            "description": "Fill in your BigQuery Dataset ID.",
+            "type": "string"
+          },
+          "table_name": {
+            "title": "BigQuery Table Name",
+            "description": "Fill in your BigQuery Table Name.",
+            "type": "string"
+          }
+        }
+      },
+      "component_specification": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "BigQuery Component Setting",
+        "type": "object",
+        "properties": {
+          "input": {
+            "properties": {
+              "task": {
+                "title": "Task",
+                "enum": [
+                  "TASK_INSERT"
+                ]
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "input": {
+                  "properties": {
+                    "task": {
+                      "const": "TASK_INSERT"
+                    }
+                  }
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "metadata": {
+                  "title": "Metadata",
+                  "type": "object"
+                },
+                "input": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                      "type": "string"
+                    }
+                  },
+                  "title": "Data Flow"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "openapi_specifications": {
+        "TASK_INSERT": {
+          "openapi": "3.0.0",
+          "info": {
+            "version": "1.0.0",
+            "title": "BigQuery Connector OpenAPI"
+          },
+          "paths": {
+            "/execute": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "inputs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "patternProperties": {
+                                "^[a-zA-Z_][a-zA-Z_0-9]*$": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "outputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "type": "string",
+                                    "description": "Status of the upload operation"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "vendor_attributes": {
+      "githubIssueLabel": "bigquery",
+      "license": "MIT",
+      "releaseStage": "alpha",
+      "resourceRequirements": {},
+      "modelType": "api"
+    }
+  }
+]

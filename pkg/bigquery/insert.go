@@ -2,21 +2,18 @@ package bigquery
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 
 	"cloud.google.com/go/bigquery"
 	"google.golang.org/protobuf/types/known/structpb"
 )
 
-func insertDataToBigQuery(projectID, datasetID, tableName, schemaJSON string, data []map[string]bigquery.Value, client *bigquery.Client) error {
+func insertDataToBigQuery(projectID, datasetID, tableName string, schema bigquery.Schema, data []map[string]bigquery.Value, client *bigquery.Client) error {
 	ctx := context.Background()
 	tableRef := client.Dataset(datasetID).Table(tableName)
-	schema, err := bigquery.SchemaFromJSON([]byte(schemaJSON))
-	if err != nil {
-		return fmt.Errorf("error parsing schema: %v", err)
-	}
 	// Create the table if it doesn't exist
-	_, err = tableRef.Metadata(ctx)
+	_, err := tableRef.Metadata(ctx)
 	if err != nil {
 		metaData := &bigquery.TableMetadata{
 			Schema: schema,
@@ -35,20 +32,17 @@ func insertDataToBigQuery(projectID, datasetID, tableName, schemaJSON string, da
 	return nil
 }
 
-func getDataAndSchema(input *structpb.Struct) ([]map[string]bigquery.Value, string, error) {
-	//TODO: implement this
-	/*
-		sample data -
-		data := []map[string]bigquery.Value{
-			{
-				"column1": "Value1",
-				"column2": 100,
-			},
-			{
-				"column1": "Value2",
-				"column2": 200,
-			},
-		}
-	*/
-	return nil, "{}", nil
+func getDataAndSchema(input *structpb.Struct) ([]map[string]bigquery.Value, bigquery.Schema, error) {
+	schemaVal := input.GetFields()["schema"].GetListValue()
+	inputObj := input.GetFields()["input"].GetStructValue()
+	schemaJSON, _ := json.Marshal(schemaVal)
+	schema, err := bigquery.SchemaFromJSON(schemaJSON)
+	if err != nil {
+		return nil, nil, err
+	}
+	dataMap := map[string]bigquery.Value{}
+	for _, sc := range schema {
+		dataMap[sc.Name] = inputObj.GetFields()[sc.Name].AsInterface()
+	}
+	return []map[string]bigquery.Value{dataMap}, schema, nil
 }
