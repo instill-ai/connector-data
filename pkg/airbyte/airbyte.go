@@ -77,7 +77,6 @@ func InitAirbyteCatalog(logger *zap.Logger, vdpProtocolPath string) {
 
 	yamlFile, err := os.ReadFile(vdpProtocolPath)
 	if err != nil {
-		return
 		logger.Fatal(fmt.Sprintf("%#v\n", err.Error()))
 	}
 
