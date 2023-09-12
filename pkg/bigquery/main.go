@@ -112,11 +112,11 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 		var output *structpb.Struct
 		switch task {
 		case taskInsert:
-			data, schema, err := getDataAndSchema(input)
+			valueSaver, schema, err := getDataAndSchema(input)
 			if err != nil {
 				return nil, err
 			}
-			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), schema, data, client)
+			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), schema, valueSaver, client)
 			if err != nil {
 				return nil, err
 			}

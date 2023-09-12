@@ -83,9 +83,7 @@
                 "input": {
                   "type": "object",
                   "patternProperties": {
-                    "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-                      "type": "string"
-                    }
+                    "^[a-zA-Z_][a-zA-Z_0-9]*$": {}
                   },
                   "title": "Data Flow"
                 }
@@ -116,9 +114,7 @@
                             "items": {
                               "type": "object",
                               "patternProperties": {
-                                "^[a-zA-Z_][a-zA-Z_0-9]*$": {
-                                  "type": "string"
-                                }
+                                "^[a-zA-Z_][a-zA-Z_0-9]*$": {}
                               }
                             }
                           }

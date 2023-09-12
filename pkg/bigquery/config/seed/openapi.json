@@ -18,7 +18,7 @@
                     "inputs": {
                       "type": "array",
                       "items": {
-                        "$ref": "data.json#/TASK_INSERT/input"
+                        "$ref": "data.json#/TASK_INSERT"
                       }
                     }
                   }

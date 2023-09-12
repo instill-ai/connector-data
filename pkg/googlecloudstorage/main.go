@@ -98,9 +98,10 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 		return nil, err
 	}
 	client, err := NewClient(c.getJSONKey())
-	if err != nil {
-		return nil, err
+	if err != nil || client == nil {
+		return nil, fmt.Errorf("error creating GCS client: %v", err)
 	}
+	defer client.Close()
 	for _, input := range inputs {
 		var output *structpb.Struct
 		switch task {
