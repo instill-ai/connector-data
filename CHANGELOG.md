@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0-alpha](https://github.com/instill-ai/connector-data/compare/v0.3.0-alpha...v0.4.0-alpha) (2023-09-13)
+
+
+### Features
+
+* Pinecone support ([#5](https://github.com/instill-ai/connector-data/issues/5)) ([52b22a3](https://github.com/instill-ai/connector-data/commit/52b22a333363e5feb6b2ef1110f045ae70167ad0))
+
+
+### Miscellaneous Chores
+
+* **release:** release v0.4.0-alpha ([1aa903f](https://github.com/instill-ai/connector-data/commit/1aa903fe7ccc27d328fe8439cbc512dc7427eb7d))
+
 ## [0.3.0-alpha](https://github.com/instill-ai/connector-data/compare/v0.2.0-alpha...v0.3.0-alpha) (2023-08-03)
 
 
