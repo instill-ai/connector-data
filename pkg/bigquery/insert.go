@@ -35,6 +35,11 @@ func insertDataToBigQuery(projectID, datasetID, tableName string, schema bigquer
 	// Insert data into the table
 	inserter := tableRef.Inserter()
 	if err := inserter.Put(ctx, valueSaver); err != nil {
+		//retry
+		err = inserter.Put(ctx, valueSaver)
+		if err == nil {
+			return nil
+		}
 		return fmt.Errorf("error inserting data: %v", err)
 	}
 	fmt.Printf("Data inserted into %s.%s.%s.\n", projectID, datasetID, tableName)
