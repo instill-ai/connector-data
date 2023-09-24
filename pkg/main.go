@@ -81,7 +81,7 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 			}
 		}
 		for _, uid := range gcsConnector.ListConnectorDefinitionUids() {
-			def, err := bigqueryConnector.GetConnectorDefinitionByUid(uid)
+			def, err := gcsConnector.GetConnectorDefinitionByUid(uid)
 			if err != nil {
 				logger.Error(err.Error())
 			}

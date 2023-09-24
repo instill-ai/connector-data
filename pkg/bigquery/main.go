@@ -3,6 +3,7 @@ package bigquery
 import (
 	"context"
 	_ "embed"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"sync"
@@ -96,6 +97,13 @@ func (c *Connection) getTableName() string {
 	return c.Config.GetFields()["table_name"].GetStringValue()
 }
 
+func (c *Connection) getSchema() bigquery.Schema {
+	schemaVal := c.Config.GetFields()["schema"].GetListValue()
+	schemaJSON, _ := json.Marshal(schemaVal)
+	schema, _ := bigquery.SchemaFromJSON(schemaJSON)
+	return schema
+}
+
 func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 	outputs := []*structpb.Struct{}
 	task := inputs[0].GetFields()["task"].GetStringValue()
@@ -112,11 +120,12 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 		var output *structpb.Struct
 		switch task {
 		case taskInsert:
-			valueSaver, schema, err := getDataAndSchema(input)
+			schema := c.getSchema()
+			valueSaver, err := getDataSaver(input, schema)
 			if err != nil {
 				return nil, err
 			}
-			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), schema, valueSaver, client)
+			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), valueSaver, client)
 			if err != nil {
 				return nil, err
 			}
