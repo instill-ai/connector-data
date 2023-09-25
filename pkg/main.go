@@ -8,9 +8,11 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
 
+	"github.com/instill-ai/component/pkg/base"
 	"github.com/instill-ai/connector-data/pkg/airbyte"
 	"github.com/instill-ai/connector-data/pkg/pinecone"
-	"github.com/instill-ai/connector/pkg/base"
+
+	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
 var once sync.Once
@@ -65,13 +67,24 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	return connector
 }
 
-func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IConnection, error) {
+func (c *Connector) CreateExecution(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
 	switch {
 	case c.airbyteConnector.HasUid(defUid):
-		return c.airbyteConnector.CreateConnection(defUid, config, logger)
+		return c.airbyteConnector.CreateExecution(defUid, config, logger)
 	case c.pineconeConnector.HasUid(defUid):
-		return c.pineconeConnector.CreateConnection(defUid, config, logger)
+		return c.pineconeConnector.CreateExecution(defUid, config, logger)
 	default:
-		return nil, fmt.Errorf("no destinationConnector uid: %s", defUid)
+		return nil, fmt.Errorf("no connector uid: %s", defUid)
+	}
+}
+
+func (c *Connector) Test(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (connectorPB.ConnectorResource_State, error) {
+	switch {
+	case c.airbyteConnector.HasUid(defUid):
+		return c.airbyteConnector.Test(defUid, config, logger)
+	case c.pineconeConnector.HasUid(defUid):
+		return c.pineconeConnector.Test(defUid, config, logger)
+	default:
+		return connectorPB.ConnectorResource_STATE_ERROR, fmt.Errorf("no connector uid: %s", defUid)
 	}
 }
