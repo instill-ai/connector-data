@@ -31,7 +31,7 @@ func main() {
 	// if user trigger connectorA
 	// ->connectorA.defUid
 	// ->connectorA.configuration
-	// connection, _ := connector.CreateConnection(uuid.FromStringOrNil("70d8664a-d512-4517-a5e8-5d4da81756a7"), &structpb.Struct{})
+	// connection, _ := connector.CreateExecution(uuid.FromStringOrNil("70d8664a-d512-4517-a5e8-5d4da81756a7"), &structpb.Struct{})
 	// _, err := connection.Execute(nil)
 
 	// if err != nil {

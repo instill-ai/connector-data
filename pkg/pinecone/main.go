@@ -14,8 +14,8 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
 
-	"github.com/instill-ai/connector/pkg/base"
-	"github.com/instill-ai/connector/pkg/configLoader"
+	"github.com/instill-ai/component/pkg/base"
+	"github.com/instill-ai/component/pkg/configLoader"
 
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
@@ -40,7 +40,7 @@ type Connector struct {
 }
 
 type Connection struct {
-	base.BaseConnection
+	base.BaseExecution
 	connector *Connector
 }
 
@@ -59,7 +59,7 @@ type HTTPClient interface {
 func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
 		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
+		connDefs, err := loader.LoadConnector(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
 		if err != nil {
 			panic(err)
 		}
@@ -77,16 +77,16 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	return connector
 }
 
-func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IConnection, error) {
+func (c *Connector) CreateExecution(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
 	def, err := c.GetConnectorDefinitionByUid(defUid)
 	if err != nil {
 		return nil, err
 	}
 	return &Connection{
-		BaseConnection: base.BaseConnection{
+		BaseExecution: base.BaseExecution{
 			Logger: logger, DefUid: defUid,
-			Config:     config,
-			Definition: def,
+			Config:                config,
+			OpenAPISpecifications: def.Spec.OpenapiSpecifications,
 		},
 		connector: c,
 	}, nil
@@ -163,7 +163,10 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 			}
 			url := c.getURL() + "/query"
 			resp := QueryResp{}
-			client.sendReq(url, http.MethodPost, inputStruct, &resp)
+			err = client.sendReq(url, http.MethodPost, inputStruct, &resp)
+			if err != nil {
+				return nil, err
+			}
 			output, err = base.ConvertToStructpb(resp)
 			if err != nil {
 				return nil, err
@@ -176,7 +179,10 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 			}
 			url := c.getURL() + "/vectors/upsert"
 			resp := UpsertResp{}
-			client.sendReq(url, http.MethodPost, inputStruct, &resp)
+			err = client.sendReq(url, http.MethodPost, inputStruct, &resp)
+			if err != nil {
+				return nil, err
+			}
 			output, err = base.ConvertToStructpb(resp)
 			if err != nil {
 				return nil, err
@@ -190,7 +196,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 	return outputs, nil
 }
 
-func (c *Connection) Test() (connectorPB.ConnectorResource_State, error) {
+func (c *Connector) Test(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (connectorPB.ConnectorResource_State, error) {
 	//TODO: change this
 	return connectorPB.ConnectorResource_STATE_CONNECTED, nil
 }

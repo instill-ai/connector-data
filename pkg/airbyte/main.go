@@ -26,8 +26,8 @@ import (
 
 	dockerclient "github.com/docker/docker/client"
 
-	"github.com/instill-ai/connector/pkg/base"
-	"github.com/instill-ai/connector/pkg/configLoader"
+	"github.com/instill-ai/component/pkg/base"
+	"github.com/instill-ai/component/pkg/configLoader"
 
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
@@ -57,7 +57,7 @@ type ConnectorOptions struct {
 }
 
 type Connection struct {
-	base.BaseConnection
+	base.BaseExecution
 	connector *Connector
 }
 
@@ -65,7 +65,7 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
 
 		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
+		connDefs, err := loader.LoadConnector(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
 		if err != nil {
 			panic(err)
 		}
@@ -130,16 +130,16 @@ func (c *Connector) PreDownloadImage(logger *zap.Logger, uids []uuid.UUID) error
 	return nil
 }
 
-func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IConnection, error) {
+func (c *Connector) CreateExecution(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
 	def, err := c.GetConnectorDefinitionByUid(defUid)
 	if err != nil {
 		return nil, err
 	}
 	return &Connection{
-		BaseConnection: base.BaseConnection{
+		BaseExecution: base.BaseExecution{
 			Logger: logger, DefUid: defUid,
-			Config:     config,
-			Definition: def,
+			Config:                config,
+			OpenAPISpecifications: def.Spec.OpenapiSpecifications,
 		},
 		connector: c,
 	}, nil
@@ -371,17 +371,17 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 	return outputs, nil
 }
 
-func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
+func (con *Connector) Test(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (connectorPB.ConnectorResource_State, error) {
 
-	def, err := con.connector.GetConnectorDefinitionByUid(con.DefUid)
+	def, err := con.GetConnectorDefinitionByUid(defUid)
 	if err != nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, err
 	}
 	imageName := fmt.Sprintf("%s:%s",
 		def.VendorAttributes.GetFields()["dockerRepository"].GetStringValue(),
 		def.VendorAttributes.GetFields()["dockerImageTag"].GetStringValue())
-	containerName := fmt.Sprintf("%s.%d.check", con.DefUid, time.Now().UnixNano())
-	configFilePath := fmt.Sprintf("%s/connector-data/config/%s.json", con.connector.options.MountTargetVDP, containerName)
+	containerName := fmt.Sprintf("%s.%d.check", defUid, time.Now().UnixNano())
+	configFilePath := fmt.Sprintf("%s/connector-data/config/%s.json", con.options.MountTargetVDP, containerName)
 
 	// Write config into a container local file
 	if err := os.MkdirAll(filepath.Dir(configFilePath), os.ModePerm); err != nil {
@@ -389,8 +389,8 @@ func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 	}
 
 	configuration := func() []byte {
-		if con.Config != nil {
-			b, err := con.Config.MarshalJSON()
+		if config != nil {
+			b, err := config.MarshalJSON()
 			if err != nil {
 				con.Logger.Error(err.Error())
 			}
@@ -412,7 +412,7 @@ func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 		}
 	}()
 
-	out, err := con.connector.dockerClient.ImagePull(context.Background(), imageName, types.ImagePullOptions{})
+	out, err := con.dockerClient.ImagePull(context.Background(), imageName, types.ImagePullOptions{})
 	if err != nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, err
 	}
@@ -422,7 +422,7 @@ func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 		return connectorPB.ConnectorResource_STATE_ERROR, err
 	}
 
-	resp, err := con.connector.dockerClient.ContainerCreate(context.Background(),
+	resp, err := con.dockerClient.ContainerCreate(context.Background(),
 		&container.Config{
 			Image: imageName,
 			Tty:   false,
@@ -436,13 +436,13 @@ func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 			Mounts: []mount.Mount{
 				{
 					Type: func() mount.Type {
-						if string(con.connector.options.MountSourceVDP[0]) == "/" {
+						if string(con.options.MountSourceVDP[0]) == "/" {
 							return mount.TypeBind
 						}
 						return mount.TypeVolume
 					}(),
-					Source: con.connector.options.MountSourceVDP,
-					Target: con.connector.options.MountTargetVDP,
+					Source: con.options.MountSourceVDP,
+					Target: con.options.MountTargetVDP,
 				},
 			},
 		},
@@ -451,11 +451,11 @@ func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 		return connectorPB.ConnectorResource_STATE_ERROR, err
 	}
 
-	if err := con.connector.dockerClient.ContainerStart(context.Background(), resp.ID, types.ContainerStartOptions{}); err != nil {
+	if err := con.dockerClient.ContainerStart(context.Background(), resp.ID, types.ContainerStartOptions{}); err != nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, err
 	}
 
-	statusCh, errCh := con.connector.dockerClient.ContainerWait(context.Background(), resp.ID, container.WaitConditionNotRunning)
+	statusCh, errCh := con.dockerClient.ContainerWait(context.Background(), resp.ID, container.WaitConditionNotRunning)
 	select {
 	case err := <-errCh:
 		if err != nil {
@@ -464,7 +464,7 @@ func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 	case <-statusCh:
 	}
 
-	if out, err = con.connector.dockerClient.ContainerLogs(context.Background(),
+	if out, err = con.dockerClient.ContainerLogs(context.Background(),
 		resp.ID,
 		types.ContainerLogsOptions{
 			ShowStdout: true,
@@ -473,7 +473,7 @@ func (con *Connection) Test() (connectorPB.ConnectorResource_State, error) {
 		return connectorPB.ConnectorResource_STATE_ERROR, err
 	}
 
-	if err := con.connector.dockerClient.ContainerRemove(context.Background(), containerName,
+	if err := con.dockerClient.ContainerRemove(context.Background(), containerName,
 		types.ContainerRemoveOptions{
 			RemoveVolumes: true,
 			Force:         true,
