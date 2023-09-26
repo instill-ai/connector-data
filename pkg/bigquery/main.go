@@ -3,7 +3,6 @@ package bigquery
 import (
 	"context"
 	_ "embed"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"sync"
@@ -97,13 +96,6 @@ func (c *Connection) getTableName() string {
 	return c.Config.GetFields()["table_name"].GetStringValue()
 }
 
-func (c *Connection) getSchema() bigquery.Schema {
-	schemaVal := c.Config.GetFields()["schema"].GetListValue()
-	schemaJSON, _ := json.Marshal(schemaVal)
-	schema, _ := bigquery.SchemaFromJSON(schemaJSON)
-	return schema
-}
-
 func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 	outputs := []*structpb.Struct{}
 	task := inputs[0].GetFields()["task"].GetStringValue()
@@ -120,12 +112,18 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 		var output *structpb.Struct
 		switch task {
 		case taskInsert:
-			schema := c.getSchema()
-			valueSaver, err := getDataSaver(input, schema)
+			datasetID := c.getDatasetID()
+			tableName := c.getTableName()
+			tableRef := client.Dataset(datasetID).Table(tableName)
+			metaData, err := tableRef.Metadata(context.Background())
 			if err != nil {
 				return nil, err
 			}
-			err = insertDataToBigQuery(c.getProjectID(), c.getDatasetID(), c.getTableName(), valueSaver, client)
+			valueSaver, err := getDataSaver(input, metaData.Schema)
+			if err != nil {
+				return nil, err
+			}
+			err = insertDataToBigQuery(c.getProjectID(), datasetID, tableName, valueSaver, client)
 			if err != nil {
 				return nil, err
 			}

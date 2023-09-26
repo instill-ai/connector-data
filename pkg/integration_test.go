@@ -92,8 +92,8 @@ func TestBigQueryInsert(*testing.T) {
 			"input": {Kind: &structpb.Value_StructValue{
 				StructValue: &structpb.Struct{
 					Fields: map[string]*structpb.Value{
-						"id":   {Kind: &structpb.Value_NumberValue{NumberValue: 3}},
-						"name": {Kind: &structpb.Value_StringValue{StringValue: "Harsh"}},
+						"id":   {Kind: &structpb.Value_NumberValue{NumberValue: 1}},
+						"name": {Kind: &structpb.Value_StringValue{StringValue: "Praharsh"}},
 					},
 				},
 			}},
