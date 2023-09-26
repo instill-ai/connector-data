@@ -9,14 +9,15 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/instill-ai/connector/pkg/base"
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/instill-ai/component/pkg/base"
 )
 
 var (
 	jsonKey []byte
-	gcsCon  base.IConnection
+	gcsCon  base.IExecution
 	logger  *zap.Logger
 )
 
@@ -30,7 +31,7 @@ func init() {
 	logger, _ = zap.NewDevelopment()
 	c := Init(logger, ConnectorOptions{})
 	uuid := c.ListConnectorDefinitionUids()
-	gcsCon, _ = c.CreateConnection(uuid[len(uuid)-1], gcsConfig, nil)
+	gcsCon, _ = c.CreateExecution(uuid[len(uuid)-1], gcsConfig, nil)
 }
 
 func TestGCSUpload(*testing.T) {
@@ -54,46 +55,23 @@ func TestBigQueryInsert(*testing.T) {
 			"project_id": {Kind: &structpb.Value_StringValue{StringValue: "prj-c-connector-879a"}},
 			"dataset_id": {Kind: &structpb.Value_StringValue{StringValue: "test_data_set"}},
 			"table_name": {Kind: &structpb.Value_StringValue{StringValue: "test_table"}},
-			"schema": {Kind: &structpb.Value_ListValue{
-				ListValue: &structpb.ListValue{
-					Values: []*structpb.Value{
-						{
-							Kind: &structpb.Value_StructValue{
-								StructValue: &structpb.Struct{
-									Fields: map[string]*structpb.Value{
-										"name": {Kind: &structpb.Value_StringValue{StringValue: "id"}},
-										"type": {Kind: &structpb.Value_StringValue{StringValue: "INT64"}},
-									},
-								},
-							},
-						},
-						{
-							Kind: &structpb.Value_StructValue{
-								StructValue: &structpb.Struct{
-									Fields: map[string]*structpb.Value{
-										"name": {Kind: &structpb.Value_StringValue{StringValue: "name"}},
-										"type": {Kind: &structpb.Value_StringValue{StringValue: "STRING"}},
-									},
-								},
-							},
-						},
-					},
-				},
-			}},
 		}}
 
 	logger, _ = zap.NewDevelopment()
 	c := Init(logger, ConnectorOptions{})
-	uuid := c.ListConnectorDefinitionUids()
-	bigQueryCon, _ := c.CreateConnection(uuid[len(uuid)-2], bigQueryConfig, nil)
+	uuids := c.ListConnectorDefinitionUids()
+	uuid := uuids[len(uuids)-2]
+	bigQueryCon, _ := c.CreateExecution(uuid, bigQueryConfig, nil)
+	state, err := c.Test(uuid, bigQueryConfig, nil)
+	fmt.Printf("state: %v, err: %v", state, err)
 	input := []*structpb.Struct{{
 		Fields: map[string]*structpb.Value{
 			"task": {Kind: &structpb.Value_StringValue{StringValue: "TASK_INSERT"}},
 			"input": {Kind: &structpb.Value_StructValue{
 				StructValue: &structpb.Struct{
 					Fields: map[string]*structpb.Value{
-						"id":   {Kind: &structpb.Value_NumberValue{NumberValue: 1}},
-						"name": {Kind: &structpb.Value_StringValue{StringValue: "Praharsh"}},
+						"id":   {Kind: &structpb.Value_NumberValue{NumberValue: 5}},
+						"name": {Kind: &structpb.Value_StringValue{StringValue: "Tobias"}},
 					},
 				},
 			}},

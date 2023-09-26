@@ -13,8 +13,8 @@ import (
 	"google.golang.org/api/option"
 	"google.golang.org/protobuf/types/known/structpb"
 
-	"github.com/instill-ai/connector/pkg/base"
-	"github.com/instill-ai/connector/pkg/configLoader"
+	"github.com/instill-ai/component/pkg/base"
+	"github.com/instill-ai/component/pkg/configLoader"
 
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
@@ -36,7 +36,7 @@ type Connector struct {
 }
 
 type Connection struct {
-	base.BaseConnection
+	base.BaseExecution
 	connector *Connector
 }
 
@@ -46,7 +46,7 @@ type ConnectorOptions struct {
 func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
 		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.Load(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
+		connDefs, err := loader.LoadConnector(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
 		if err != nil {
 			panic(err)
 		}
@@ -64,16 +64,16 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	return connector
 }
 
-func (c *Connector) CreateConnection(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IConnection, error) {
+func (c *Connector) CreateExecution(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
 	def, err := c.GetConnectorDefinitionByUid(defUid)
 	if err != nil {
 		return nil, err
 	}
 	return &Connection{
-		BaseConnection: base.BaseConnection{
+		BaseExecution: base.BaseExecution{
 			Logger: logger, DefUid: defUid,
-			Config:     config,
-			Definition: def,
+			Config:                config,
+			OpenAPISpecifications: def.Spec.OpenapiSpecifications,
 		},
 		connector: c,
 	}, nil
@@ -139,7 +139,12 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 	return outputs, nil
 }
 
-func (c *Connection) Test() (connectorPB.ConnectorResource_State, error) {
+func (co *Connector) Test(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (connectorPB.ConnectorResource_State, error) {
+	ex, err := co.CreateExecution(defUid, config, logger)
+	if err != nil {
+		return connectorPB.ConnectorResource_STATE_ERROR, err
+	}
+	c, _ := ex.(*Connection)
 	client, err := NewClient(c.getJSONKey(), c.getProjectID())
 	if err != nil || client == nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, fmt.Errorf("error creating BigQuery client: %v", err)
