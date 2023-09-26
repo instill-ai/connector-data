@@ -13,6 +13,7 @@ import (
 	"github.com/instill-ai/connector-data/pkg/bigquery"
 	"github.com/instill-ai/connector-data/pkg/googlecloudstorage"
 	"github.com/instill-ai/connector-data/pkg/pinecone"
+
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
