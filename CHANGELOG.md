@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0-alpha](https://github.com/instill-ai/connector-data/compare/v0.4.0-alpha...v0.5.0-alpha) (2023-09-30)
+
+
+### Features
+
+* support bigquery and google cloud storage ([#12](https://github.com/instill-ai/connector-data/issues/12)) ([0b7d61c](https://github.com/instill-ai/connector-data/commit/0b7d61c31c00d072e4da674bc9fc01d210eaf757))
+
+
+### Miscellaneous Chores
+
+* **release:** release v0.5.0-alpha ([c2f132b](https://github.com/instill-ai/connector-data/commit/c2f132b2938f32834ef85a1039f1c7f35b25eac8))
+
 ## [0.4.0-alpha](https://github.com/instill-ai/connector-data/compare/v0.3.0-alpha...v0.4.0-alpha) (2023-09-13)
 
 
