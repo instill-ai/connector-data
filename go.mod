@@ -9,7 +9,7 @@ require (
 	github.com/docker/docker v24.0.2+incompatible
 	github.com/ghodss/yaml v1.0.0
 	github.com/gofrs/uuid v4.4.0+incompatible
-	github.com/instill-ai/component v0.4.0-alpha.0.20230925171029-e3485c428e72
+	github.com/instill-ai/component v0.4.0-alpha.0.20230928172448-731085138784
 	github.com/instill-ai/protogen-go v0.3.3-alpha.0.20230925170910-6416b8d2be1a
 	github.com/santhosh-tekuri/jsonschema/v5 v5.3.0
 	go.uber.org/zap v1.24.0
@@ -65,7 +65,7 @@ require (
 	golang.org/x/sync v0.2.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
-	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
+	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/tools v0.6.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
