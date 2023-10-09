@@ -27,21 +27,21 @@ import (
 	dockerclient "github.com/docker/docker/client"
 
 	"github.com/instill-ai/component/pkg/base"
-	"github.com/instill-ai/component/pkg/configLoader"
 
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
-const vendorName = "airbyte"
-
 //go:embed config/definitions.json
-var definitionJson []byte
+var definitionsJSON []byte
+
+//go:embed config/tasks.json
+var tasksJSON []byte
 
 var once sync.Once
 var connector base.IConnector
 
 type Connector struct {
-	base.BaseConnector
+	base.Connector
 	dockerClient *dockerclient.Client
 	cache        *bigcache.BigCache
 	options      ConnectorOptions
@@ -56,19 +56,13 @@ type ConnectorOptions struct {
 	ExcludeLocalConnector bool
 }
 
-type Connection struct {
-	base.BaseExecution
+type Execution struct {
+	base.Execution
 	connector *Connector
 }
 
 func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 	once.Do(func() {
-
-		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.LoadConnector(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
-		if err != nil {
-			panic(err)
-		}
 
 		dockerClient, err := dockerclient.NewClientWithOpts(dockerclient.FromEnv, dockerclient.WithAPIVersionNegotiation())
 		if err != nil {
@@ -81,22 +75,31 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 		}
 
 		connector = &Connector{
-			BaseConnector: base.BaseConnector{Logger: logger},
-			dockerClient:  dockerClient,
-			cache:         cache,
-			options:       options,
+			Connector: base.Connector{
+				Component: base.Component{Logger: logger},
+			},
+			dockerClient: dockerClient,
+			cache:        cache,
+			options:      options,
 		}
-		for idx := range connDefs {
-			if options.ExcludeLocalConnector &&
-				(connDefs[idx].Id == "airbyte-destination-local-json" || connDefs[idx].Id == "airbyte-destination-csv" ||
-					connDefs[idx].Id == "airbyte-destination-sqlite" || connDefs[idx].Id == "airbyte-destination-duckdb") {
-				connDefs[idx].Tombstone = true
-			}
-			err := connector.AddConnectorDefinition(uuid.FromStringOrNil(connDefs[idx].GetUid()), connDefs[idx].GetId(), connDefs[idx])
-			if err != nil {
-				logger.Warn(err.Error())
-			}
+
+		err = connector.LoadConnectorDefinitions(definitionsJSON, tasksJSON)
+		if err != nil {
+			logger.Fatal(err.Error())
+
 		}
+
+		if options.ExcludeLocalConnector {
+			def, _ := connector.GetConnectorDefinitionByID("airbyte-destination-local-json")
+			(*def).Tombstone = true
+			def, _ = connector.GetConnectorDefinitionByID("airbyte-destination-csv")
+			(*def).Tombstone = true
+			def, _ = connector.GetConnectorDefinitionByID("airbyte-destination-sqlite")
+			(*def).Tombstone = true
+			def, _ = connector.GetConnectorDefinitionByID("airbyte-destination-duckdb")
+			(*def).Tombstone = true
+		}
+
 		InitAirbyteCatalog(logger, options.VDPProtocolPath)
 
 	})
@@ -105,11 +108,7 @@ func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
 
 func (c *Connector) PreDownloadImage(logger *zap.Logger, uids []uuid.UUID) error {
 	for _, uid := range uids {
-		connDef, err := c.GetConnectorDefinitionByUid(uid)
-		if err != nil {
-			logger.Warn(err.Error())
-		}
-		err = connector.AddConnectorDefinition(uuid.FromStringOrNil(connDef.GetUid()), connDef.GetId(), connDef)
+		connDef, err := c.GetConnectorDefinitionByUID(uid)
 		if err != nil {
 			logger.Warn(err.Error())
 		}
@@ -130,26 +129,14 @@ func (c *Connector) PreDownloadImage(logger *zap.Logger, uids []uuid.UUID) error
 	return nil
 }
 
-func (c *Connector) CreateExecution(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
-	def, err := c.GetConnectorDefinitionByUid(defUid)
-	if err != nil {
-		return nil, err
-	}
-	return &Connection{
-		BaseExecution: base.BaseExecution{
-			Logger: logger, DefUid: defUid,
-			Config:                config,
-			OpenAPISpecifications: def.Spec.OpenapiSpecifications,
-		},
-		connector: c,
-	}, nil
+func (c *Connector) CreateExecution(defUID uuid.UUID, task string, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
+	e := &Execution{}
+	e.Execution = base.CreateExecutionHelper(e, c, defUID, task, config, logger)
+	e.connector = c
+	return e, nil
 }
 
-func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
-
-	if err := con.ValidateInput(inputs, "default"); err != nil {
-		return nil, err
-	}
+func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 
 	// Create ConfiguredAirbyteCatalog
 	cfgAbCatalog := ConfiguredAirbyteCatalog{
@@ -196,33 +183,33 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 	// Remove the last "\n"
 	byteAbMsgs = byteAbMsgs[:len(byteAbMsgs)-1]
 
-	connDef, err := con.connector.GetConnectorDefinitionByUid(con.DefUid)
+	connDef, err := e.connector.GetConnectorDefinitionByUID(e.UID)
 	if err != nil {
 		return nil, err
 	}
 	imageName := fmt.Sprintf("%s:%s",
 		connDef.VendorAttributes.GetFields()["dockerRepository"].GetStringValue(),
 		connDef.VendorAttributes.GetFields()["dockerImageTag"].GetStringValue())
-	containerName := fmt.Sprintf("%s.%d.write", con.DefUid, time.Now().UnixNano())
-	configFileName := fmt.Sprintf("%s.%d.write", con.DefUid, time.Now().UnixNano())
-	catalogFileName := fmt.Sprintf("%s.%d.write", con.DefUid, time.Now().UnixNano())
+	containerName := fmt.Sprintf("%s.%d.write", e.UID, time.Now().UnixNano())
+	configFileName := fmt.Sprintf("%s.%d.write", e.UID, time.Now().UnixNano())
+	catalogFileName := fmt.Sprintf("%s.%d.write", e.UID, time.Now().UnixNano())
 
 	// If there is already a container run dispatched in the previous attempt, return exitCodeOK directly
-	if _, err := con.connector.cache.Get(containerName); err == nil {
+	if _, err := e.connector.cache.Get(containerName); err == nil {
 		return nil, nil
 	}
 
 	// Write config into a container local file (always overwrite)
-	configFilePath := fmt.Sprintf("%s/connector-data/config/%s.json", con.connector.options.MountTargetVDP, configFileName)
+	configFilePath := fmt.Sprintf("%s/connector-data/config/%s.json", e.connector.options.MountTargetVDP, configFileName)
 	if err := os.MkdirAll(filepath.Dir(configFilePath), os.ModePerm); err != nil {
 		return nil, fmt.Errorf(fmt.Sprintf("unable to create folders for filepath %s", configFilePath), "WriteContainerLocalFileError", err)
 	}
 
 	configuration := func() []byte {
-		if con.Config != nil {
-			b, err := con.Config.MarshalJSON()
+		if e.Config != nil {
+			b, err := e.Config.MarshalJSON()
 			if err != nil {
-				con.Logger.Error(err.Error())
+				e.Logger.Error(err.Error())
 			}
 			return b
 		}
@@ -233,7 +220,7 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 	}
 
 	// Write catalog into a container local file (always overwrite)
-	catalogFilePath := fmt.Sprintf("%s/connector-data/catalog/%s.json", con.connector.options.MountTargetVDP, catalogFileName)
+	catalogFilePath := fmt.Sprintf("%s/connector-data/catalog/%s.json", e.connector.options.MountTargetVDP, catalogFileName)
 	if err := os.MkdirAll(filepath.Dir(catalogFilePath), os.ModePerm); err != nil {
 		return nil, fmt.Errorf(fmt.Sprintf("unable to create folders for filepath %s", catalogFilePath), "WriteContainerLocalFileError", err)
 	}
@@ -245,19 +232,19 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 		// Delete config local file
 		if _, err := os.Stat(configFilePath); err == nil {
 			if err := os.Remove(configFilePath); err != nil {
-				con.Logger.Error(fmt.Sprintln("Activity", "ImageName", imageName, "ContainerName", containerName, "Error", err))
+				e.Logger.Error(fmt.Sprintln("Activity", "ImageName", imageName, "ContainerName", containerName, "Error", err))
 			}
 		}
 
 		// Delete catalog local file
 		if _, err := os.Stat(catalogFilePath); err == nil {
 			if err := os.Remove(catalogFilePath); err != nil {
-				con.Logger.Error(fmt.Sprintln("Activity", "ImageName", imageName, "ContainerName", containerName, "Error", err))
+				e.Logger.Error(fmt.Sprintln("Activity", "ImageName", imageName, "ContainerName", containerName, "Error", err))
 			}
 		}
 	}()
 
-	out, err := con.connector.dockerClient.ImagePull(context.Background(), imageName, types.ImagePullOptions{})
+	out, err := e.connector.dockerClient.ImagePull(context.Background(), imageName, types.ImagePullOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -267,7 +254,7 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 		return nil, err
 	}
 
-	resp, err := con.connector.dockerClient.ContainerCreate(context.Background(),
+	resp, err := e.connector.dockerClient.ContainerCreate(context.Background(),
 		&container.Config{
 			Image:        imageName,
 			AttachStdin:  true,
@@ -287,23 +274,23 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 			Mounts: []mount.Mount{
 				{
 					Type: func() mount.Type {
-						if string(con.connector.options.MountSourceVDP[0]) == "/" {
+						if string(e.connector.options.MountSourceVDP[0]) == "/" {
 							return mount.TypeBind
 						}
 						return mount.TypeVolume
 					}(),
-					Source: con.connector.options.MountSourceVDP,
-					Target: con.connector.options.MountTargetVDP,
+					Source: e.connector.options.MountSourceVDP,
+					Target: e.connector.options.MountTargetVDP,
 				},
 				{
 					Type: func() mount.Type {
-						if string(con.connector.options.MountSourceVDP[0]) == "/" {
+						if string(e.connector.options.MountSourceVDP[0]) == "/" {
 							return mount.TypeBind
 						}
 						return mount.TypeVolume
 					}(),
-					Source: con.connector.options.MountSourceAirbyte,
-					Target: con.connector.options.MountTargetAirbyte,
+					Source: e.connector.options.MountSourceAirbyte,
+					Target: e.connector.options.MountTargetAirbyte,
 				},
 			},
 		},
@@ -312,7 +299,7 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 		return nil, err
 	}
 
-	hijackedResp, err := con.connector.dockerClient.ContainerAttach(context.Background(), resp.ID, types.ContainerAttachOptions{
+	hijackedResp, err := e.connector.dockerClient.ContainerAttach(context.Background(), resp.ID, types.ContainerAttachOptions{
 		Stdout: true,
 		Stdin:  true,
 		Stream: true,
@@ -327,7 +314,7 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 		return nil, err
 	}
 
-	if err := con.connector.dockerClient.ContainerStart(context.Background(), resp.ID, types.ContainerStartOptions{}); err != nil {
+	if err := e.connector.dockerClient.ContainerStart(context.Background(), resp.ID, types.ContainerStartOptions{}); err != nil {
 		return nil, err
 	}
 
@@ -336,7 +323,7 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 		return nil, err
 	}
 
-	if err := con.connector.dockerClient.ContainerRemove(context.Background(), resp.ID,
+	if err := e.connector.dockerClient.ContainerRemove(context.Background(), resp.ID,
 		types.ContainerRemoveOptions{
 			RemoveVolumes: true,
 			Force:         true,
@@ -345,18 +332,18 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 	}
 
 	// Set cache flag (empty value is fine since we need only the entry record)
-	if err := con.connector.cache.Set(containerName, []byte{}); err != nil {
+	if err := e.connector.cache.Set(containerName, []byte{}); err != nil {
 		return nil, err
 	}
 
-	con.Logger.Info(fmt.Sprintln("Activity",
+	e.Logger.Info(fmt.Sprintln("Activity",
 		"ImageName", imageName,
 		"ContainerName", containerName,
 		"STDOUT", bufStdOut.String()))
 
 	// Delete the cache entry only after the write completed
-	if err := con.connector.cache.Delete(containerName); err != nil {
-		con.Logger.Error(err.Error())
+	if err := e.connector.cache.Delete(containerName); err != nil {
+		e.Logger.Error(err.Error())
 	}
 
 	outputs := []*structpb.Struct{}
@@ -364,16 +351,12 @@ func (con *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, e
 		outputs = append(outputs, &structpb.Struct{})
 	}
 
-	if err := con.ValidateOutput(outputs, "default"); err != nil {
-		return nil, err
-	}
-
 	return outputs, nil
 }
 
 func (con *Connector) Test(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (connectorPB.ConnectorResource_State, error) {
 
-	def, err := con.GetConnectorDefinitionByUid(defUid)
+	def, err := con.GetConnectorDefinitionByUID(defUid)
 	if err != nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, err
 	}
