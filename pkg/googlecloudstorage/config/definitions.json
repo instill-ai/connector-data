@@ -6,9 +6,6 @@
     "documentation_url": "https://www.instill.tech/docs/vdp/data-connectors/gcs",
     "icon": "gcs.svg",
     "icon_url": "",
-    "public": true,
-    "custom": false,
-    "tombstone": false,
     "spec": {
       "resource_specification": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -33,145 +30,14 @@
             "credential_field": false
           }
         }
-      },
-      "component_specification": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Google Cloud Storage Component Setting",
-        "type": "object",
-        "properties": {
-          "input": {
-            "properties": {
-              "task": {
-                "title": "Task",
-                "enum": [
-                  "TASK_UPLOAD"
-                ]
-              }
-            }
-          }
-        },
-        "allOf": [
-          {
-            "if": {
-              "properties": {
-                "input": {
-                  "properties": {
-                    "task": {
-                      "const": "TASK_UPLOAD"
-                    }
-                  }
-                }
-              }
-            },
-            "then": {
-              "properties": {
-                "metadata": {
-                  "title": "Metadata",
-                  "type": "object"
-                },
-                "input": {
-                  "type": "object",
-                  "required": [
-                    "object_name",
-                    "data"
-                  ],
-                  "properties": {
-                    "object_name": {
-                      "type": "string",
-                      "description": "The name of the object to be created"
-                    },
-                    "data": {
-                      "type": "string",
-                      "description": "The data to be saved in the object"
-                    }
-                  },
-                  "title": "Data Flow"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "openapi_specifications": {
-        "TASK_UPLOAD": {
-          "openapi": "3.0.0",
-          "info": {
-            "version": "1.0.0",
-            "title": "Google Cloud Storage Connector OpenAPI"
-          },
-          "paths": {
-            "/execute": {
-              "post": {
-                "requestBody": {
-                  "required": true,
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "inputs": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "object_name",
-                                "data"
-                              ],
-                              "properties": {
-                                "object_name": {
-                                  "type": "string",
-                                  "description": "The name of the object to be created"
-                                },
-                                "data": {
-                                  "type": "string",
-                                  "description": "The data to be saved in the object"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "responses": {
-                  "200": {
-                    "description": "",
-                    "content": {
-                      "application/json": {
-                        "schema": {
-                          "type": "object",
-                          "properties": {
-                            "outputs": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "status": {
-                                    "type": "string",
-                                    "description": "Status of the upload operation"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     },
-    "vendor_attributes": {
-      "githubIssueLabel": "googlecloudstorage",
-      "license": "MIT",
-      "releaseStage": "alpha",
-      "resourceRequirements": {},
-      "modelType": "api"
-    }
+    "available_tasks": ["TASK_UPLOAD"],
+    "public": true,
+    "custom": false,
+    "tombstone": false,
+    "type": "CONNECTOR_TYPE_DATA",
+    "vendor": "Google",
+    "vendor_attributes": {}
   }
 ]

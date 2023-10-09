@@ -14,95 +14,73 @@ import (
 	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/instill-ai/component/pkg/base"
-	"github.com/instill-ai/component/pkg/configLoader"
 
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
 const (
-	vendorName = "bigquery"
 	taskInsert = "TASK_INSERT"
 )
 
 //go:embed config/definitions.json
-var definitionJson []byte
+var definitionsJSON []byte
+
+//go:embed config/tasks.json
+var tasksJSON []byte
 
 var once sync.Once
 var connector base.IConnector
 
 type Connector struct {
-	base.BaseConnector
-	options ConnectorOptions
+	base.Connector
 }
 
-type Connection struct {
-	base.BaseExecution
-	connector *Connector
+type Execution struct {
+	base.Execution
 }
 
-type ConnectorOptions struct {
-}
-
-func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
+func Init(logger *zap.Logger) base.IConnector {
 	once.Do(func() {
-		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.LoadConnector(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
-		if err != nil {
-			panic(err)
-		}
 		connector = &Connector{
-			BaseConnector: base.BaseConnector{Logger: logger},
-			options:       options,
+			Connector: base.Connector{
+				Component: base.Component{Logger: logger},
+			},
 		}
-		for idx := range connDefs {
-			err := connector.AddConnectorDefinition(uuid.FromStringOrNil(connDefs[idx].GetUid()), connDefs[idx].GetId(), connDefs[idx])
-			if err != nil {
-				logger.Warn(err.Error())
-			}
+		err := connector.LoadConnectorDefinitions(definitionsJSON, tasksJSON)
+		if err != nil {
+			logger.Fatal(err.Error())
 		}
 	})
 	return connector
 }
 
-func (c *Connector) CreateExecution(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
-	def, err := c.GetConnectorDefinitionByUid(defUid)
-	if err != nil {
-		return nil, err
-	}
-	return &Connection{
-		BaseExecution: base.BaseExecution{
-			Logger: logger, DefUid: defUid,
-			Config:                config,
-			OpenAPISpecifications: def.Spec.OpenapiSpecifications,
-		},
-		connector: c,
-	}, nil
+func (c *Connector) CreateExecution(defUID uuid.UUID, task string, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
+	e := &Execution{}
+	e.Execution = base.CreateExecutionHelper(e, c, defUID, task, config, logger)
+	return e, nil
 }
 
 func NewClient(jsonKey, projectID string) (*bigquery.Client, error) {
 	return bigquery.NewClient(context.Background(), projectID, option.WithCredentialsJSON([]byte(jsonKey)))
 }
 
-func (c *Connection) getJSONKey() string {
-	return c.Config.GetFields()["json_key"].GetStringValue()
+func getJSONKey(config *structpb.Struct) string {
+	return config.GetFields()["json_key"].GetStringValue()
 }
-func (c *Connection) getProjectID() string {
-	return c.Config.GetFields()["project_id"].GetStringValue()
+func getProjectID(config *structpb.Struct) string {
+	return config.GetFields()["project_id"].GetStringValue()
 }
-func (c *Connection) getDatasetID() string {
-	return c.Config.GetFields()["dataset_id"].GetStringValue()
+func getDatasetID(config *structpb.Struct) string {
+	return config.GetFields()["dataset_id"].GetStringValue()
 }
-func (c *Connection) getTableName() string {
-	return c.Config.GetFields()["table_name"].GetStringValue()
+func getTableName(config *structpb.Struct) string {
+	return config.GetFields()["table_name"].GetStringValue()
 }
 
-func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
+func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 	outputs := []*structpb.Struct{}
-	task := inputs[0].GetFields()["task"].GetStringValue()
-	if err := c.ValidateInput(inputs, task); err != nil {
-		return nil, err
-	}
-	client, err := NewClient(c.getJSONKey(), c.getProjectID())
+
+	client, err := NewClient(getJSONKey(e.Config), getProjectID(e.Config))
 	if err != nil || client == nil {
 		return nil, fmt.Errorf("error creating BigQuery client: %v", err)
 	}
@@ -110,10 +88,10 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 
 	for _, input := range inputs {
 		var output *structpb.Struct
-		switch task {
+		switch e.Task {
 		case taskInsert:
-			datasetID := c.getDatasetID()
-			tableName := c.getTableName()
+			datasetID := getDatasetID(e.Config)
+			tableName := getTableName(e.Config)
 			tableRef := client.Dataset(datasetID).Table(tableName)
 			metaData, err := tableRef.Metadata(context.Background())
 			if err != nil {
@@ -123,7 +101,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 			if err != nil {
 				return nil, err
 			}
-			err = insertDataToBigQuery(c.getProjectID(), datasetID, tableName, valueSaver, client)
+			err = insertDataToBigQuery(getProjectID(e.Config), datasetID, tableName, valueSaver, client)
 			if err != nil {
 				return nil, err
 			}
@@ -133,24 +111,17 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 		}
 		outputs = append(outputs, output)
 	}
-	if err = c.ValidateOutput(outputs, task); err != nil {
-		return nil, err
-	}
 	return outputs, nil
 }
 
-func (co *Connector) Test(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (connectorPB.ConnectorResource_State, error) {
-	ex, err := co.CreateExecution(defUid, config, logger)
-	if err != nil {
-		return connectorPB.ConnectorResource_STATE_ERROR, err
-	}
-	c, _ := ex.(*Connection)
-	client, err := NewClient(c.getJSONKey(), c.getProjectID())
+func (c *Connector) Test(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (connectorPB.ConnectorResource_State, error) {
+
+	client, err := NewClient(getJSONKey(config), getProjectID(config))
 	if err != nil || client == nil {
 		return connectorPB.ConnectorResource_STATE_ERROR, fmt.Errorf("error creating BigQuery client: %v", err)
 	}
 	defer client.Close()
-	if client.Project() == c.getProjectID() {
+	if client.Project() == getProjectID(config) {
 		return connectorPB.ConnectorResource_STATE_CONNECTED, nil
 	}
 	return connectorPB.ConnectorResource_STATE_DISCONNECTED, errors.New("project ID does not match")

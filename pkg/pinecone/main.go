@@ -15,13 +15,11 @@ import (
 	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/instill-ai/component/pkg/base"
-	"github.com/instill-ai/component/pkg/configLoader"
 
 	connectorPB "github.com/instill-ai/protogen-go/vdp/connector/v1alpha"
 )
 
 const (
-	vendorName   = "pinecone"
 	reqTimeout   = time.Second * 60 * 5
 	taskQuery    = "QUERY"
 	taskUpsert   = "UPSERT"
@@ -29,22 +27,20 @@ const (
 )
 
 //go:embed config/definitions.json
-var definitionJson []byte
+var definitionsJSON []byte
+
+//go:embed config/tasks.json
+var tasksJSON []byte
 
 var once sync.Once
 var connector base.IConnector
 
 type Connector struct {
-	base.BaseConnector
-	options ConnectorOptions
+	base.Connector
 }
 
-type Connection struct {
-	base.BaseExecution
-	connector *Connector
-}
-
-type ConnectorOptions struct {
+type Execution struct {
+	base.Execution
 }
 
 type Client struct {
@@ -56,40 +52,25 @@ type HTTPClient interface {
 	Do(req *http.Request) (*http.Response, error)
 }
 
-func Init(logger *zap.Logger, options ConnectorOptions) base.IConnector {
+func Init(logger *zap.Logger) base.IConnector {
 	once.Do(func() {
-		loader := configLoader.InitJSONSchema(logger)
-		connDefs, err := loader.LoadConnector(vendorName, connectorPB.ConnectorType_CONNECTOR_TYPE_DATA, definitionJson)
-		if err != nil {
-			panic(err)
-		}
 		connector = &Connector{
-			BaseConnector: base.BaseConnector{Logger: logger},
-			options:       options,
+			Connector: base.Connector{
+				Component: base.Component{Logger: logger},
+			},
 		}
-		for idx := range connDefs {
-			err := connector.AddConnectorDefinition(uuid.FromStringOrNil(connDefs[idx].GetUid()), connDefs[idx].GetId(), connDefs[idx])
-			if err != nil {
-				logger.Warn(err.Error())
-			}
+		err := connector.LoadConnectorDefinitions(definitionsJSON, tasksJSON)
+		if err != nil {
+			logger.Fatal(err.Error())
 		}
 	})
 	return connector
 }
 
-func (c *Connector) CreateExecution(defUid uuid.UUID, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
-	def, err := c.GetConnectorDefinitionByUid(defUid)
-	if err != nil {
-		return nil, err
-	}
-	return &Connection{
-		BaseExecution: base.BaseExecution{
-			Logger: logger, DefUid: defUid,
-			Config:                config,
-			OpenAPISpecifications: def.Spec.OpenapiSpecifications,
-		},
-		connector: c,
-	}, nil
+func (c *Connector) CreateExecution(defUID uuid.UUID, task string, config *structpb.Struct, logger *zap.Logger) (base.IExecution, error) {
+	e := &Execution{}
+	e.Execution = base.CreateExecutionHelper(e, c, defUID, task, config, logger)
+	return e, nil
 }
 
 // NewClient initializes a new Stability AI client
@@ -100,12 +81,12 @@ func NewClient(apiKey string) Client {
 	return Client{APIKey: apiKey, HTTPClient: &http.Client{Timeout: reqTimeout, Transport: tr}}
 }
 
-func (c *Connection) getAPIKey() string {
-	return c.Config.GetFields()["api_key"].GetStringValue()
+func getAPIKey(config *structpb.Struct) string {
+	return config.GetFields()["api_key"].GetStringValue()
 }
 
-func (c *Connection) getURL() string {
-	return c.Config.GetFields()["url"].GetStringValue()
+func getURL(config *structpb.Struct) string {
+	return config.GetFields()["url"].GetStringValue()
 }
 
 // sendReq is responsible for making the http request with to given URL, method, and params and unmarshalling the response into given object.
@@ -140,28 +121,21 @@ func (c *Client) sendReq(reqURL, method string, params interface{}, respObj inte
 	return err
 }
 
-func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
-	// TODO: validata input/output
+func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, error) {
 
-	client := NewClient(c.getAPIKey())
+	client := NewClient(getAPIKey(e.Config))
 	outputs := []*structpb.Struct{}
-	// TODO: Check all inputs should be the same task.
-	task := inputs[0].GetFields()["task"].GetStringValue()
-
-	if err := c.ValidateInput(inputs, task); err != nil {
-		return nil, err
-	}
 
 	for _, input := range inputs {
 		var output *structpb.Struct
-		switch task {
+		switch e.Task {
 		case taskQuery:
 			inputStruct := QueryReq{}
 			err := base.ConvertFromStructpb(input, &inputStruct)
 			if err != nil {
 				return nil, err
 			}
-			url := c.getURL() + "/query"
+			url := getURL(e.Config) + "/query"
 			resp := QueryResp{}
 			err = client.sendReq(url, http.MethodPost, inputStruct, &resp)
 			if err != nil {
@@ -177,7 +151,7 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 			if err != nil {
 				return nil, err
 			}
-			url := c.getURL() + "/vectors/upsert"
+			url := getURL(e.Config) + "/vectors/upsert"
 			resp := UpsertResp{}
 			err = client.sendReq(url, http.MethodPost, inputStruct, &resp)
 			if err != nil {
@@ -189,9 +163,6 @@ func (c *Connection) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, err
 			}
 		}
 		outputs = append(outputs, output)
-	}
-	if err := c.ValidateOutput(outputs, task); err != nil {
-		return nil, err
 	}
 	return outputs, nil
 }

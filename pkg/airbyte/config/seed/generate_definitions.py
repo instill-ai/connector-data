@@ -12,8 +12,6 @@ data_json = json.loads(response.read())
 definitions = data_json['destinations']
 
 name_set = set()
-with open('./component.json', 'r') as compFile:
-    comp = json.load(compFile)
 
 for idx in range(len(definitions)):
     # print(definitions[idx].keys())
@@ -54,17 +52,14 @@ for idx in range(len(definitions)):
     definitions[idx]['documentation_url'] = definitions[idx]['documentationUrl']
     definitions[idx]['icon_url'] = definitions[idx].get('iconUrl', "")
     definitions[idx]['spec']['resource_specification'] = definitions[idx]['spec']['connectionSpecification']
-    definitions[idx]['spec']['component_specification'] = {
-        "$ref": "component.json"
-    }
-    definitions[idx]['spec']['openapi_specifications'] = {
-        "$ref": "openapi.json"
-    }
 
     definitions[idx].pop('iconUrl', None)
     definitions[idx].pop('documentationUrl', None)
+    definitions[idx]["available_tasks"] = ["default"]
     definitions[idx]['spec'].pop('connectionSpecification', None)
     definitions[idx]['spec'].pop('documentationUrl', None)
+    definitions[idx]['type'] = 'CONNECTOR_TYPE_DATA'
+    definitions[idx]['vendor'] = 'airbyte'
     for key in definitions[idx].keys():
         # print(key)
         name_set.add(key)
@@ -73,17 +68,5 @@ definitions_json = json.dumps(definitions, indent=2, sort_keys=True)
 definitions_json = definitions_json.replace(
     "airbyte_secret", "credential_field")
 
-with open('./definitions.json', 'w') as out_file:
-    out_file.write(definitions_json)
-
-
-base_path = dirname(__file__)
-base_uri = 'file://{}/'.format(base_path)
-
-with open("./definitions.json") as schema_file:
-    a = jsonref.loads(schema_file.read(), base_uri=base_uri, jsonschema=True)
-
 with open('../definitions.json', 'w') as o:
-    json.dump(a, o, indent=2)
-
-# TODO: auto-generate openapi.json component.json from data.json
+    o.write(definitions_json)

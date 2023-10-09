@@ -30,7 +30,7 @@ func init() {
 		}}
 	logger, _ = zap.NewDevelopment()
 	c := Init(logger, ConnectorOptions{})
-	uuid := c.ListConnectorDefinitionUids()
+	uuid := c.ListDefinitionUids()
 	gcsCon, _ = c.CreateExecution(uuid[len(uuid)-1], gcsConfig, nil)
 }
 
@@ -59,7 +59,7 @@ func TestBigQueryInsert(*testing.T) {
 
 	logger, _ = zap.NewDevelopment()
 	c := Init(logger, ConnectorOptions{})
-	uuids := c.ListConnectorDefinitionUids()
+	uuids := c.ListDefinitionUids()
 	uuid := uuids[len(uuids)-2]
 	bigQueryCon, _ := c.CreateExecution(uuid, bigQueryConfig, nil)
 	state, err := c.Test(uuid, bigQueryConfig, nil)
