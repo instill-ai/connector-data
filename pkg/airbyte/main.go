@@ -161,9 +161,9 @@ func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, erro
 
 		b, err := protojson.MarshalOptions{
 			UseProtoNames: true,
-		}.Marshal(input)
+		}.Marshal(input.Fields["data"].GetStructValue())
 		if err != nil {
-			return nil, fmt.Errorf("input [%d] error: %w", idx, err)
+			return nil, fmt.Errorf("data [%d] error: %w", idx, err)
 		}
 		abMsg := AirbyteMessage{}
 		abMsg.Type = "RECORD"
