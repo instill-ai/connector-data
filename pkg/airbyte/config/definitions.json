@@ -1,7 +1,7 @@
 [
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/amazon-sqs",
@@ -145,7 +145,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/aws-datalake",
@@ -442,7 +442,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/azure-blob-storage",
@@ -605,7 +605,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/bigquery",
@@ -901,7 +901,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/cassandra",
@@ -1011,7 +1011,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/chroma",
@@ -1471,7 +1471,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/clickhouse",
@@ -1706,7 +1706,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/convex",
@@ -1776,7 +1776,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/csv",
@@ -1905,7 +1905,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/cumulio",
@@ -1983,7 +1983,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/databend",
@@ -2085,7 +2085,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/databricks",
@@ -2398,7 +2398,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/doris",
@@ -2505,7 +2505,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/duckdb",
@@ -2582,7 +2582,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/dynamodb",
@@ -2709,7 +2709,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/e2e-test",
@@ -2959,7 +2959,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/elasticsearch",
@@ -3228,7 +3228,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/exasol",
@@ -3337,7 +3337,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/firebolt",
@@ -3496,7 +3496,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/firestore",
@@ -3562,7 +3562,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/gcs",
@@ -4070,7 +4070,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/google-sheets",
@@ -4210,7 +4210,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/iceberg",
@@ -4633,7 +4633,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/kafka",
@@ -4981,7 +4981,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/keen",
@@ -5060,7 +5060,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/kinesis",
@@ -5167,7 +5167,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/langchain",
@@ -5435,7 +5435,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/local-json",
@@ -5498,7 +5498,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/mariadb-columnstore",
@@ -5719,7 +5719,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/meilisearch",
@@ -5795,7 +5795,7 @@
       ]
     },
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/milvus",
@@ -6318,7 +6318,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/mongodb",
@@ -6652,7 +6652,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/mqtt",
@@ -6807,7 +6807,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/mssql",
@@ -7115,7 +7115,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/mysql",
@@ -7349,7 +7349,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/oracle",
@@ -7672,7 +7672,7 @@
       ]
     },
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/pinecone",
@@ -8068,7 +8068,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/postgres",
@@ -8486,7 +8486,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/pubsub",
@@ -8593,7 +8593,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/pulsar",
@@ -8796,7 +8796,7 @@
       ]
     },
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/qdrant",
@@ -9303,7 +9303,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/r2",
@@ -9701,7 +9701,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/rabbitmq",
@@ -9791,7 +9791,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/redis",
@@ -10097,7 +10097,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/redpanda",
@@ -10229,7 +10229,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/redshift",
@@ -10657,7 +10657,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/rockset",
@@ -10740,7 +10740,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/s3-glue",
@@ -10991,7 +10991,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/s3",
@@ -11516,7 +11516,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/scylla",
@@ -11616,7 +11616,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/selectdb",
@@ -11712,7 +11712,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/sftp-json",
@@ -11810,7 +11810,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/snowflake",
@@ -12146,7 +12146,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/sqlite",
@@ -12206,7 +12206,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/starburst-galaxy",
@@ -12424,7 +12424,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/teradata",
@@ -12663,7 +12663,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/tidb",
@@ -12899,7 +12899,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/timeplus",
@@ -12972,7 +12972,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/typesense",
@@ -13056,7 +13056,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/vertica",
@@ -13291,7 +13291,7 @@
       ]
     },
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/weaviate",
@@ -13871,7 +13871,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/xata",
@@ -13938,7 +13938,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/yugabytedb",
@@ -14050,7 +14050,7 @@
   },
   {
     "available_tasks": [
-      "default"
+      "TASK_WRITE_DESTINATION"
     ],
     "custom": false,
     "documentation_url": "https://docs.airbyte.com/integrations/destinations/streamr",

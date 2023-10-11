@@ -21,8 +21,8 @@ import (
 
 const (
 	reqTimeout   = time.Second * 60 * 5
-	taskQuery    = "QUERY"
-	taskUpsert   = "UPSERT"
+	taskQuery    = "TASK_QUERY"
+	taskUpsert   = "TASK_UPSERT"
 	jsonMimeType = "application/json"
 )
 
@@ -146,13 +146,16 @@ func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, erro
 				return nil, err
 			}
 		case taskUpsert:
-			inputStruct := UpsertReq{}
-			err := base.ConvertFromStructpb(input, &inputStruct)
+			vector := Vector{}
+			err := base.ConvertFromStructpb(input, &vector)
 			if err != nil {
 				return nil, err
 			}
 			url := getURL(e.Config) + "/vectors/upsert"
 			resp := UpsertResp{}
+			inputStruct := UpsertReq{
+				Vectors: []Vector{vector},
+			}
 			err = client.sendReq(url, http.MethodPost, inputStruct, &resp)
 			if err != nil {
 				return nil, err

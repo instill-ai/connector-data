@@ -29,7 +29,7 @@ func insertDataToBigQuery(projectID, datasetID, tableName string, valueSaver Dat
 }
 
 func getDataSaver(input *structpb.Struct, schema bigquery.Schema) (DataSaver, error) {
-	inputObj := input.GetFields()["input"].GetStructValue()
+	inputObj := input.GetFields()["data"].GetStructValue()
 	dataMap := map[string]bigquery.Value{}
 	for _, sc := range schema {
 		dataMap[sc.Name] = inputObj.GetFields()[sc.Name].AsInterface()

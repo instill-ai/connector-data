@@ -1,5 +1,5 @@
 {
-  "QUERY": {
+  "TASK_QUERY": {
     "input": {
       "type": "object",
       "required": ["topK"],
@@ -30,7 +30,7 @@
           "instillFormat": "boolean",
           "instillUpstreamTypes": ["value", "reference"]
         },
-        "vectors": {
+        "vector": {
           "type": "array",
           "description": "An array of dimensions for the query vector.",
           "items": {
@@ -89,37 +89,29 @@
       }
     }
   },
-  "UPSERT": {
+  "TASK_UPSERT": {
     "input": {
       "type": "object",
-      "required": ["vectors"],
+      "required": ["id", "values"],
       "properties": {
-        "vectors": {
-          "type": "array",
-          "description": "An array of vectors to be saved",
-          "items": {
-            "type": "object",
-            "required": ["id", "values"],
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "This is the vector's unique id",
-                "instillFormat": "text",
-                "instillUpstreamTypes": ["reference"]
-              },
-              "values": {
-                "type": "array",
-                "description": "An array of dimensions for the vector to be saved",
-                "items": {
-                  "type": "number",
-                  "description": "A dimension of the vector",
-                  "example": 0.8167237
-                },
-                "minItems": 1,
-                "instillFormat": "number_array",
-                "instillUpstreamTypes": ["reference"]
-              }
-            }
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "This is the vector's unique id",
+            "instillFormat": "text",
+            "instillUpstreamTypes": ["reference"]
+          },
+          "values": {
+            "type": "array",
+            "description": "An array of dimensions for the vector to be saved",
+            "items": {
+              "type": "number",
+              "description": "A dimension of the vector",
+              "example": 0.8167237
+            },
+            "minItems": 1,
+            "instillFormat": "number_array",
+            "instillUpstreamTypes": ["reference"]
           }
         }
       }

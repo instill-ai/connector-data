@@ -55,7 +55,7 @@ for idx in range(len(definitions)):
 
     definitions[idx].pop('iconUrl', None)
     definitions[idx].pop('documentationUrl', None)
-    definitions[idx]["available_tasks"] = ["default"]
+    definitions[idx]["available_tasks"] = ["TASK_WRITE_DESTINATION"]
     definitions[idx]['spec'].pop('connectionSpecification', None)
     definitions[idx]['spec'].pop('documentationUrl', None)
     definitions[idx]['type'] = 'CONNECTOR_TYPE_DATA'
