@@ -59,7 +59,7 @@ for idx in range(len(definitions)):
     definitions[idx]['spec'].pop('connectionSpecification', None)
     definitions[idx]['spec'].pop('documentationUrl', None)
     definitions[idx]['type'] = 'CONNECTOR_TYPE_DATA'
-    definitions[idx]['vendor'] = 'airbyte'
+    definitions[idx]['vendor'] = 'Airbyte'
     for key in definitions[idx].keys():
         # print(key)
         name_set.add(key)
