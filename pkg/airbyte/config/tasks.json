@@ -1,5 +1,5 @@
 {
-  "default": {
+  "TASK_WRITE_DESTINATION": {
     "input": {
       "type": "object",
       "patternProperties": {
