@@ -33,7 +33,7 @@
         }
       }
     },
-    "available_tasks": ["QUERY", "UPSERT"],
+    "available_tasks": ["TASK_QUERY", "TASK_UPSERT"],
     "public": true,
     "custom": false,
     "tombstone": false,
