@@ -89,7 +89,7 @@ func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, erro
 	for _, input := range inputs {
 		var output *structpb.Struct
 		switch e.Task {
-		case taskInsert:
+		case taskInsert, "":
 			datasetID := getDatasetID(e.Config)
 			tableName := getTableName(e.Config)
 			tableRef := client.Dataset(datasetID).Table(tableName)

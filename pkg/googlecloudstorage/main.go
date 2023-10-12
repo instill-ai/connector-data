@@ -81,7 +81,7 @@ func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, erro
 	for _, input := range inputs {
 		var output *structpb.Struct
 		switch e.Task {
-		case taskUpload:
+		case taskUpload, "":
 			objectName := input.GetFields()["object_name"].GetStringValue()
 			data := input.GetFields()["data"].GetStringValue()
 			err = uploadToGCS(client, getBucketName(e.Config), objectName, data)
