@@ -94,25 +94,23 @@
       "type": "object",
       "required": ["id", "values"],
       "properties": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "This is the vector's unique id",
-            "instillFormat": "text",
-            "instillUpstreamTypes": ["reference"]
+        "id": {
+          "type": "string",
+          "description": "This is the vector's unique id",
+          "instillFormat": "text",
+          "instillUpstreamTypes": ["value", "reference"]
+        },
+        "values": {
+          "type": "array",
+          "description": "An array of dimensions for the vector to be saved",
+          "items": {
+            "type": "number",
+            "description": "A dimension of the vector",
+            "example": 0.8167237
           },
-          "values": {
-            "type": "array",
-            "description": "An array of dimensions for the vector to be saved",
-            "items": {
-              "type": "number",
-              "description": "A dimension of the vector",
-              "example": 0.8167237
-            },
-            "minItems": 1,
-            "instillFormat": "number_array",
-            "instillUpstreamTypes": ["reference"]
-          }
+          "minItems": 1,
+          "instillFormat": "number_array",
+          "instillUpstreamTypes": ["reference"]
         }
       }
     },
