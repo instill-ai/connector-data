@@ -18,22 +18,26 @@
             "title": "JSON Key File contents",
             "description": "Contents of the JSON key file with access to the bucket.",
             "type": "string",
-            "credential_field": true
+            "credential_field": true,
+            "order": 0
           },
           "project_id": {
             "title": "BigQuery Project ID",
             "description": "Fill in your BigQuery Project ID.",
-            "type": "string"
+            "type": "string",
+            "order": 1
           },
           "dataset_id": {
             "title": "BigQuery Dataset ID",
             "description": "Fill in your BigQuery Dataset ID.",
-            "type": "string"
+            "type": "string",
+            "order": 2
           },
           "table_name": {
             "title": "BigQuery Table Name",
             "description": "Fill in your BigQuery Table Name.",
-            "type": "string"
+            "type": "string",
+            "order": 3
           }
         }
       }
