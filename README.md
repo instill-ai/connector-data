@@ -5,9 +5,12 @@
 ## Highlights
 Currently, we support these data vendors:
 
-| Name           | Vendor        | Supported Tasks |
-|----------------|---------------|-----------------|
-| airbyte-* | [Aiybyte](https://airbyte.com/) | Write-Destination |
+| Name           | Vendor                                                   | Supported Tasks     |
+|----------------|----------------------------------------------------------|---------------------|
+| airbyte-*      | [Aiybyte](https://airbyte.com/)                          | WriteDestination    |
+| pinecone       | [Pinecone](https://www.pinecone.io/)                     | Upsert, Query       |
+| gcs            | [Google Cloud Storage](https://cloud.google.com/storage) | Upload              |
+| bigquery       | [Google BigQuery](https://cloud.google.com/bigquery)     | Upload              |
 
 ## Contributing
 
