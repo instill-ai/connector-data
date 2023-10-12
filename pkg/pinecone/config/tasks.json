@@ -2,7 +2,7 @@
   "TASK_QUERY": {
     "input": {
       "type": "object",
-      "required": ["topK"],
+      "required": ["top_k"],
       "properties": {
         "namespace": {
           "type": "string",
@@ -10,20 +10,20 @@
           "instillFormat": "text",
           "instillUpstreamTypes": ["value", "reference"]
         },
-        "topK": {
+        "top_k": {
           "type": "integer",
           "description": "The number of results to return for each query",
           "instillFormat": "integer",
           "instillUpstreamTypes": ["value", "reference"]
         },
-        "includeValues": {
+        "include_values": {
           "type": "boolean",
           "description": "Indicates whether vector values are included in the response",
           "default": false,
           "instillFormat": "boolean",
           "instillUpstreamTypes": ["value", "reference"]
         },
-        "includeMetadata": {
+        "include_metadata": {
           "type": "boolean",
           "description": "Indicates whether metadata is included in the response as well as the ids",
           "default": false,
@@ -117,7 +117,7 @@
     "output": {
       "type": "object",
       "properties": {
-        "upsertedCount": {
+        "upserted_count": {
           "type": "integer",
           "description": "Number of records modified or added",
           "instillFormat": "integer"

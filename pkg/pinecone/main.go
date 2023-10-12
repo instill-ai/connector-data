@@ -130,14 +130,14 @@ func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, erro
 		var output *structpb.Struct
 		switch e.Task {
 		case taskQuery:
-			inputStruct := QueryReq{}
+			inputStruct := QueryInput{}
 			err := base.ConvertFromStructpb(input, &inputStruct)
 			if err != nil {
 				return nil, err
 			}
 			url := getURL(e.Config) + "/query"
 			resp := QueryResp{}
-			err = client.sendReq(url, http.MethodPost, inputStruct, &resp)
+			err = client.sendReq(url, http.MethodPost, QueryReq(inputStruct), &resp)
 			if err != nil {
 				return nil, err
 			}
@@ -160,7 +160,8 @@ func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, erro
 			if err != nil {
 				return nil, err
 			}
-			output, err = base.ConvertToStructpb(resp)
+
+			output, err = base.ConvertToStructpb(UpsertOutput(resp))
 			if err != nil {
 				return nil, err
 			}
