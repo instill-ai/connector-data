@@ -24,9 +24,10 @@ type QueryResp struct {
 }
 
 type Match struct {
-	ID     string    `json:"id"`
-	Score  float64   `json:"score"`
-	Values []float64 `json:"values"`
+	ID       string      `json:"id"`
+	Score    float64     `json:"score"`
+	Values   []float64   `json:"values"`
+	Metadata interface{} `json:"metadata"`
 }
 
 type UpsertReq struct {
