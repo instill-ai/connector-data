@@ -27,7 +27,7 @@ type Match struct {
 	ID       string      `json:"id"`
 	Score    float64     `json:"score"`
 	Values   []float64   `json:"values"`
-	Metadata interface{} `json:"metadata"`
+	Metadata interface{} `json:"metadata,omitempty"`
 }
 
 type UpsertReq struct {

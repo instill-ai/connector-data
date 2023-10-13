@@ -60,9 +60,11 @@
         },
         "matches": {
           "type": "array",
+          "instillFormat": "object_array",
           "description": "The matches returned for the query",
           "items": {
             "type": "object",
+            "instillFormat": "object",
             "properties": {
               "id": {
                 "type": "string",
@@ -82,6 +84,11 @@
                   "description": "Each float value represents one dimension"
                 },
                 "instillFormat": "number_array"
+              },
+              "metadata": {
+                "type": "object",
+                "description": "Metadata",
+                "instillFormat": "object"
               }
             }
           }

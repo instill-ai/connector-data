@@ -17,7 +17,8 @@
       "properties": {
         "status": {
           "type": "string",
-          "description": "Status of the upload operation"
+          "description": "Status of the upload operation",
+          "instillFormat": "text"
         }
       }
     }
