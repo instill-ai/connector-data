@@ -82,6 +82,11 @@
                   "description": "Each float value represents one dimension"
                 },
                 "instillFormat": "number_array"
+              },
+              "metadata": {
+                "type": "object",
+                "description": "Metadata",
+                "instillFormat": "object"
               }
             }
           }
