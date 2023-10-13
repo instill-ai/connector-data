@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.0-alpha](https://github.com/instill-ai/connector-data/compare/v0.5.0-alpha...v0.6.0-alpha) (2023-10-13)
+
+
+### Bug Fixes
+
+* **pinecone:** fix metadata not return ([51a1cd0](https://github.com/instill-ai/connector-data/commit/51a1cd0f117ea1768fbead6b7f784caa88589a71))
+
+
+### Miscellaneous Chores
+
+* **release:** release v0.6.0-alpha ([2052c43](https://github.com/instill-ai/connector-data/commit/2052c437a21e9f26aab348d5fb12ba99253c529a))
+
 ## [0.5.0-alpha](https://github.com/instill-ai/connector-data/compare/v0.4.0-alpha...v0.5.0-alpha) (2023-09-30)
 
 
