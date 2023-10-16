@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	cloud.google.com/go/bigquery v1.50.0
+	cloud.google.com/go/iam v0.13.0
 	cloud.google.com/go/storage v1.29.0
 	github.com/allegro/bigcache v1.2.1
 	github.com/docker/docker v24.0.2+incompatible
@@ -21,7 +22,6 @@ require (
 	cloud.google.com/go v0.110.2 // indirect
 	cloud.google.com/go/compute v1.19.3 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
-	cloud.google.com/go/iam v0.13.0 // indirect
 	cloud.google.com/go/longrunning v0.5.1 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
 	github.com/andybalholm/brotli v1.0.4 // indirect

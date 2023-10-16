@@ -84,11 +84,30 @@ func (e *Execution) Execute(inputs []*structpb.Struct) ([]*structpb.Struct, erro
 		case taskUpload, "":
 			objectName := input.GetFields()["object_name"].GetStringValue()
 			data := input.GetFields()["data"].GetStringValue()
-			err = uploadToGCS(client, getBucketName(e.Config), objectName, data)
+			bucketName := getBucketName(e.Config)
+			err = uploadToGCS(client, bucketName, objectName, data)
 			if err != nil {
 				return nil, err
 			}
-			output = &structpb.Struct{Fields: map[string]*structpb.Value{"status": {Kind: &structpb.Value_StringValue{StringValue: "success"}}}}
+			gsutilURI := fmt.Sprintf("gs://%s/%s", bucketName, objectName)
+			authenticatedURL := fmt.Sprintf("https://storage.cloud.google.com/%s/%s?authuser=1", bucketName, objectName)
+			publicURL := ""
+
+			// Check whether the object is public or not
+			publicAccess, err := isObjectPublic(client, bucketName, objectName)
+			if err != nil {
+				return nil, err
+			}
+			if publicAccess {
+				publicURL = fmt.Sprintf("https://storage.googleapis.com/%s/%s", bucketName, objectName)
+			}
+
+			output = &structpb.Struct{Fields: map[string]*structpb.Value{
+				"authenticated_url": {Kind: &structpb.Value_StringValue{StringValue: authenticatedURL}},
+				"gsutil_uri":        {Kind: &structpb.Value_StringValue{StringValue: gsutilURI}},
+				"public_url":        {Kind: &structpb.Value_StringValue{StringValue: publicURL}},
+				"public_access":     {Kind: &structpb.Value_BoolValue{BoolValue: publicAccess}},
+				"status":            {Kind: &structpb.Value_StringValue{StringValue: "success"}}}}
 		}
 		outputs = append(outputs, output)
 	}
