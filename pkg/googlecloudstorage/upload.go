@@ -20,6 +20,7 @@ func uploadToGCS(client *storage.Client, bucketName, objectName, data string) er
 }
 
 // Check if an object in GCS is public or not
+// Refer to https://stackoverflow.com/questions/68722565/how-to-check-if-a-file-in-gcp-storage-is-public-or-not
 func isObjectPublic(client *storage.Client, bucketName, objectName string) (bool, error) {
 	ctx := context.Background()
 	bucket := client.Bucket(bucketName)
