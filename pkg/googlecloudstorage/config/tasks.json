@@ -30,9 +30,37 @@
     "output": {
       "type": "object",
       "properties": {
-        "status": {
+        "authenticated_url": {
+          "title": "Authenticated URL",
+          "description": "Only users granted permission can access the object with this link",
           "type": "string",
+          "format": "uri",
+          "instillFormat": "text"
+        },
+        "gsutil_uri": {
+          "title": "gsutil URI",
+          "description": "File path to this resource in Cloud Storage",
+          "type": "string",
+          "format": "uri",
+          "instillFormat": "text"
+        },
+        "public_url": {
+          "title": "Public URL",
+          "description": "Anyone with this link can access the object on the public Internet",
+          "type": "string",
+          "format": "uri",
+          "instillFormat": "text"
+        },
+        "public_access": {
+          "title": "Public access",
+          "description": "Whether the object is publicly accessible",
+          "type": "boolean",
+          "instillFormat": "boolean"
+        },
+        "status": {
+          "title": "Upload status",
           "description": "Status of the upload operation",
+          "type": "string",
           "instillFormat": "text"
         }
       }
